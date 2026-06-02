@@ -24,21 +24,23 @@ jobs:
           import os, json
 
           gallery_dir = 'images/gallery'
-          extensions = {'.jpg', '.jpeg', '.png', '.gif', '.webp'}
-          images = []
+          extensions  = {'.jpg', '.jpeg', '.png', '.gif', '.webp'}
+          images      = []
 
           if os.path.isdir(gallery_dir):
               for fname in sorted(os.listdir(gallery_dir)):
+                  if fname.startswith('._'): continue
+                  if fname.startswith('.'): continue
                   ext = os.path.splitext(fname)[1].lower()
-                  if ext in extensions:
-                      images.append(fname)
+                  if ext not in extensions: continue
+                  images.append(fname)
 
           manifest = {"total": len(images), "images": images}
 
           with open('gallery-manifest.json', 'w') as f:
               json.dump(manifest, f, indent=2)
 
-          print(f"Manifest built: {len(images)} images found")
+          print(f"Manifest built: {len(images)} real images found")
           PYEOF
 
       - name: Commit manifest
