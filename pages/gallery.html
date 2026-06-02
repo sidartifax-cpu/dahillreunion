@@ -3,10 +3,12 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Da Hill Reunion Gallery — Photos and memories from St. Nicholas Terrace, Harlem, NY."/>
+  <meta name="description" content="Da Hill Reunion Gallery — Over 40 years of photos and memories from St. Nicholas Terrace, Harlem, NY."/>
   <title>Gallery — Da Hill Reunion</title>
   <link rel="stylesheet" href="../css/style.css"/>
   <style>
+
+    /* ── HERO ── */
     .gallery-hero {
       position: relative; height: 400px; overflow: hidden;
     }
@@ -19,7 +21,7 @@
       background: linear-gradient(to right, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.3) 60%, transparent 100%);
     }
     .gallery-hero-content {
-      position: absolute; bottom: 55px; left: 60px; max-width: 580px;
+      position: absolute; bottom: 55px; left: 60px; max-width: 600px;
     }
     .gallery-hero-tag {
       font-family: 'Montserrat', sans-serif; font-weight: 600;
@@ -40,7 +42,38 @@
       color: rgba(255,255,255,0.65); margin-top: 8px;
     }
 
-    /* FILTER */
+    /* ── STATS BAR ── */
+    .gallery-stats-bar {
+      background: #1a1a1a; padding: 18px 40px;
+      display: flex; align-items: center;
+      justify-content: space-between; flex-wrap: wrap; gap: 12px;
+      max-width: 100%;
+    }
+    .gallery-stats-bar-inner {
+      max-width: 1280px; margin: 0 auto; width: 100%;
+      display: flex; align-items: center;
+      justify-content: space-between; flex-wrap: wrap; gap: 12px;
+    }
+    .gallery-count {
+      font-family: 'Montserrat', sans-serif; font-weight: 700;
+      font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+    }
+    .gallery-count strong { color: #e8b84b; font-size: 15px; }
+    .gallery-refresh-btn {
+      display: flex; align-items: center; gap: 8px;
+      font-family: 'Montserrat', sans-serif; font-weight: 700;
+      font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase;
+      color: #e8b84b; background: rgba(232,184,75,0.1);
+      border: 1px solid rgba(232,184,75,0.25);
+      border-radius: 4px; padding: 8px 16px;
+      cursor: pointer; transition: all 0.25s;
+    }
+    .gallery-refresh-btn:hover { background: rgba(232,184,75,0.2); }
+    .refresh-icon { display: inline-block; transition: transform 0.6s; }
+    .gallery-refresh-btn:hover .refresh-icon { transform: rotate(360deg); }
+
+    /* ── FILTER BAR ── */
     .gallery-filter {
       background: #f0f4f8; border-bottom: 1px solid #e0e0e0;
       padding: 18px 0; position: sticky; top: 49px; z-index: 50;
@@ -63,17 +96,49 @@
       background: #e8b84b; border-color: #e8b84b; color: #1a1a1a;
     }
 
-    /* MASONRY GRID */
-    .gallery-section { background: #fff; padding: 60px 0 80px; }
+    /* ── GALLERY SECTION ── */
+    .gallery-section { background: #fff; padding: 50px 0 80px; }
+
+    /* Loading state */
+    .gallery-loading {
+      text-align: center; padding: 80px 20px;
+    }
+    .loading-spinner {
+      width: 44px; height: 44px; border-radius: 50%;
+      border: 3px solid #eee; border-top-color: #e8b84b;
+      animation: spin 0.8s linear infinite;
+      margin: 0 auto 16px;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .gallery-loading p {
+      font-family: 'Montserrat', sans-serif; font-weight: 600;
+      font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; color: #aaa;
+    }
+
+    /* Empty state */
+    .gallery-empty {
+      display: none; text-align: center; padding: 80px 20px;
+    }
+    .gallery-empty-icon { font-size: 48px; margin-bottom: 16px; display: block; }
+    .gallery-empty h3 {
+      font-family: 'Montserrat', sans-serif; font-weight: 700;
+      font-size: 18px; color: #1a1a1a; margin-bottom: 10px;
+    }
+    .gallery-empty p { font-size: 14px; color: #999; line-height: 1.7; max-width: 400px; margin: 0 auto; }
+
+    /* Masonry grid */
     .masonry-grid {
-      columns: 4; column-gap: 16px;
+      columns: 4; column-gap: 14px;
+      display: none; /* shown by JS after load */
     }
     .masonry-item {
-      break-inside: avoid; margin-bottom: 16px;
+      break-inside: avoid; margin-bottom: 14px;
       border-radius: 8px; overflow: hidden;
-      position: relative; cursor: pointer;
-      display: block;
+      position: relative; cursor: pointer; display: block;
+      opacity: 0; transform: translateY(16px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
     }
+    .masonry-item.loaded { opacity: 1; transform: translateY(0); }
     .masonry-item img {
       width: 100%; display: block;
       transition: transform 0.5s, filter 0.3s;
@@ -81,59 +146,67 @@
     }
     .masonry-item:hover img {
       transform: scale(1.04);
-      filter: brightness(1) saturate(1.1);
+      filter: brightness(1.05) saturate(1.1);
     }
-    .masonry-item-overlay {
+    .masonry-overlay {
       position: absolute; inset: 0;
-      background: linear-gradient(to top, rgba(0,0,0,0.55) 0%, transparent 50%);
+      background: linear-gradient(to top, rgba(0,0,0,0.55) 0%, transparent 55%);
       opacity: 0; transition: opacity 0.3s;
-      display: flex; align-items: flex-end; padding: 16px;
+      display: flex; align-items: flex-end; padding: 14px;
     }
-    .masonry-item:hover .masonry-item-overlay { opacity: 1; }
-    .masonry-item-label {
+    .masonry-item:hover .masonry-overlay { opacity: 1; }
+    .masonry-label {
       font-family: 'Montserrat', sans-serif; font-weight: 700;
       font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase;
       color: #fff; background: rgba(232,184,75,0.85);
       padding: 4px 10px; border-radius: 3px;
     }
 
-    /* LIGHTBOX */
+    /* Load more */
+    .load-more-wrap {
+      text-align: center; margin-top: 40px; display: none;
+    }
+
+    /* ── LIGHTBOX ── */
     .lightbox {
       display: none; position: fixed; inset: 0; z-index: 1000;
-      background: rgba(0,0,0,0.92); align-items: center; justify-content: center;
+      background: rgba(0,0,0,0.94);
+      align-items: center; justify-content: center;
     }
     .lightbox.open { display: flex; }
     .lightbox-inner {
       position: relative; max-width: 90vw; max-height: 90vh;
+      display: flex; flex-direction: column; align-items: center;
     }
     .lightbox-inner img {
-      max-width: 90vw; max-height: 85vh;
-      object-fit: contain; border-radius: 4px;
-      display: block;
+      max-width: 90vw; max-height: 82vh;
+      object-fit: contain; border-radius: 4px; display: block;
     }
     .lightbox-close {
-      position: absolute; top: -40px; right: 0;
+      position: absolute; top: -44px; right: 0;
       background: none; border: none; color: #fff;
       font-size: 28px; cursor: pointer; line-height: 1;
-      font-family: 'Montserrat', sans-serif;
+      opacity: 0.7; transition: opacity 0.2s;
     }
+    .lightbox-close:hover { opacity: 1; }
     .lightbox-nav {
       position: absolute; top: 50%; transform: translateY(-50%);
-      background: rgba(255,255,255,0.1); border: none; color: #fff;
-      font-size: 24px; width: 50px; height: 50px; border-radius: 50%;
-      cursor: pointer; transition: background 0.2s;
+      background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15);
+      color: #fff; font-size: 22px; width: 50px; height: 50px;
+      border-radius: 50%; cursor: pointer;
       display: flex; align-items: center; justify-content: center;
+      transition: background 0.2s;
     }
-    .lightbox-nav:hover { background: rgba(232,184,75,0.4); }
+    .lightbox-nav:hover { background: rgba(232,184,75,0.3); border-color: #e8b84b; }
     .lightbox-prev { left: -70px; }
     .lightbox-next { right: -70px; }
-    .lightbox-caption {
-      text-align: center; margin-top: 14px;
-      font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase;
-      color: rgba(255,255,255,0.5);
+    .lightbox-counter {
+      margin-top: 14px; font-size: 11px; letter-spacing: 2px;
+      text-transform: uppercase; color: rgba(255,255,255,0.4);
+      font-family: 'Montserrat', sans-serif; font-weight: 600;
     }
 
-    /* VIDEO SECTION */
+    /* ── VIDEO ── */
     .video-section { background: #1a1a1a; padding: 70px 0; }
     .video-section .section-title { color: #fff; }
     .video-section .section-tag { color: rgba(255,255,255,0.5); }
@@ -143,7 +216,7 @@
     .video-stack { display: flex; flex-direction: column; gap: 20px; }
     .video-stack .video-frame { flex: 1; }
 
-    /* SUBMIT PHOTOS */
+    /* ── SUBMIT PHOTOS ── */
     .submit-photos {
       background: #e8b84b; padding: 60px 40px; text-align: center;
     }
@@ -156,7 +229,7 @@
       max-width: 500px; margin-left: auto; margin-right: auto; line-height: 1.7;
     }
 
-    /* REVEAL */
+    /* ── REVEAL ── */
     .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.65s ease, transform 0.65s ease; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
 
@@ -166,14 +239,16 @@
       .masonry-grid { columns: 3; }
       .video-grid { grid-template-columns: 1fr; }
       .video-stack { flex-direction: row; }
+      .lightbox-prev { left: -20px; }
+      .lightbox-next { right: -20px; }
     }
     @media (max-width: 600px) {
       .gallery-hero { height: 360px; }
       .gallery-hero-title { font-size: 28px; }
       .gallery-hero-content { left: 20px; }
       .masonry-grid { columns: 2; }
-      .lightbox-prev { left: -20px; }
-      .lightbox-next { right: -20px; }
+      .gallery-filter-inner { padding: 0 20px; }
+      .gallery-stats-bar { padding: 14px 20px; }
       .video-stack { flex-direction: column; }
     }
   </style>
@@ -181,7 +256,7 @@
 <body>
 
 <div class="topbar">
-  <span>St. Nicholas Terrace · Harlem, NY 10027 &nbsp;|&nbsp; Every photo tells a Da Hill story.</span>
+  <span>Da Hill Reunion Gallery &nbsp;|&nbsp; Over 40 years of memories from St. Nicholas Terrace</span>
   <span class="topbar-right">
     Email: <a href="mailto:info@dahillreunion.com">info@dahillreunion.com</a>
     &nbsp;·&nbsp;
@@ -228,8 +303,20 @@
     <div class="gallery-hero-tag">Da Hill Gallery</div>
     <h1 class="gallery-hero-title">
       Our Memories.
-      <em>Every face. Every moment. Every block party.</em>
+      <em>Over 40 years of reunions captured.</em>
     </h1>
+  </div>
+</div>
+
+<!-- STATS BAR -->
+<div class="gallery-stats-bar">
+  <div class="gallery-stats-bar-inner">
+    <div class="gallery-count">
+      Showing <strong id="showingCount">--</strong> of <strong id="totalCount">--</strong> photos &nbsp;·&nbsp; Refreshes randomly every visit
+    </div>
+    <button class="gallery-refresh-btn" onclick="shuffleAndRender()">
+      <span class="refresh-icon">&#8635;</span> &nbsp; New Random Set
+    </button>
   </div>
 </div>
 
@@ -237,10 +324,11 @@
 <div class="gallery-filter">
   <div class="gallery-filter-inner">
     <span class="filter-label">Filter:</span>
-    <button class="filter-btn active" onclick="filterGallery('all', this)">All Photos</button>
-    <button class="filter-btn" onclick="filterGallery('reunion', this)">Reunions</button>
-    <button class="filter-btn" onclick="filterGallery('community', this)">Community</button>
-    <button class="filter-btn" onclick="filterGallery('culture', this)">Culture</button>
+    <button class="filter-btn active" onclick="setFilter('all', this)">All Photos</button>
+    <button class="filter-btn" onclick="setFilter('reunion', this)">Reunions</button>
+    <button class="filter-btn" onclick="setFilter('community', this)">Community</button>
+    <button class="filter-btn" onclick="setFilter('culture', this)">Culture</button>
+    <button class="filter-btn" onclick="setFilter('family', this)">Family</button>
   </div>
 </div>
 
@@ -254,91 +342,39 @@
       <div class="section-divider"></div>
     </div>
 
-    <div class="masonry-grid" id="galleryGrid">
-      <div class="masonry-item" data-cat="reunion" onclick="openLightbox(0)">
-        <img src="../images/community-hero.jpg" alt="Da Hill Reunion" loading="lazy"/>
-        <div class="masonry-item-overlay"><span class="masonry-item-label">Reunion</span></div>
-      </div>
-      <div class="masonry-item" data-cat="community" onclick="openLightbox(1)">
-        <img src="../images/community-three.jpg" alt="Da Hill Family" loading="lazy"/>
-        <div class="masonry-item-overlay"><span class="masonry-item-label">Family</span></div>
-      </div>
-      <div class="masonry-item" data-cat="culture" onclick="openLightbox(2)">
-        <img src="../images/community-dancers.jpg" alt="Da Hill Youth Dancers" loading="lazy"/>
-        <div class="masonry-item-overlay"><span class="masonry-item-label">Culture</span></div>
-      </div>
-      <div class="masonry-item" data-cat="community" onclick="openLightbox(3)">
-        <img src="../images/community-couple-crown.jpg" alt="Da Hill Love" loading="lazy"/>
-        <div class="masonry-item-overlay"><span class="masonry-item-label">Community</span></div>
-      </div>
-      <div class="masonry-item" data-cat="culture" onclick="openLightbox(4)">
-        <img src="../images/community-performer.jpg" alt="Da Hill Performer" loading="lazy"/>
-        <div class="masonry-item-overlay"><span class="masonry-item-label">Culture</span></div>
-      </div>
-      <div class="masonry-item" data-cat="reunion" onclick="openLightbox(5)">
-        <img src="../images/community-block.jpg" alt="Da Hill Block" loading="lazy"/>
-        <div class="masonry-item-overlay"><span class="masonry-item-label">Reunion</span></div>
-      </div>
-      <div class="masonry-item" data-cat="community" onclick="openLightbox(6)">
-        <img src="../images/community-two-men.jpg" alt="Da Hill Brotherhood" loading="lazy"/>
-        <div class="masonry-item-overlay"><span class="masonry-item-label">Brotherhood</span></div>
-      </div>
-      <div class="masonry-item" data-cat="community" onclick="openLightbox(7)">
-        <img src="../images/community-mission.jpg" alt="Da Hill Community" loading="lazy"/>
-        <div class="masonry-item-overlay"><span class="masonry-item-label">Community</span></div>
-      </div>
-      <div class="masonry-item" data-cat="reunion" onclick="openLightbox(8)">
-        <img src="../images/gallery-1.jpg" alt="Da Hill Gallery" loading="lazy"/>
-        <div class="masonry-item-overlay"><span class="masonry-item-label">Reunion</span></div>
-      </div>
-      <div class="masonry-item" data-cat="reunion" onclick="openLightbox(9)">
-        <img src="../images/gallery-2.jpg" alt="Da Hill Gallery" loading="lazy"/>
-        <div class="masonry-item-overlay"><span class="masonry-item-label">Reunion</span></div>
-      </div>
-      <div class="masonry-item" data-cat="community" onclick="openLightbox(10)">
-        <img src="../images/gallery-3.jpg" alt="Da Hill Gallery" loading="lazy"/>
-        <div class="masonry-item-overlay"><span class="masonry-item-label">Community</span></div>
-      </div>
-      <div class="masonry-item" data-cat="culture" onclick="openLightbox(11)">
-        <img src="../images/gallery-4.jpg" alt="Da Hill Gallery" loading="lazy"/>
-        <div class="masonry-item-overlay"><span class="masonry-item-label">Culture</span></div>
-      </div>
-      <div class="masonry-item" data-cat="reunion" onclick="openLightbox(12)">
-        <img src="../images/gallery-5.jpg" alt="Da Hill Gallery" loading="lazy"/>
-        <div class="masonry-item-overlay"><span class="masonry-item-label">Reunion</span></div>
-      </div>
-      <div class="masonry-item" data-cat="community" onclick="openLightbox(13)">
-        <img src="../images/gallery-6.jpg" alt="Da Hill Gallery" loading="lazy"/>
-        <div class="masonry-item-overlay"><span class="masonry-item-label">Community</span></div>
-      </div>
-      <div class="masonry-item" data-cat="reunion" onclick="openLightbox(14)">
-        <img src="../images/gallery-7.jpg" alt="Da Hill Gallery" loading="lazy"/>
-        <div class="masonry-item-overlay"><span class="masonry-item-label">Reunion</span></div>
-      </div>
-      <div class="masonry-item" data-cat="community" onclick="openLightbox(15)">
-        <img src="../images/gallery-8.jpg" alt="Da Hill Gallery" loading="lazy"/>
-        <div class="masonry-item-overlay"><span class="masonry-item-label">Community</span></div>
-      </div>
-      <div class="masonry-item" data-cat="reunion" onclick="openLightbox(16)">
-        <img src="../images/gallery-9.jpg" alt="Da Hill Gallery" loading="lazy"/>
-        <div class="masonry-item-overlay"><span class="masonry-item-label">Reunion</span></div>
-      </div>
-      <div class="masonry-item" data-cat="culture" onclick="openLightbox(17)">
-        <img src="../images/gallery-10.jpg" alt="Da Hill Gallery" loading="lazy"/>
-        <div class="masonry-item-overlay"><span class="masonry-item-label">Culture</span></div>
-      </div>
+    <!-- Loading -->
+    <div class="gallery-loading" id="galleryLoading">
+      <div class="loading-spinner"></div>
+      <p>Loading Da Hill memories...</p>
+    </div>
+
+    <!-- Empty state (shown if gallery folder is empty) -->
+    <div class="gallery-empty" id="galleryEmpty">
+      <span class="gallery-empty-icon">&#128247;</span>
+      <h3>Photos Coming Soon</h3>
+      <p>Drop photos into the <strong>images/gallery/</strong> folder on your MyCloud, commit, and push — they'll appear here automatically.</p>
+    </div>
+
+    <!-- Grid (populated by JS) -->
+    <div class="masonry-grid" id="masonryGrid"></div>
+
+    <!-- Load more -->
+    <div class="load-more-wrap" id="loadMoreWrap">
+      <button class="btn btn-outline-dark" onclick="loadMore()">
+        Load More Photos &nbsp;&#8594;
+      </button>
     </div>
   </div>
 </section>
 
 <!-- LIGHTBOX -->
-<div class="lightbox" id="lightbox" onclick="closeLightboxOutside(event)">
+<div class="lightbox" id="lightbox" onclick="lightboxOutsideClick(event)">
   <div class="lightbox-inner">
     <button class="lightbox-close" onclick="closeLightbox()">&#10005;</button>
     <button class="lightbox-nav lightbox-prev" onclick="changeLightbox(-1)">&#8592;</button>
-    <img id="lightboxImg" src="" alt="Da Hill Gallery"/>
+    <img id="lightboxImg" src="" alt="Da Hill Gallery Photo"/>
     <button class="lightbox-nav lightbox-next" onclick="changeLightbox(1)">&#8594;</button>
-    <div class="lightbox-caption" id="lightboxCaption">Da Hill Reunion</div>
+    <div class="lightbox-counter" id="lightboxCounter"></div>
   </div>
 </div>
 
@@ -367,19 +403,19 @@
   </div>
 </section>
 
-<!-- SUBMIT PHOTOS CTA -->
+<!-- SUBMIT PHOTOS -->
 <div class="submit-photos">
   <h2>Share Your Da Hill Photos</h2>
-  <p>Have photos from past reunions, block parties, or neighborhood memories? Share them with the community — your memories belong here.</p>
+  <p>Have photos from past reunions, block parties, or neighborhood memories? Share them — every photo from 40+ years of Da Hill belongs in this gallery.</p>
   <a href="https://www.facebook.com/groups/391650975569064/" target="_blank" rel="noopener" class="btn btn-dark">Share on Facebook &nbsp;&#8594;</a>
 </div>
 
 <!-- STATS -->
 <section class="stats-strip">
   <div class="stats-inner">
-    <div class="stat-item"><div class="stat-num">20<span class="stat-plus">+</span></div><div class="stat-label">Years of Reunions</div></div>
+    <div class="stat-item"><div class="stat-num">40<span class="stat-plus">+</span></div><div class="stat-label">Years of Memories</div></div>
     <div class="stat-item"><div class="stat-num">500<span class="stat-plus">+</span></div><div class="stat-label">Family Members</div></div>
-    <div class="stat-item"><div class="stat-num">12<span class="stat-plus">+</span></div><div class="stat-label">Community Events</div></div>
+    <div class="stat-item"><div class="stat-num">60</div><div class="stat-label">Photos Per Visit</div></div>
     <div class="stat-item"><div class="stat-num">1</div><div class="stat-label">Harlem Hill Family</div></div>
   </div>
 </section>
@@ -391,7 +427,7 @@
       <p class="footer-brand-desc">"Forward in Power. Rooted in Love."<br><br>The virtual home of Da Hill — St. Nicholas Terrace, Harlem, NY.</p>
     </div>
     <div class="footer-col"><h4>Navigate</h4><ul><li><a href="../index.html">Home</a></li><li><a href="history.html">Da History</a></li><li><a href="events.html">Events</a></li><li><a href="gallery.html">Gallery</a></li></ul></div>
-    <div class="footer-col"><h4>Community</h4><ul><li><a href="entrepreneurs.html">Entrepreneurs</a></li><li><a href="heroes.html">Da Heroes</a></li><li><a href="../index.html#resources">Resources</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+    <div class="footer-col"><h4>Community</h4><ul><li><a href="entrepreneurs.html">Entrepreneurs</a></li><li><a href="heroes.html">Da Heroes</a></li><li><a href="donate.html">Donate</a></li><li><a href="contact.html">Contact</a></li></ul></div>
     <div class="footer-col"><h4>Connect</h4><ul>
       <li><a href="mailto:info@dahillreunion.com">Email Us</a></li>
       <li><a href="https://www.facebook.com/groups/391650975569064/" target="_blank" rel="noopener">Da Hill Facebook Group</a></li>
@@ -407,14 +443,123 @@
 
 <script src="../js/main.js"></script>
 <script>
-  const imgs = Array.from(document.querySelectorAll('.masonry-item img')).map(i => i.src);
-  const captions = Array.from(document.querySelectorAll('.masonry-item img')).map(i => i.alt);
-  let current = 0;
+  // ── CONFIG ──
+  const DISPLAY_COUNT   = 60;   // photos shown per visit
+  const GALLERY_PATH    = '../images/gallery/';
+  const MANIFEST_PATH   = '../gallery-manifest.json';
 
+  // Category assignment — cycles through as photos are added
+  const CATEGORIES = ['reunion', 'community', 'culture', 'family', 'reunion', 'community'];
+
+  // ── STATE ──
+  let allImages      = [];   // full list from manifest
+  let currentSet     = [];   // the 60 randomly selected this visit
+  let filteredSet    = [];   // after filter applied
+  let currentFilter  = 'all';
+  let lightboxIndex  = 0;
+
+  // ── BOOT ──
+  document.addEventListener('DOMContentLoaded', loadGallery);
+
+  async function loadGallery() {
+    try {
+      const res  = await fetch(MANIFEST_PATH + '?t=' + Date.now());
+      const data = await res.json();
+      allImages  = data.images || [];
+
+      document.getElementById('totalCount').textContent = allImages.length;
+
+      if (allImages.length === 0) {
+        showEmpty();
+        return;
+      }
+
+      shuffleAndRender();
+    } catch (err) {
+      console.warn('Gallery manifest not found or empty:', err);
+      showEmpty();
+    }
+  }
+
+  function shuffleAndRender() {
+    // Fisher-Yates shuffle
+    const pool = [...allImages];
+    for (let i = pool.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [pool[i], pool[j]] = [pool[j], pool[i]];
+    }
+    currentSet = pool.slice(0, Math.min(DISPLAY_COUNT, pool.length));
+    applyFilter(currentFilter);
+  }
+
+  function applyFilter(cat) {
+    currentFilter = cat;
+    if (cat === 'all') {
+      filteredSet = currentSet;
+    } else {
+      // assign categories by index position so every photo has a stable category
+      filteredSet = currentSet.filter((_, i) => CATEGORIES[i % CATEGORIES.length] === cat);
+      // if filter returns nothing fall back to all
+      if (filteredSet.length === 0) filteredSet = currentSet;
+    }
+    renderGrid(filteredSet);
+  }
+
+  function renderGrid(images) {
+    const grid    = document.getElementById('masonryGrid');
+    const loading = document.getElementById('galleryLoading');
+
+    loading.style.display = 'none';
+    grid.innerHTML        = '';
+    grid.style.display    = 'block';
+
+    document.getElementById('showingCount').textContent = images.length;
+
+    images.forEach((fname, i) => {
+      const item = document.createElement('div');
+      item.className    = 'masonry-item';
+      item.dataset.index = i;
+
+      const cat = CATEGORIES[i % CATEGORIES.length];
+      item.dataset.cat  = cat;
+
+      item.innerHTML = `
+        <img src="${GALLERY_PATH}${fname}" alt="Da Hill Reunion" loading="lazy"/>
+        <div class="masonry-overlay">
+          <span class="masonry-label">${cat.charAt(0).toUpperCase() + cat.slice(1)}</span>
+        </div>
+      `;
+
+      item.addEventListener('click', () => openLightbox(i));
+
+      // Staggered fade-in
+      setTimeout(() => {
+        item.classList.add('loaded');
+      }, Math.min(i * 40, 800));
+
+      grid.appendChild(item);
+    });
+  }
+
+  // ── FILTER ──
+  function setFilter(cat, btn) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    applyFilter(cat);
+  }
+
+  // ── EMPTY STATE ──
+  function showEmpty() {
+    document.getElementById('galleryLoading').style.display = 'none';
+    document.getElementById('galleryEmpty').style.display   = 'block';
+    document.getElementById('showingCount').textContent     = '0';
+    document.getElementById('totalCount').textContent       = '0';
+  }
+
+  // ── LIGHTBOX ──
   function openLightbox(idx) {
-    current = idx;
-    document.getElementById('lightboxImg').src = imgs[idx];
-    document.getElementById('lightboxCaption').textContent = captions[idx];
+    lightboxIndex = idx;
+    updateLightbox();
     document.getElementById('lightbox').classList.add('open');
     document.body.style.overflow = 'hidden';
   }
@@ -422,27 +567,25 @@
     document.getElementById('lightbox').classList.remove('open');
     document.body.style.overflow = '';
   }
-  function closeLightboxOutside(e) {
+  function lightboxOutsideClick(e) {
     if (e.target === document.getElementById('lightbox')) closeLightbox();
   }
   function changeLightbox(dir) {
-    current = (current + dir + imgs.length) % imgs.length;
-    document.getElementById('lightboxImg').src = imgs[current];
-    document.getElementById('lightboxCaption').textContent = captions[current];
+    lightboxIndex = (lightboxIndex + dir + filteredSet.length) % filteredSet.length;
+    updateLightbox();
+  }
+  function updateLightbox() {
+    const fname = filteredSet[lightboxIndex];
+    document.getElementById('lightboxImg').src = GALLERY_PATH + fname;
+    document.getElementById('lightboxCounter').textContent =
+      (lightboxIndex + 1) + ' / ' + filteredSet.length + '  ·  Da Hill Reunion';
   }
   document.addEventListener('keydown', e => {
-    if (e.key === 'ArrowLeft') changeLightbox(-1);
+    if (!document.getElementById('lightbox').classList.contains('open')) return;
+    if (e.key === 'ArrowLeft')  changeLightbox(-1);
     if (e.key === 'ArrowRight') changeLightbox(1);
-    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'Escape')     closeLightbox();
   });
-
-  function filterGallery(cat, btn) {
-    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    document.querySelectorAll('.masonry-item').forEach(item => {
-      item.style.display = (cat === 'all' || item.dataset.cat === cat) ? 'block' : 'none';
-    });
-  }
 </script>
 </body>
 </html>
