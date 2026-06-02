@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Da Hill Reunion 2026 — 3 Day Weekend Event. August 28-30, 2026. Meet & Greet, Treacherous 3 Festival featuring Kool Mo Dee, Brunch hosted by Stacy Thomas."/>
+  <title>Events — Da Hill Reunion 2026</title>
+  <link rel="stylesheet" href="../css/style.css"/>
+  <style>
+
+    /* ── HERO ── */
+    .events-hero {
+      position: relative; height: 420px; overflow: hidden;
+    }
+    .events-hero img {
+      width: 100%; height: 100%; object-fit: cover;
+      object-position: center 40%; filter: brightness(0.4);
+    }
+    .events-hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to right, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.35) 60%, transparent 100%);
+    }
+    .events-hero-content {
+      position: absolute; bottom: 55px; left: 60px; max-width: 600px;
+    }
+    .events-hero-tag {
+      font-family: 'Montserrat', sans-serif; font-weight: 600;
+      font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
+      color: #e8b84b; margin-bottom: 14px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .events-hero-tag::before { content: ''; display: block; width: 28px; height: 2px; background: #e8b84b; }
+    .events-hero-title {
+      font-family: 'Montserrat', sans-serif; font-weight: 800;
+      font-size: 50px; color: #fff; line-height: 1.0;
+      text-transform: uppercase; letter-spacing: 2px;
+    }
+    .events-hero-title em {
+      display: block; font-style: italic;
+      font-family: 'Open Sans', sans-serif; font-weight: 300;
+      font-size: 0.45em; text-transform: none; letter-spacing: 1px;
+      color: rgba(255,255,255,0.65); margin-top: 8px;
+    }
+
+    /* ── COUNTDOWN STRIP ── */
+    .countdown-strip {
+      background: #e8b84b; padding: 16px 0; text-align: center;
+    }
+    .countdown-inner {
+      display: flex; align-items: center; justify-content: center; gap: 32px;
+      flex-wrap: wrap; max-width: 1280px; margin: 0 auto; padding: 0 40px;
+    }
+    .countdown-label {
+      font-family: 'Montserrat', sans-serif; font-weight: 800;
+      font-size: 13px; letter-spacing: 2px; text-transform: uppercase;
+      color: #1a1a1a;
+    }
+    .countdown-timer {
+      display: flex; align-items: center; gap: 8px;
+    }
+    .countdown-unit {
+      text-align: center;
+    }
+    .countdown-num {
+      font-family: 'Montserrat', sans-serif; font-weight: 800;
+      font-size: 26px; color: #1a1a1a; line-height: 1; display: block;
+    }
+    .countdown-unit-label {
+      font-size: 9px; font-weight: 700; letter-spacing: 1.5px;
+      text-transform: uppercase; color: rgba(0,0,0,0.5);
+    }
+    .countdown-sep {
+      font-family: 'Montserrat', sans-serif; font-weight: 800;
+      font-size: 22px; color: rgba(0,0,0,0.3); line-height: 1;
+      margin-bottom: 12px;
+    }
+    .countdown-hashtag {
+      font-family: 'Montserrat', sans-serif; font-weight: 800;
+      font-size: 13px; letter-spacing: 1px; color: rgba(0,0,0,0.55);
+    }
+
+    /* ── FEATURED 2026 EVENT ── */
+    .featured-2026 {
+      background: #111; padding: 70px 0;
+    }
+    .featured-2026-inner {
+      max-width: 1280px; margin: 0 auto; padding: 0 40px;
+      display: grid; grid-template-columns: 1fr 1.1fr;
+      gap: 60px; align-items: center;
+    }
+
+    /* Flyer */
+    .flyer-wrap {
+      position: relative; border-radius: 12px; overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 0 1px rgba(232,184,75,0.15);
+    }
+    .flyer-wrap img { width: 100%; display: block; }
+    .flyer-badge {
+      position: absolute; top: 16px; right: 16px;
+      background: #e8b84b; color: #1a1a1a;
+      font-family: 'Montserrat', sans-serif; font-weight: 800;
+      font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
+      padding: 6px 14px; border-radius: 3px;
+    }
+
+    /* Details */
+    .featured-label {
+      font-size: 11px; font-weight: 600; letter-spacing: 3px;
+      text-transform: uppercase; color: #e8b84b; margin-bottom: 14px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .featured-label::before { content: ''; display: block; width: 28px; height: 2px; background: #e8b84b; }
+    .featured-2026-title {
+      font-family: 'Montserrat', sans-serif; font-weight: 800;
+      font-size: 36px; color: #fff; text-transform: uppercase;
+      line-height: 1.1; margin-bottom: 10px;
+    }
+    .featured-2026-title em { font-style: normal; color: #e8b84b; }
+    .featured-tagline {
+      font-size: 14px; color: rgba(255,255,255,0.45);
+      letter-spacing: 2px; text-transform: uppercase;
+      margin-bottom: 32px; font-weight: 600;
+    }
+    .featured-tagline strong { color: #e8b84b; }
+
+    /* 3-DAY CARDS */
+    .three-days {
+      display: flex; flex-direction: column; gap: 12px; margin-bottom: 32px;
+    }
+    .day-card {
+      display: grid; grid-template-columns: 100px 1fr;
+      border-radius: 8px; overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.06);
+      transition: border-color 0.3s;
+    }
+    .day-card:hover { border-color: rgba(232,184,75,0.3); }
+
+    .day-card-date {
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      padding: 16px 12px; text-align: center;
+    }
+    .day-card.friday  .day-card-date { background: #e8b84b; }
+    .day-card.saturday .day-card-date { background: #6c3fa0; }
+    .day-card.sunday   .day-card-date { background: #c0392b; }
+
+    .day-name {
+      font-family: 'Montserrat', sans-serif; font-weight: 800;
+      font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+      color: rgba(255,255,255,0.85); margin-bottom: 2px;
+    }
+    .day-card.friday .day-name { color: rgba(0,0,0,0.65); }
+    .day-date-num {
+      font-family: 'Montserrat', sans-serif; font-weight: 800;
+      font-size: 22px; color: #fff; line-height: 1;
+    }
+    .day-card.friday .day-date-num { color: #1a1a1a; }
+    .day-month {
+      font-size: 10px; font-weight: 600; letter-spacing: 1px;
+      text-transform: uppercase; color: rgba(255,255,255,0.7); margin-top: 2px;
+    }
+    .day-card.friday .day-month { color: rgba(0,0,0,0.5); }
+
+    .day-card-info {
+      background: #1a1a1a; padding: 16px 18px;
+      display: flex; flex-direction: column; justify-content: center;
+    }
+    .day-event-name {
+      font-family: 'Montserrat', sans-serif; font-weight: 800;
+      font-size: 15px; color: #fff; margin-bottom: 4px; line-height: 1.2;
+    }
+    .day-event-detail {
+      font-size: 12px; color: rgba(255,255,255,0.45); line-height: 1.5;
+    }
+    .day-event-detail strong { color: rgba(255,255,255,0.75); font-weight: 600; }
+
+    .featured-ctas {
+      display: flex; gap: 12px; flex-wrap: wrap;
+    }
+
+    /* ── TICKETS / RSVP BANNER ── */
+    .rsvp-banner {
+      background: linear-gradient(135deg, #6c3fa0 0%, #3d1f6e 100%);
+      padding: 50px 40px; text-align: center;
+    }
+    .rsvp-banner h2 {
+      font-family: 'Montserrat', sans-serif; font-weight: 800;
+      font-size: 28px; color: #fff; text-transform: uppercase;
+      margin-bottom: 10px; letter-spacing: 1px;
+    }
+    .rsvp-banner h2 em { font-style: normal; color: #e8b84b; }
+    .rsvp-banner p {
+      font-size: 14px; color: rgba(255,255,255,0.6);
+      margin-bottom: 24px; max-width: 500px; margin-left: auto; margin-right: auto; line-height: 1.7;
+    }
+    .rsvp-ctas { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+    /* ── SCHEDULE DETAIL ── */
+    .schedule-section { background: #fff; padding: 70px 0; }
+    .schedule-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+      margin-top: 48px;
+    }
+    .schedule-card {
+      border-radius: 10px; overflow: hidden;
+      border: 1px solid #eee; transition: box-shadow 0.3s, transform 0.3s;
+    }
+    .schedule-card:hover { box-shadow: 0 10px 32px rgba(0,0,0,0.1); transform: translateY(-4px); }
+
+    .schedule-card-header {
+      padding: 24px 22px 20px; text-align: center;
+    }
+    .schedule-card.friday-card  .schedule-card-header { background: #e8b84b; }
+    .schedule-card.saturday-card .schedule-card-header { background: #6c3fa0; }
+    .schedule-card.sunday-card   .schedule-card-header { background: #c0392b; }
+
+    .schedule-day-name {
+      font-family: 'Montserrat', sans-serif; font-weight: 800;
+      font-size: 14px; letter-spacing: 3px; text-transform: uppercase;
+      color: rgba(255,255,255,0.85); margin-bottom: 6px;
+    }
+    .schedule-card.friday-card .schedule-day-name { color: rgba(0,0,0,0.6); }
+    .schedule-date {
+      font-family: 'Montserrat', sans-serif; font-weight: 800;
+      font-size: 28px; color: #fff; line-height: 1;
+    }
+    .schedule-card.friday-card .schedule-date { color: #1a1a1a; }
+    .schedule-card-body { padding: 24px 22px; background: #fff; }
+
+    .schedule-event-title {
+      font-family: 'Montserrat', sans-serif; font-weight: 800;
+      font-size: 20px; color: #1a1a1a; margin-bottom: 12px; line-height: 1.2;
+    }
+    .schedule-detail-row {
+      display: flex; align-items: flex-start; gap: 10px;
+      margin-bottom: 10px; font-size: 13px; color: #666; line-height: 1.5;
+    }
+    .schedule-detail-icon {
+      width: 26px; height: 26px; border-radius: 6px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 12px; flex-shrink: 0;
+    }
+    .si-gold  { background: #fff8e6; }
+    .si-purple { background: #f3eeff; }
+    .si-red   { background: #fde8e6; }
+    .schedule-detail-row strong { color: #1a1a1a; font-weight: 600; }
+    .schedule-note {
+      margin-top: 16px; padding: 12px 14px;
+      background: #f7f7f7; border-radius: 6px; border-left: 3px solid;
+      font-size: 12px; color: #666; line-height: 1.65; font-style: italic;
+    }
+    .schedule-card.friday-card  .schedule-note { border-color: #e8b84b; }
+    .schedule-card.saturday-card .schedule-note { border-color: #6c3fa0; }
+    .schedule-card.sunday-card   .schedule-note { border-color: #c0392b; }
+
+    /* ── PAST EVENTS ── */
+    .past-section { background: #f7f7f7; padding: 70px 0; }
+    .events-list { display: flex; flex-direction: column; gap: 8px; }
+    .event-list-row {
+      display: grid; grid-template-columns: 90px 1fr auto;
+      align-items: center; gap: 24px; padding: 20px 24px;
+      background: #fff; border: 1px solid #eee; border-radius: 6px;
+      text-decoration: none; color: inherit;
+      transition: background 0.2s, box-shadow 0.2s;
+    }
+    .event-list-row:hover { background: #fffdf5; box-shadow: 0 4px 16px rgba(0,0,0,0.07); }
+    .event-list-month {
+      font-size: 10px; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; color: #e8b84b; display: block; text-align: center;
+    }
+    .event-list-day {
+      font-family: 'Montserrat', sans-serif; font-weight: 800;
+      font-size: 28px; color: #1a1a1a; line-height: 1; text-align: center;
+    }
+    .event-list-title {
+      font-family: 'Montserrat', sans-serif; font-weight: 700;
+      font-size: 15px; color: #1a1a1a; margin-bottom: 3px;
+    }
+    .event-list-desc { font-size: 12px; color: #999; }
+    .event-cat {
+      font-family: 'Montserrat', sans-serif; font-weight: 700;
+      font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase;
+      padding: 5px 12px; border-radius: 3px; color: #fff;
+      white-space: nowrap;
+    }
+    .cat-reunion   { background: #e8b84b; color: #1a1a1a; }
+    .cat-community { background: #2c3e6b; }
+    .cat-forum     { background: #27ae60; }
+    .cat-culture   { background: #c0392b; }
+    .cat-civic     { background: #8e44ad; }
+    .cat-social    { background: #e67e22; }
+
+    /* ── REVEAL ── */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.65s ease, transform 0.65s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-d1 { transition-delay: 0.1s; }
+    .reveal-d2 { transition-delay: 0.2s; }
+
+    @media (max-width: 960px) {
+      .events-hero-content { left: 30px; }
+      .events-hero-title { font-size: 36px; }
+      .featured-2026-inner { grid-template-columns: 1fr; gap: 40px; }
+      .schedule-grid { grid-template-columns: 1fr; }
+      .event-list-row { grid-template-columns: 70px 1fr; }
+      .event-list-row .event-cat { display: none; }
+    }
+    @media (max-width: 600px) {
+      .events-hero { height: 360px; }
+      .events-hero-title { font-size: 28px; }
+      .events-hero-content { left: 20px; }
+      .countdown-inner { gap: 16px; }
+      .featured-2026-inner { padding: 0 20px; }
+      .day-card { grid-template-columns: 80px 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="topbar">
+  <span>Da Hill Reunion 2026 · August 28–30 · #DAHILLREUNION</span>
+  <span class="topbar-right">
+    Email: <a href="mailto:info@dahillreunion.com">info@dahillreunion.com</a>
+    &nbsp;·&nbsp;
+    <a href="https://www.facebook.com/groups/391650975569064/" target="_blank" rel="noopener">Facebook Group</a>
+    &nbsp;·&nbsp;
+    <a href="https://www.facebook.com/groups/718801411593854/" target="_blank" rel="noopener" style="color:#c0392b;">Gone But Not Forgotten</a>
+  </span>
+</div>
+
+<header class="site-header">
+  <a href="../index.html" class="logo">
+    <img src="../images/logo.png" alt="Da Hill Reunion" class="logo-img"/>
+  </a>
+  <a href="#rsvp" class="header-cta">RSVP Now</a>
+</header>
+
+<nav class="main-nav">
+  <div class="nav-inner">
+    <ul class="nav-links" id="navLinks">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="history.html">Da History</a></li>
+      <li><a href="events.html" class="active">Events</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="entrepreneurs.html">Entrepreneurs</a></li>
+      <li><a href="heroes.html">Da Heroes</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-search">
+      <input type="text" placeholder="Search Here..."/>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="events-hero">
+  <img src="../images/community-performer.jpg" alt="Da Hill Reunion 2026"/>
+  <div class="events-hero-overlay"></div>
+  <div class="events-hero-content">
+    <div class="events-hero-tag">Da Hill Reunion 2026</div>
+    <h1 class="events-hero-title">
+      3 Days. 1 Community.
+      <em>A Lifetime of Memories. August 28–30, 2026.</em>
+    </h1>
+  </div>
+</div>
+
+<!-- COUNTDOWN -->
+<div class="countdown-strip">
+  <div class="countdown-inner">
+    <div class="countdown-label">Reunion Starts In</div>
+    <div class="countdown-timer">
+      <div class="countdown-unit">
+        <span class="countdown-num" id="cdDays">--</span>
+        <span class="countdown-unit-label">Days</span>
+      </div>
+      <div class="countdown-sep">:</div>
+      <div class="countdown-unit">
+        <span class="countdown-num" id="cdHours">--</span>
+        <span class="countdown-unit-label">Hours</span>
+      </div>
+      <div class="countdown-sep">:</div>
+      <div class="countdown-unit">
+        <span class="countdown-num" id="cdMins">--</span>
+        <span class="countdown-unit-label">Mins</span>
+      </div>
+      <div class="countdown-sep">:</div>
+      <div class="countdown-unit">
+        <span class="countdown-num" id="cdSecs">--</span>
+        <span class="countdown-unit-label">Secs</span>
+      </div>
+    </div>
+    <div class="countdown-hashtag">#DAHILLREUNION</div>
+  </div>
+</div>
+
+<!-- FEATURED 2026 -->
+<section class="featured-2026">
+  <div class="featured-2026-inner">
+    <div class="flyer-wrap reveal">
+      <img src="../images/da-hill-reunion-2026.jpeg" alt="Da Hill Reunion 2026 — 3 Day Weekend Event"/>
+      <span class="flyer-badge">August 2026</span>
+    </div>
+
+    <div class="reveal reveal-d1">
+      <div class="featured-label">3 Day Weekend Event</div>
+      <h2 class="featured-2026-title">Da Hill <em>Reunion 2026</em></h2>
+      <div class="featured-tagline">Good People. <strong>Good Music.</strong> Good Memories.</div>
+
+      <div class="three-days">
+        <!-- FRIDAY -->
+        <div class="day-card friday">
+          <div class="day-card-date">
+            <div class="day-name">Friday</div>
+            <div class="day-date-num">28</div>
+            <div class="day-month">August</div>
+          </div>
+          <div class="day-card-info">
+            <div class="day-event-name">Meet &amp; Greet Afterwork</div>
+            <div class="day-event-detail">
+              <strong>Softrio's Restaurant</strong> · 145th Riverside Drive
+            </div>
+          </div>
+        </div>
+
+        <!-- SATURDAY -->
+        <div class="day-card saturday">
+          <div class="day-card-date">
+            <div class="day-name">Saturday</div>
+            <div class="day-date-num">29</div>
+            <div class="day-month">August</div>
+          </div>
+          <div class="day-card-info">
+            <div class="day-event-name">Festival: Treacherous 3 ft. Kool Mo Dee</div>
+            <div class="day-event-detail">
+              Celebrating <strong>Lady DJs</strong> · St. Nicholas Terrace, Harlem
+            </div>
+          </div>
+        </div>
+
+        <!-- SUNDAY -->
+        <div class="day-card sunday">
+          <div class="day-card-date">
+            <div class="day-name">Sunday</div>
+            <div class="day-date-num">30</div>
+            <div class="day-month">August</div>
+          </div>
+          <div class="day-card-info">
+            <div class="day-event-name">Brunch</div>
+            <div class="day-event-detail">
+              Hosted by <strong>Stacy Thomas</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="featured-ctas">
+        <a href="#rsvp" class="btn btn-gold">RSVP Now &nbsp;&#8594;</a>
+        <a href="https://www.facebook.com/groups/391650975569064/" target="_blank" rel="noopener" class="btn btn-dark">Follow on Facebook &nbsp;&#8594;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RSVP BANNER -->
+<div class="rsvp-banner" id="rsvp">
+  <h2>Secure Your Spot for <em>Da Hill 2026</em></h2>
+  <p>3 days. 3 events. 1 community. Let us know you're coming — follow us on Facebook for ticket details and updates as they drop.</p>
+  <div class="rsvp-ctas">
+    <a href="https://www.facebook.com/groups/391650975569064/" target="_blank" rel="noopener" class="btn btn-gold">Join the Facebook Group &nbsp;&#8594;</a>
+    <a href="contact.html" class="btn btn-outline">Send Us a Message</a>
+  </div>
+</div>
+
+<!-- SCHEDULE DETAIL -->
+<section class="schedule-section">
+  <div class="section-wrap">
+    <div class="section-header reveal">
+      <div class="section-icon">&#9670;</div>
+      <p class="section-tag">Full <strong>Weekend Schedule</strong></p>
+      <h2 class="section-title">Da Hill <em>2026</em> Schedule</h2>
+      <div class="section-divider"></div>
+    </div>
+
+    <div class="schedule-grid">
+      <!-- FRIDAY -->
+      <div class="schedule-card friday-card reveal">
+        <div class="schedule-card-header">
+          <div class="schedule-day-name">Friday</div>
+          <div class="schedule-date">August 28</div>
+        </div>
+        <div class="schedule-card-body">
+          <div class="schedule-event-title">Meet &amp; Greet Afterwork</div>
+          <div class="schedule-detail-row">
+            <div class="schedule-detail-icon si-gold">&#128205;</div>
+            <div><strong>Softrio's Restaurant</strong><br>145th Riverside Drive, Harlem, NY</div>
+          </div>
+          <div class="schedule-detail-row">
+            <div class="schedule-detail-icon si-gold">&#127774;</div>
+            <div>Afterwork hours — evening event</div>
+          </div>
+          <div class="schedule-detail-row">
+            <div class="schedule-detail-icon si-gold">&#128101;</div>
+            <div>Da Hill family reunion kick-off</div>
+          </div>
+          <div class="schedule-note">
+            Kick off the weekend right. Come through, connect, and get ready for the main event. This is how Da Hill starts — together.
+          </div>
+        </div>
+      </div>
+
+      <!-- SATURDAY -->
+      <div class="schedule-card saturday-card reveal reveal-d1">
+        <div class="schedule-card-header">
+          <div class="schedule-day-name">Saturday</div>
+          <div class="schedule-date">August 29</div>
+        </div>
+        <div class="schedule-card-body">
+          <div class="schedule-event-title">Festival: Treacherous 3 ft. Kool Mo Dee</div>
+          <div class="schedule-detail-row">
+            <div class="schedule-detail-icon si-purple">&#127926;</div>
+            <div><strong>The Treacherous 3</strong><br>featuring Kool Mo Dee — Da Hill's own</div>
+          </div>
+          <div class="schedule-detail-row">
+            <div class="schedule-detail-icon si-purple">&#127881;</div>
+            <div>Celebrating <strong>Lady DJs</strong></div>
+          </div>
+          <div class="schedule-detail-row">
+            <div class="schedule-detail-icon si-purple">&#128205;</div>
+            <div>St. Nicholas Terrace, Harlem, NY</div>
+          </div>
+          <div class="schedule-note">
+            The biggest day of the weekend. Hip-hop royalty returns to the block where it all began. The Treacherous 3 and Kool Mo Dee — live on Da Hill.
+          </div>
+        </div>
+      </div>
+
+      <!-- SUNDAY -->
+      <div class="schedule-card sunday-card reveal reveal-d2">
+        <div class="schedule-card-header">
+          <div class="schedule-day-name">Sunday</div>
+          <div class="schedule-date">August 30</div>
+        </div>
+        <div class="schedule-card-body">
+          <div class="schedule-event-title">Brunch</div>
+          <div class="schedule-detail-row">
+            <div class="schedule-detail-icon si-red">&#127869;</div>
+            <div>Community brunch to close out the weekend</div>
+          </div>
+          <div class="schedule-detail-row">
+            <div class="schedule-detail-icon si-red">&#127775;</div>
+            <div>Hosted by <strong>Stacy Thomas</strong></div>
+          </div>
+          <div class="schedule-detail-row">
+            <div class="schedule-detail-icon si-red">&#128197;</div>
+            <div>Sunday morning — details TBA</div>
+          </div>
+          <div class="schedule-note">
+            End the weekend the right way — good food, good people, and the warmth of Da Hill family before we all head back to our corners of the world.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats-strip">
+  <div class="stats-inner">
+    <div class="stat-item"><div class="stat-num">3</div><div class="stat-label">Days of Events</div></div>
+    <div class="stat-item"><div class="stat-num">500<span class="stat-plus">+</span></div><div class="stat-label">Family Members</div></div>
+    <div class="stat-item"><div class="stat-num">20<span class="stat-plus">+</span></div><div class="stat-label">Years of Reunions</div></div>
+    <div class="stat-item"><div class="stat-num">1</div><div class="stat-label">Harlem Hill Family</div></div>
+  </div>
+</section>
+
+<!-- PAST EVENTS -->
+<section class="past-section">
+  <div class="section-wrap">
+    <div class="section-header reveal">
+      <div class="section-icon">&#9670;</div>
+      <p class="section-tag">Looking <strong>Back</strong></p>
+      <h2 class="section-title">Past <em>Events</em></h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="events-list reveal">
+      <a href="https://dahillreunion.com/events/da-hill-reunion-2021/" class="event-list-row" target="_blank" rel="noopener">
+        <div><span class="event-list-month">2021</span><div class="event-list-day">&#9670;</div></div>
+        <div><div class="event-list-title">Da Hill Reunion 2021</div><div class="event-list-desc">Annual gathering — St. Nich Terrace, Harlem</div></div>
+        <span class="event-cat cat-reunion">Reunion</span>
+      </a>
+      <a href="https://dahillreunion.com/events/build-the-block/" class="event-list-row" target="_blank" rel="noopener">
+        <div><span class="event-list-month">Jan</span><div class="event-list-day">28</div></div>
+        <div><div class="event-list-title">Build the Block</div><div class="event-list-desc">Community development initiative · 2021</div></div>
+        <span class="event-cat cat-community">Community</span>
+      </a>
+      <a href="https://dahillreunion.com/events/da-hill-community-forum/" class="event-list-row" target="_blank" rel="noopener">
+        <div><span class="event-list-month">Oct</span><div class="event-list-day">20</div></div>
+        <div><div class="event-list-title">Da Hill Community Forum 2020</div><div class="event-list-desc">Community awareness and advocacy · 2020</div></div>
+        <span class="event-cat cat-forum">Forum</span>
+      </a>
+      <a href="https://dahillreunion.com/events/da-hill-paradise-garage-party/" class="event-list-row" target="_blank" rel="noopener">
+        <div><span class="event-list-month">Past</span><div class="event-list-day">&#9670;</div></div>
+        <div><div class="event-list-title">Da Hill "Paradise Garage" Party</div><div class="event-list-desc">Honoring Larry Levan — music, memory, and Harlem soul</div></div>
+        <span class="event-cat cat-culture">Culture</span>
+      </a>
+      <a href="https://dahillreunion.com/events/voter-registration-ny-state/" class="event-list-row" target="_blank" rel="noopener">
+        <div><span class="event-list-month">Oct</span><div class="event-list-day">&#9670;</div></div>
+        <div><div class="event-list-title">Voter Registration NY State</div><div class="event-list-desc">Know your rights. Make your voice count.</div></div>
+        <span class="event-cat cat-civic">Civic</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-top">
+    <div>
+      <span class="footer-brand-logo"><img src="../images/logo.png" alt="Da Hill Reunion"/></span>
+      <p class="footer-brand-desc">"Forward in Power. Rooted in Love."<br><br>The virtual home of Da Hill — St. Nicholas Terrace, Harlem, NY.</p>
+    </div>
+    <div class="footer-col"><h4>Navigate</h4><ul><li><a href="../index.html">Home</a></li><li><a href="history.html">Da History</a></li><li><a href="events.html">Events</a></li><li><a href="gallery.html">Gallery</a></li></ul></div>
+    <div class="footer-col"><h4>Community</h4><ul><li><a href="entrepreneurs.html">Entrepreneurs</a></li><li><a href="heroes.html">Da Heroes</a></li><li><a href="../index.html#resources">Resources</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+    <div class="footer-col"><h4>Connect</h4><ul>
+      <li><a href="mailto:info@dahillreunion.com">Email Us</a></li>
+      <li><a href="https://www.facebook.com/groups/391650975569064/" target="_blank" rel="noopener">Da Hill Facebook Group</a></li>
+      <li><a href="https://www.facebook.com/groups/718801411593854/" target="_blank" rel="noopener">Gone But Not Forgotten &#9670;</a></li>
+      <li><a href="https://www.moorgraphix.com" target="_blank" rel="noopener">Moor Graphix</a></li>
+    </ul></div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy">&copy; 2020&ndash;2026 Da Hill Reunion. All Rights Reserved. Designed by <a href="https://www.moorgraphix.com" target="_blank" rel="noopener">Moor Graphix</a></p>
+    <div class="footer-social"><a href="https://www.facebook.com/groups/391650975569064/" target="_blank" rel="noopener" aria-label="Facebook">f</a></div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+<script>
+  // Live countdown to August 28, 2026
+  const eventDate = new Date('August 28, 2026 18:00:00').getTime();
+  function updateCountdown() {
+    const now = new Date().getTime();
+    const diff = eventDate - now;
+    if (diff <= 0) {
+      document.getElementById('cdDays').textContent = '0';
+      document.getElementById('cdHours').textContent = '0';
+      document.getElementById('cdMins').textContent = '0';
+      document.getElementById('cdSecs').textContent = '0';
+      return;
+    }
+    document.getElementById('cdDays').textContent  = Math.floor(diff / (1000*60*60*24));
+    document.getElementById('cdHours').textContent = Math.floor((diff % (1000*60*60*24)) / (1000*60*60));
+    document.getElementById('cdMins').textContent  = Math.floor((diff % (1000*60*60)) / (1000*60));
+    document.getElementById('cdSecs').textContent  = Math.floor((diff % (1000*60)) / 1000);
+  }
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+</script>
+</body>
+</html>
