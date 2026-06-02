@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Da Hill Entrepreneurs — Business ownership is in the blood of our community. Meet the entrepreneurs of St. Nicholas Terrace, Harlem, NY."/>
+  <title>Da Entrepreneurs — Da Hill Reunion</title>
+  <link rel="stylesheet" href="../css/style.css"/>
+  <style>
+
+    /* ── PAGE HERO ── */
+    .ent-hero {
+      position: relative; height: 420px; overflow: hidden;
+    }
+    .ent-hero img {
+      width: 100%; height: 100%; object-fit: cover;
+      object-position: center 30%; filter: brightness(0.45);
+    }
+    .ent-hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to right, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 55%, rgba(0,0,0,0.1) 100%);
+    }
+    .ent-hero-content {
+      position: absolute; bottom: 55px; left: 60px; max-width: 620px;
+    }
+    .ent-hero-tag {
+      font-family: 'Montserrat', sans-serif; font-weight: 600;
+      font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
+      color: #e8b84b; margin-bottom: 14px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .ent-hero-tag::before { content: ''; display: block; width: 28px; height: 2px; background: #e8b84b; }
+    .ent-hero-title {
+      font-family: 'Montserrat', sans-serif; font-weight: 800;
+      font-size: 50px; color: #fff; line-height: 1.0;
+      text-transform: uppercase; letter-spacing: 2px; margin-bottom: 14px;
+    }
+    .ent-hero-title em {
+      display: block; font-style: italic;
+      font-family: 'Open Sans', sans-serif; font-weight: 300;
+      font-size: 0.45em; letter-spacing: 1px; text-transform: none;
+      color: rgba(255,255,255,0.65); margin-top: 8px;
+    }
+
+    /* ── INTRO STRIP ── */
+    .ent-intro {
+      background: #1a1a1a; padding: 55px 0;
+    }
+    .ent-intro-inner {
+      max-width: 900px; margin: 0 auto; padding: 0 40px; text-align: center;
+    }
+    .ent-intro-inner p {
+      font-size: 16px; color: rgba(255,255,255,0.65);
+      line-height: 1.95; margin-bottom: 16px;
+    }
+    .ent-intro-inner p strong { color: #e8b84b; font-weight: 600; }
+    .ent-intro-inner p:last-child { margin-bottom: 0; }
+
+    /* ── FILTER BAR ── */
+    .filter-bar {
+      background: #f0f4f8; border-bottom: 1px solid #e0e0e0; padding: 20px 0;
+      position: sticky; top: 49px; z-index: 50;
+    }
+    .filter-inner {
+      max-width: 1280px; margin: 0 auto; padding: 0 40px;
+      display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+    }
+    .filter-label {
+      font-family: 'Montserrat', sans-serif; font-weight: 700;
+      font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase;
+      color: #888; margin-right: 4px;
+    }
+    .filter-btn {
+      font-family: 'Montserrat', sans-serif; font-weight: 600;
+      font-size: 11px; letter-spacing: 1px; text-transform: uppercase;
+      padding: 7px 16px; border-radius: 999px; border: 1.5px solid #ddd;
+      background: #fff; color: #666; cursor: pointer;
+      transition: all 0.2s;
+    }
+    .filter-btn:hover, .filter-btn.active {
+      background: #e8b84b; border-color: #e8b84b; color: #1a1a1a;
+    }
+
+    /* ── LEGEND SECTION ── */
+    .legend-section { background: #fff; padding: 60px 0 20px; }
+    .legend-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 20px; margin-top: 40px;
+    }
+    .legend-card {
+      background: #f7f7f7; border-radius: 8px; padding: 24px 20px;
+      border-left: 4px solid;
+    }
+    .legend-card.lc-gold  { border-color: #e8b84b; }
+    .legend-card.lc-red   { border-color: #c0392b; }
+    .legend-card.lc-green { border-color: #27ae60; }
+    .legend-title {
+      font-family: 'Montserrat', sans-serif; font-weight: 700;
+      font-size: 13px; letter-spacing: 1px; text-transform: uppercase;
+      color: #1a1a1a; margin-bottom: 8px;
+    }
+    .legend-text { font-size: 13px; color: #777; line-height: 1.75; }
+
+    /* ── ENTERTAINERS MARQUEE ── */
+    .marquee-section {
+      background: #e8b84b; padding: 16px 0; overflow: hidden;
+    }
+    .marquee-track {
+      display: flex; gap: 0; white-space: nowrap;
+      animation: marqueeScroll 30s linear infinite;
+    }
+    .marquee-track:hover { animation-play-state: paused; }
+    @keyframes marqueeScroll {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .marquee-item {
+      font-family: 'Montserrat', sans-serif; font-weight: 700;
+      font-size: 12px; letter-spacing: 2px; text-transform: uppercase;
+      color: #1a1a1a; padding: 0 28px;
+      display: flex; align-items: center; gap: 28px;
+    }
+    .marquee-item::after {
+      content: '&#9670;'; color: rgba(0,0,0,0.25); font-size: 8px;
+    }
+
+    /* ── ENTREPRENEUR CARDS GRID ── */
+    .ent-grid-section { background: #fff; padding: 60px 0 80px; }
+    .ent-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px;
+    }
+
+    .ent-card {
+      border-radius: 10px; overflow: hidden;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+      background: #fff; border: 1px solid #eee;
+      transition: transform 0.3s, box-shadow 0.3s;
+      display: flex; flex-direction: column;
+    }
+    .ent-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 36px rgba(0,0,0,0.12);
+    }
+
+    /* photo area */
+    .ent-card-photo {
+      height: 220px; position: relative; overflow: hidden;
+    }
+    .ent-card-photo img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform 0.5s;
+    }
+    .ent-card:hover .ent-card-photo img { transform: scale(1.05); }
+
+    /* placeholder photo */
+    .ent-photo-placeholder {
+      width: 100%; height: 220px;
+      background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 10px;
+    }
+    .ent-photo-placeholder .ph-initials {
+      width: 72px; height: 72px; border-radius: 50%;
+      background: #e8b84b; display: flex;
+      align-items: center; justify-content: center;
+      font-family: 'Montserrat', sans-serif; font-weight: 800;
+      font-size: 22px; color: #1a1a1a;
+    }
+    .ent-photo-placeholder .ph-label {
+      font-size: 10px; font-weight: 600; letter-spacing: 1.5px;
+      text-transform: uppercase; color: #bbb;
+    }
+
+    /* category badge */
+    .ent-badge {
+      position: absolute; top: 14px; left: 14px;
+      font-family: 'Montserrat', sans-serif; font-weight: 700;
+      font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase;
+      padding: 4px 10px; border-radius: 3px; color: #fff;
+    }
+    .badge-entertainment { background: #c0392b; }
+    .badge-business      { background: #2c3e6b; }
+    .badge-food          { background: #27ae60; }
+    .badge-creative      { background: #8e44ad; }
+    .badge-sports        { background: #e67e22; }
+    .badge-legacy        { background: #1a1a1a; }
+
+    /* card body */
+    .ent-card-body {
+      padding: 22px 20px 24px; flex: 1;
+      display: flex; flex-direction: column;
+    }
+    .ent-name {
+      font-family: 'Montserrat', sans-serif; font-weight: 800;
+      font-size: 17px; color: #1a1a1a; margin-bottom: 4px; line-height: 1.2;
+    }
+    .ent-business {
+      font-size: 12px; font-weight: 600; letter-spacing: 1px;
+      text-transform: uppercase; color: #e8b84b; margin-bottom: 12px;
+    }
+    .ent-desc {
+      font-size: 13px; color: #777; line-height: 1.75; flex: 1;
+    }
+    .ent-card-footer {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-top: 16px; padding-top: 16px; border-top: 1px solid #f0f0f0;
+    }
+    .ent-neighborhood {
+      font-size: 11px; color: #aaa; letter-spacing: 0.5px;
+    }
+    .ent-link {
+      font-family: 'Montserrat', sans-serif; font-weight: 700;
+      font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase;
+      color: #e8b84b; display: inline-flex; align-items: center; gap: 5px;
+      transition: gap 0.2s;
+    }
+    .ent-link:hover { gap: 8px; }
+
+    /* ── LEGACY SECTION ── */
+    .legacy-section { background: #1a1a1a; padding: 70px 0; }
+    .legacy-inner {
+      max-width: 1280px; margin: 0 auto; padding: 0 40px;
+    }
+    .legacy-intro {
+      max-width: 680px; margin-bottom: 48px;
+    }
+    .legacy-intro h2 {
+      font-family: 'Montserrat', sans-serif; font-weight: 800;
+      font-size: 30px; color: #fff; text-transform: uppercase; margin-bottom: 14px;
+    }
+    .legacy-intro h2 em { font-style: normal; color: #e8b84b; }
+    .legacy-intro p { font-size: 14px; color: rgba(255,255,255,0.5); line-height: 1.85; }
+    .legacy-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px;
+      background: rgba(255,255,255,0.05);
+    }
+    .legacy-item {
+      background: #1a1a1a; padding: 28px 24px;
+      transition: background 0.25s;
+    }
+    .legacy-item:hover { background: #242424; }
+    .legacy-item-icon {
+      font-size: 22px; margin-bottom: 12px; display: block;
+    }
+    .legacy-item-name {
+      font-family: 'Montserrat', sans-serif; font-weight: 700;
+      font-size: 14px; color: #fff; margin-bottom: 6px;
+    }
+    .legacy-item-role {
+      font-size: 11px; color: #e8b84b; letter-spacing: 1px;
+      text-transform: uppercase; font-weight: 600;
+    }
+
+    /* ── SUBMISSION FORM ── */
+    .submit-section { background: #f7f7f7; padding: 70px 0; }
+    .submit-inner {
+      display: grid; grid-template-columns: 1fr 1.4fr;
+      gap: 60px; align-items: start;
+      max-width: 1280px; margin: 0 auto; padding: 0 40px;
+    }
+    .submit-left h3 {
+      font-family: 'Montserrat', sans-serif; font-weight: 800;
+      font-size: 26px; color: #1a1a1a; margin-bottom: 14px;
+    }
+    .submit-left p {
+      font-size: 14px; color: #777; line-height: 1.85; margin-bottom: 20px;
+    }
+    .submit-left ul {
+      list-style: none; display: flex; flex-direction: column; gap: 12px;
+    }
+    .submit-left li {
+      display: flex; align-items: flex-start; gap: 12px;
+      font-size: 13px; color: #555; line-height: 1.6;
+    }
+    .submit-left li::before {
+      content: '&#9670;'; color: #e8b84b; font-size: 8px;
+      flex-shrink: 0; margin-top: 5px;
+    }
+    .submit-form {}
+    .form-row { margin-bottom: 16px; }
+    .form-row label {
+      display: block; font-size: 11px; font-weight: 700;
+      letter-spacing: 1.5px; text-transform: uppercase; color: #555; margin-bottom: 6px;
+    }
+    .form-row input, .form-row textarea, .form-row select {
+      width: 100%; background: #fff; border: 1px solid #ddd;
+      border-radius: 4px; padding: 12px 14px;
+      font-family: 'Open Sans', sans-serif; font-size: 14px; color: #333;
+      outline: none; transition: border-color 0.2s, box-shadow 0.2s; appearance: none;
+    }
+    .form-row input:focus, .form-row textarea:focus, .form-row select:focus {
+      border-color: #e8b84b; box-shadow: 0 0 0 3px rgba(232,184,75,0.12);
+    }
+    .form-row textarea { resize: vertical; min-height: 100px; }
+    .form-row input::placeholder, .form-row textarea::placeholder { color: #bbb; }
+    .form-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .form-submit {
+      width: 100%; background: #e8b84b; color: #1a1a1a; border: none;
+      border-radius: 4px; padding: 14px;
+      font-family: 'Montserrat', sans-serif; font-weight: 700;
+      font-size: 12px; letter-spacing: 2px; text-transform: uppercase;
+      cursor: pointer; transition: background 0.2s; margin-top: 4px;
+    }
+    .form-submit:hover { background: #d4a33a; }
+    .form-success {
+      display: none; background: #e8f5ee; border: 1px solid #27ae60;
+      border-radius: 4px; padding: 16px 20px; margin-top: 16px;
+      font-size: 14px; color: #27ae60; font-weight: 600;
+    }
+
+    /* ── REVEAL ── */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.65s ease, transform 0.65s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-d1 { transition-delay: 0.1s; }
+    .reveal-d2 { transition-delay: 0.2s; }
+    .reveal-d3 { transition-delay: 0.3s; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 960px) {
+      .ent-hero-content { left: 30px; bottom: 40px; }
+      .ent-hero-title { font-size: 36px; }
+      .legend-grid { grid-template-columns: 1fr; }
+      .ent-grid { grid-template-columns: 1fr 1fr; }
+      .legacy-grid { grid-template-columns: 1fr 1fr; }
+      .submit-inner { grid-template-columns: 1fr; gap: 36px; }
+    }
+    @media (max-width: 600px) {
+      .ent-hero { height: 360px; }
+      .ent-hero-title { font-size: 28px; }
+      .ent-hero-content { left: 20px; }
+      .ent-grid { grid-template-columns: 1fr; }
+      .legacy-grid { grid-template-columns: 1fr 1fr; }
+      .form-grid-2 { grid-template-columns: 1fr; }
+      .filter-inner { padding: 0 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <span>St. Nicholas Terrace · Harlem, NY 10027 &nbsp;|&nbsp; Business ownership is in the blood of Da Hill.</span>
+  <span class="topbar-right">
+    Email: <a href="mailto:info@dahillreunion.com">info@dahillreunion.com</a>
+    &nbsp;·&nbsp;
+    <a href="https://www.facebook.com/groups/83433857932/" target="_blank" rel="noopener">Facebook Group</a>
+  </span>
+</div>
+
+<!-- HEADER -->
+<header class="site-header">
+  <a href="../index.html" class="logo">
+    <div class="logo-icon"><span>DH</span></div>
+    <div class="logo-text">
+      Da Hill Reunion
+      <small>Harlem's Own · Est. 1927</small>
+    </div>
+  </a>
+  <a href="#submit" class="header-cta">List Your Business</a>
+</header>
+
+<!-- NAV -->
+<nav class="main-nav">
+  <div class="nav-inner">
+    <ul class="nav-links" id="navLinks">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="history.html">Da History</a></li>
+      <li><a href="events.html">Events</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="entrepreneurs.html" class="active">Entrepreneurs</a></li>
+      <li><a href="heroes.html">Da Heroes</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-search">
+      <input type="text" placeholder="Search Here..."/>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="ent-hero">
+  <img src="../images/community-block.jpg" alt="Da Hill Entrepreneurs"/>
+  <div class="ent-hero-overlay"></div>
+  <div class="ent-hero-content">
+    <div class="ent-hero-tag">Da Entrepreneurs</div>
+    <h1 class="ent-hero-title">
+      Built on Da Hill.
+      <em>Business ownership is in the blood of our community.</em>
+    </h1>
+  </div>
+</div>
+
+<!-- INTRO STRIP -->
+<div class="ent-intro">
+  <div class="ent-intro-inner reveal">
+    <p>
+      Da Hill was always known as a neighborhood of <strong>Entrepreneurs, Entertainers, and Sport Figures.</strong> The spirit of ownership runs deep and flows heavily on Da Hill.
+    </p>
+    <p>
+      We had dry cleaners, bars, ice cream parlors, clothing stores, candy stores, restaurants, meat markets, liquor stores, grocery stores, game rooms, pool halls, vegetable stands, beauty parlors — and that's not even mentioning all the after hour spots that littered the block.
+    </p>
+    <p>
+      <strong>That spirit is alive today.</strong> Below are the entrepreneurs of Da Hill — past, present, and future.
+    </p>
+  </div>
+</div>
+
+<!-- ENTERTAINERS MARQUEE -->
+<div class="marquee-section">
+  <div class="marquee-track">
+    <!-- First set -->
+    <span class="marquee-item">The Treacherous 3 &#9670;</span>
+    <span class="marquee-item">Fearless Four &#9670;</span>
+    <span class="marquee-item">Doug E. Fresh &#9670;</span>
+    <span class="marquee-item">Oran Juice Jones &#9670;</span>
+    <span class="marquee-item">Me'Shell N'dechello &#9670;</span>
+    <span class="marquee-item">Kid Creole &#9670;</span>
+    <span class="marquee-item">Kool Moe Dee &#9670;</span>
+    <span class="marquee-item">L.A. Sunshine &#9670;</span>
+    <span class="marquee-item">DJ SnS &#9670;</span>
+    <span class="marquee-item">Web Starr &#9670;</span>
+    <span class="marquee-item">Spoonie Gee &#9670;</span>
+    <span class="marquee-item">Bill Toles of Living Color &#9670;</span>
+    <span class="marquee-item">Mr. Eugene of Jive Five &#9670;</span>
+    <span class="marquee-item">Johnny Copland &#9670;</span>
+    <!-- Duplicate for seamless loop -->
+    <span class="marquee-item">The Treacherous 3 &#9670;</span>
+    <span class="marquee-item">Fearless Four &#9670;</span>
+    <span class="marquee-item">Doug E. Fresh &#9670;</span>
+    <span class="marquee-item">Oran Juice Jones &#9670;</span>
+    <span class="marquee-item">Me'Shell N'dechello &#9670;</span>
+    <span class="marquee-item">Kid Creole &#9670;</span>
+    <span class="marquee-item">Kool Moe Dee &#9670;</span>
+    <span class="marquee-item">L.A. Sunshine &#9670;</span>
+    <span class="marquee-item">DJ SnS &#9670;</span>
+    <span class="marquee-item">Web Starr &#9670;</span>
+    <span class="marquee-item">Spoonie Gee &#9670;</span>
+    <span class="marquee-item">Bill Toles of Living Color &#9670;</span>
+    <span class="marquee-item">Mr. Eugene of Jive Five &#9670;</span>
+    <span class="marquee-item">Johnny Copland &#9670;</span>
+  </div>
+</div>
+
+<!-- FILTER BAR -->
+<div class="filter-bar">
+  <div class="filter-inner">
+    <span class="filter-label">Filter:</span>
+    <button class="filter-btn active" onclick="filterCards('all', this)">All</button>
+    <button class="filter-btn" onclick="filterCards('business', this)">Business</button>
+    <button class="filter-btn" onclick="filterCards('food', this)">Food &amp; Hospitality</button>
+    <button class="filter-btn" onclick="filterCards('creative', this)">Creative</button>
+    <button class="filter-btn" onclick="filterCards('entertainment', this)">Entertainment</button>
+    <button class="filter-btn" onclick="filterCards('sports', this)">Sports</button>
+  </div>
+</div>
+
+<!-- ENTREPRENEUR CARDS -->
+<section class="ent-grid-section" id="entrepreneurs">
+  <div class="section-wrap">
+    <div class="section-header reveal">
+      <div class="section-icon">&#9670;</div>
+      <p class="section-tag">Da Hill <strong>Community</strong></p>
+      <h2 class="section-title">Da <em>Entrepreneurs</em></h2>
+      <div class="section-divider"></div>
+    </div>
+
+    <div class="ent-grid" id="entGrid">
+
+      <!-- Card 1 -->
+      <div class="ent-card reveal" data-category="entertainment">
+        <div class="ent-card-photo">
+          <div class="ent-photo-placeholder">
+            <div class="ph-initials">KM</div>
+            <div class="ph-label">Photo Coming Soon</div>
+          </div>
+          <span class="ent-badge badge-entertainment">Entertainment</span>
+        </div>
+        <div class="ent-card-body">
+          <div class="ent-name">Kool Moe Dee</div>
+          <div class="ent-business">Hip-Hop Legend · Da Hill's Own</div>
+          <p class="ent-desc">One of hip-hop's original pioneers, Kool Moe Dee put St. Nicholas Terrace on the map. A founding member of The Treacherous Three and one of the first artists to perform at the Grammy Awards.</p>
+          <div class="ent-card-footer">
+            <span class="ent-neighborhood">St. Nick Terrace, Harlem</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="ent-card reveal reveal-d1" data-category="entertainment">
+        <div class="ent-card-photo">
+          <div class="ent-photo-placeholder">
+            <div class="ph-initials">LA</div>
+            <div class="ph-label">Photo Coming Soon</div>
+          </div>
+          <span class="ent-badge badge-entertainment">Entertainment</span>
+        </div>
+        <div class="ent-card-body">
+          <div class="ent-name">L.A. Sunshine</div>
+          <div class="ent-business">Entertainer · The Treacherous Three</div>
+          <p class="ent-desc">Member of The Treacherous Three alongside Kool Moe Dee and Special K. A cornerstone of Harlem's golden age of hip-hop and a proud son of Da Hill.</p>
+          <div class="ent-card-footer">
+            <span class="ent-neighborhood">St. Nick Terrace, Harlem</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="ent-card reveal reveal-d2" data-category="entertainment">
+        <div class="ent-card-photo">
+          <div class="ent-photo-placeholder">
+            <div class="ph-initials">SnS</div>
+            <div class="ph-label">Photo Coming Soon</div>
+          </div>
+          <span class="ent-badge badge-entertainment">Entertainment</span>
+        </div>
+        <div class="ent-card-body">
+          <div class="ent-name">DJ SnS</div>
+          <div class="ent-business">DJ · Music Producer</div>
+          <p class="ent-desc">A Da Hill original whose musical talent has kept the community moving for decades. From block parties to major stages — SnS brings the sound of the Hill wherever he goes.</p>
+          <div class="ent-card-footer">
+            <span class="ent-neighborhood">St. Nick Terrace, Harlem</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="ent-card reveal" data-category="food">
+        <div class="ent-card-photo">
+          <div class="ent-photo-placeholder">
+            <div class="ph-initials">KK</div>
+            <div class="ph-label">Photo Coming Soon</div>
+          </div>
+          <span class="ent-badge badge-food">Food &amp; Hospitality</span>
+        </div>
+        <div class="ent-card-body">
+          <div class="ent-name">Chef Keith Kash</div>
+          <div class="ent-business">Chef · Lillie Mae Foundation</div>
+          <p class="ent-desc">Chef Keith Kash carries the Da Hill spirit into the culinary world — honoring heritage through food, community service, and leadership. Founder of the Lillie Mae Foundation scholarship for leadership.</p>
+          <div class="ent-card-footer">
+            <span class="ent-neighborhood">Da Hill · ATL</span>
+            <a href="mailto:chefkeithkash@outlook.com" class="ent-link">Contact &#8594;</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="ent-card reveal reveal-d1" data-category="creative">
+        <div class="ent-card-photo">
+          <div class="ent-photo-placeholder">
+            <div class="ph-initials">NC</div>
+            <div class="ph-label">Photo Coming Soon</div>
+          </div>
+          <span class="ent-badge badge-creative">Creative</span>
+        </div>
+        <div class="ent-card-body">
+          <div class="ent-name">Nyla Christian</div>
+          <div class="ent-business">LifeInspired · Performing Arts</div>
+          <p class="ent-desc">Nyla Christian is the founder of LifeInspired, a performing arts platform dedicated to uplifting young voices through spoken word, dance, music, and theater. Proud daughter of Da Hill.</p>
+          <div class="ent-card-footer">
+            <span class="ent-neighborhood">Da Hill · Las Vegas</span>
+            <a href="mailto:Nyla@NylaChristian.com" class="ent-link">Contact &#8594;</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 6 -->
+      <div class="ent-card reveal reveal-d2" data-category="business">
+        <div class="ent-card-photo">
+          <div class="ent-photo-placeholder">
+            <div class="ph-initials">MG</div>
+            <div class="ph-label">Photo Coming Soon</div>
+          </div>
+          <span class="ent-badge badge-business">Business</span>
+        </div>
+        <div class="ent-card-body">
+          <div class="ent-name">Marquette Grant</div>
+          <div class="ent-business">Entrepreneur · Da Hill Foundation</div>
+          <p class="ent-desc">Marquette Grant represents the entrepreneurial spirit of Da Hill — a community builder and business developer who backs his work with the foundation's entrepreneurship scholarship program.</p>
+          <div class="ent-card-footer">
+            <span class="ent-neighborhood">St. Nick Terrace, Harlem</span>
+            <a href="mailto:marquettegrant@gmail.com" class="ent-link">Contact &#8594;</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 7 -->
+      <div class="ent-card reveal" data-category="business">
+        <div class="ent-card-photo">
+          <div class="ent-photo-placeholder">
+            <div class="ph-initials">GD</div>
+            <div class="ph-label">Photo Coming Soon</div>
+          </div>
+          <span class="ent-badge badge-business">Business</span>
+        </div>
+        <div class="ent-card-body">
+          <div class="ent-name">Gamel Dewese</div>
+          <div class="ent-business">The Helping Hand Travels</div>
+          <p class="ent-desc">Gamel Dewese is the founder of The Helping Hand Travels — a travel company rooted in community service and purpose-driven experiences for families and groups.</p>
+          <div class="ent-card-footer">
+            <span class="ent-neighborhood">Da Hill · Atlanta</span>
+            <a href="mailto:info@thehelpinghandtravels.com" class="ent-link">Contact &#8594;</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 8 — Add Your Business placeholder -->
+      <div class="ent-card reveal reveal-d1" data-category="all" style="border: 2px dashed #e8b84b; box-shadow: none; background: #fffdf5;">
+        <div class="ent-card-photo">
+          <div class="ent-photo-placeholder" style="background: linear-gradient(135deg, #fff8e6, #fdeec0);">
+            <div class="ph-initials" style="font-size:28px;">+</div>
+            <div class="ph-label">Your Business Here</div>
+          </div>
+        </div>
+        <div class="ent-card-body">
+          <div class="ent-name" style="color:#e8b84b;">Are You a Hill Entrepreneur?</div>
+          <div class="ent-business">Submit Your Business Below</div>
+          <p class="ent-desc">If you grew up on Da Hill or are connected to our community — your business belongs here. Fill out the form below and we'll get you listed.</p>
+          <div class="ent-card-footer">
+            <a href="#submit" class="ent-link" style="color:#e8b84b;">Get Listed &#8594;</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- LEGACY ENTREPRENEURS -->
+<section class="legacy-section">
+  <div class="legacy-inner">
+    <div class="legacy-intro reveal">
+      <h2>Those Who <em>Paved the Way</em></h2>
+      <p>Some of our entrepreneurs are no longer with us — but their legacy lives on in the spirit of every business Da Hill has ever produced. We honor them here.</p>
+    </div>
+    <div class="legacy-grid reveal">
+      <div class="legacy-item">
+        <span class="legacy-item-icon">&#9670;</span>
+        <div class="legacy-item-name">Mr. Forte</div>
+        <div class="legacy-item-role">Da Hill Legend</div>
+      </div>
+      <div class="legacy-item">
+        <span class="legacy-item-icon">&#9670;</span>
+        <div class="legacy-item-name">Teddy Lewis</div>
+        <div class="legacy-item-role">Da Hill Legend</div>
+      </div>
+      <div class="legacy-item">
+        <span class="legacy-item-icon">&#9670;</span>
+        <div class="legacy-item-name">The Venable Brothers</div>
+        <div class="legacy-item-role">Da Hill Legend</div>
+      </div>
+      <div class="legacy-item">
+        <span class="legacy-item-icon">&#9670;</span>
+        <div class="legacy-item-name">The Chapman Brothers</div>
+        <div class="legacy-item-role">Da Hill Legend</div>
+      </div>
+      <div class="legacy-item">
+        <span class="legacy-item-icon">&#9670;</span>
+        <div class="legacy-item-name">Jack Harvey</div>
+        <div class="legacy-item-role">Da Hill Foundation</div>
+      </div>
+      <div class="legacy-item">
+        <span class="legacy-item-icon">&#9670;</span>
+        <div class="legacy-item-name">Spoonie Gee</div>
+        <div class="legacy-item-role">Hip-Hop Pioneer</div>
+      </div>
+      <div class="legacy-item">
+        <span class="legacy-item-icon">&#9670;</span>
+        <div class="legacy-item-name">Doug E. Fresh</div>
+        <div class="legacy-item-role">The Human Beatbox</div>
+      </div>
+      <div class="legacy-item">
+        <span class="legacy-item-icon">&#9670;</span>
+        <div class="legacy-item-name">Oran Juice Jones</div>
+        <div class="legacy-item-role">R&amp;B Artist</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SUBMISSION FORM -->
+<section class="submit-section" id="submit">
+  <div class="submit-inner">
+    <div class="reveal">
+      <div class="section-label" style="justify-content:flex-start;">
+        <span style="width:24px;height:2px;background:#e8b84b;display:inline-block;"></span>
+        Get Listed
+      </div>
+      <h3>List Your Business<br>on Da Hill</h3>
+      <p>If you grew up on Da Hill or are connected to the community — your business belongs here. Fill out the form and we'll add you to the directory.</p>
+      <ul>
+        <li>Free listing for all Da Hill community members</li>
+        <li>Add your photo, business name, description and links</li>
+        <li>We review and publish within 5 business days</li>
+        <li>Update or edit your listing anytime</li>
+      </ul>
+    </div>
+    <div class="reveal reveal-d1">
+      <div class="form-grid-2">
+        <div class="form-row"><label>First Name</label><input type="text" placeholder="First name"/></div>
+        <div class="form-row"><label>Last Name</label><input type="text" placeholder="Last name"/></div>
+      </div>
+      <div class="form-row"><label>Email Address</label><input type="email" placeholder="your@email.com"/></div>
+      <div class="form-row"><label>Business Name</label><input type="text" placeholder="Your business name"/></div>
+      <div class="form-row">
+        <label>Business Category</label>
+        <select>
+          <option value="" disabled selected>Select a category...</option>
+          <option>Business &amp; Entrepreneurship</option>
+          <option>Food &amp; Hospitality</option>
+          <option>Creative &amp; Arts</option>
+          <option>Entertainment &amp; Music</option>
+          <option>Sports &amp; Fitness</option>
+          <option>Health &amp; Wellness</option>
+          <option>Technology</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="form-row"><label>Website or Social Link</label><input type="url" placeholder="https://yourbusiness.com"/></div>
+      <div class="form-row"><label>Your Connection to Da Hill</label><input type="text" placeholder="Grew up on St. Nick Terrace, family member..."/></div>
+      <div class="form-row"><label>Business Description</label><textarea placeholder="Tell us about your business — what you do, who you serve, your story..."></textarea></div>
+      <button class="form-submit" onclick="handleSubmit(event)">Submit Your Business &#8594;</button>
+      <div class="form-success" id="formSuccess">
+        &#10003; &nbsp; Thank you! We received your submission and will be in touch within 5 business days.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats-strip">
+  <div class="stats-inner">
+    <div class="stat-item">
+      <div class="stat-num">20<span class="stat-plus">+</span></div>
+      <div class="stat-label">Years of Reunions</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">500<span class="stat-plus">+</span></div>
+      <div class="stat-label">Family Members</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">12<span class="stat-plus">+</span></div>
+      <div class="stat-label">Community Events</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">1</div>
+      <div class="stat-label">Harlem Hill Family</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <span class="footer-brand-logo">DA HILL REUNION</span>
+      <p class="footer-brand-desc">"Forward in Power. Rooted in Love."<br><br>The virtual home of Da Hill — St. Nicholas Terrace, Harlem, NY.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Navigate</h4>
+      <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="history.html">Da History</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Community</h4>
+      <ul>
+        <li><a href="entrepreneurs.html">Entrepreneurs</a></li>
+        <li><a href="heroes.html">Da Heroes</a></li>
+        <li><a href="../index.html#resources">Resources</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Connect</h4>
+      <ul>
+        <li><a href="mailto:info@dahillreunion.com">Email Us</a></li>
+        <li><a href="https://www.facebook.com/groups/83433857932/" target="_blank" rel="noopener">Facebook Group</a></li>
+        <li><a href="https://www.moorgraphix.com" target="_blank" rel="noopener">Moor Graphix</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy">&copy; 2020&ndash;2026 Da Hill Reunion. All Rights Reserved. Designed by <a href="https://www.moorgraphix.com" target="_blank" rel="noopener">Moor Graphix</a></p>
+    <div class="footer-social">
+      <a href="https://www.facebook.com/groups/83433857932/" target="_blank" rel="noopener" aria-label="Facebook">f</a>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+<script>
+  // Filter cards
+  function filterCards(category, btn) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.ent-card').forEach(card => {
+      const cat = card.dataset.category;
+      if (category === 'all' || cat === category || cat === 'all') {
+        card.style.display = 'flex';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  }
+
+  // Form submit
+  function handleSubmit(e) {
+    e.preventDefault();
+    const success = document.getElementById('formSuccess');
+    success.style.display = 'block';
+    success.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+</script>
+</body>
+</html>
