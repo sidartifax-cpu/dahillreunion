@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Black background -->
+  <rect width="64" height="64" rx="10" fill="#1a1a1a"/>
+  <!-- D letter -->
+  <text x="6" y="46" font-family="Arial Black, sans-serif" font-weight="900" 
+        font-size="38" fill="#c0392b" letter-spacing="-2">D</text>
+  <!-- H letter -->
+  <text x="32" y="46" font-family="Arial Black, sans-serif" font-weight="900" 
+        font-size="38" fill="#e8b84b" letter-spacing="-2">H</text>
+  <!-- Small heart dot like the logo -->
+  <circle cx="29" cy="18" r="3" fill="#c0392b"/>
+</svg>

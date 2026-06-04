@@ -227,6 +227,12 @@ footer { background: #111; padding: 60px 0 0; }
 .footer-brand-desc {
   font-size: 13px; color: rgba(255,255,255,0.4); line-height: 1.8;
 }
+.footer-col-heading {
+  font-family: 'Montserrat', sans-serif; font-weight: 700;
+  font-size: 13px; letter-spacing: 1.5px; text-transform: uppercase;
+  color: #fff; margin-bottom: 18px; margin-top: 0;
+}
+/* legacy h4 support */
 .footer-col h4 {
   font-family: 'Montserrat', sans-serif; font-weight: 700;
   font-size: 13px; letter-spacing: 1.5px; text-transform: uppercase;
@@ -277,4 +283,39 @@ footer { background: #111; padding: 60px 0 0; }
   .footer-bottom { flex-direction: column; text-align: center; }
   .stats-inner { grid-template-columns: 1fr 1fr; }
   .page-hero h1 { font-size: 28px; }
+}
+
+/* ── MOBILE NAV — logo left, hamburger right ── */
+@media (max-width: 960px) {
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    height: 100%;
+    width: 100%;
+  }
+  .nav-mobile-logo {
+    display: flex !important;
+    align-items: center;
+  }
+  .nav-mobile-logo img {
+    height: 36px;
+    width: auto;
+    display: block;
+  }
+  .nav-toggle {
+    display: flex;
+    margin-left: auto;
+    order: 3;
+  }
+  .nav-links {
+    order: 2;
+  }
+  .nav-search {
+    display: none !important;
+  }
+}
+@media (min-width: 961px) {
+  .nav-mobile-logo { display: none !important; }
 }
