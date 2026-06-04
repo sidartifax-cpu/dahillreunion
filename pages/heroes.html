@@ -560,6 +560,7 @@
     <h2>Share a <em>Memory</em></h2>
     <p>If you have a loved one from Da Hill who has passed on, submit their name and a memory below. We will add them to this wall of remembrance with honor.</p>
     <div class="memory-form reveal">
+      <form action="https://formspree.io/f/mnjyndnn" method="POST" id="memory-form-el">
       <div class="mf-grid">
         <div class="mf-row"><label>Your Name</label><input type="text" placeholder="Your name"/></div>
         <div class="mf-row"><label>Your Email</label><input type="email" placeholder="your@email.com"/></div>
@@ -567,10 +568,11 @@
       <div class="mf-row"><label for="mem-loved-name">Name of Your Loved One</label><input type="text" id="mem-loved-name" name="loved_one_name" placeholder="Full name"/></div>
       <div class="mf-row"><label for="mem-connection">Their Connection to Da Hill</label><input type="text" id="mem-connection" name="connection" placeholder="e.g. Grew up on St. Nick Terrace, longtime resident..."/></div>
       <div class="mf-row"><label for="mem-tribute">Your Memory or Tribute</label><textarea id="mem-tribute" name="tribute" placeholder="Share a memory, a word of love, or a tribute..."></textarea></div>
-      <button class="mf-submit" onclick="submitMemory(event)">Submit Tribute &#9670;</button>
-      <div class="mf-success" id="memorySuccess">
-        &#129761; &nbsp; Thank you for this tribute. We will add your loved one to the wall with honor.
-      </div>
+      <input type="hidden" name="_subject" value="New Memory Tribute — Da Hill Gone But Not Forgotten"/>
+      <input type="hidden" name="_next" value="https://dahillreunion.com/pages/heroes.html?success=true"/>
+      <button type="submit" class="mf-submit">Submit Tribute &#9670;</button>
+      <div class="mf-success" id="memorySuccess" style="display:none;">&#129761; &nbsp; Thank you for this tribute. We will add your loved one to the wall with honor.</div>
+      </form>
     </div>
   </div>
 </section>
@@ -621,7 +623,7 @@
   // ── HERO SLIDESHOW: hero-heroes ──
   (function() {
     const MANIFEST  = '../hero-heroes-manifest.json';
-    const IMG_BASE  = '../images/hero-heroes/';
+    const IMG_BASE  = '../images/';
     const HOLD_MS   = 8000;
     const FADE_MS   = 1800;
     const KB_CLASSES = ['kb-center','kb-left','kb-right','kb-pan'];
@@ -739,6 +741,19 @@
     setInterval(preloadNext, HOLD_MS - 2000);
 
     initSlideshow();
+  })();</script>
+<script>
+  // Formspree success handler
+  (function() {
+    if (window.location.search.includes('success=true')) {
+      const msgs = document.querySelectorAll('.form-success, .mf-success');
+      msgs.forEach(m => {
+        m.style.display = 'block';
+        m.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      });
+      // Clean URL
+      window.history.replaceState({}, '', window.location.pathname);
+    }
   })();</script>
 </body>
 </html>

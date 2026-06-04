@@ -399,6 +399,7 @@
     <!-- FORM -->
     <div class="contact-form-col reveal reveal-d1">
       <h3>Send Us a Message</h3>
+      <form action="https://formspree.io/f/mjgdkwvg" method="POST" id="contact-form-el">
       <div class="form-grid-2">
         <div class="form-row"><label for="contact-first">First Name</label><input type="text" id="contact-first" name="first_name" placeholder="First name" autocomplete="given-name"/></div>
         <div class="form-row"><label for="contact-last">Last Name</label><input type="text" id="contact-last" name="last_name" placeholder="Last name" autocomplete="family-name"/></div>
@@ -433,10 +434,11 @@
         </select>
       </div>
       <div class="form-row"><label for="contact-message">Your Message</label><textarea id="contact-message" name="message" placeholder="Tell us your story, ask a question, or just say hello..."></textarea></div>
-      <button class="form-submit" onclick="submitContact(event)">Send Message &nbsp;&#8594;</button>
-      <div class="form-success" id="contactSuccess">
-        &#10003; &nbsp; Message received! We will get back to you within 3–5 business days.
-      </div>
+      <input type="hidden" name="_subject" value="New Message — Da Hill Reunion Contact"/>
+        <input type="hidden" name="_next" value="https://dahillreunion.com/pages/contact.html?success=true"/>
+        <button type="submit" class="form-submit">Send Message &nbsp;&#8594;</button>
+      <div class="form-success" id="contactSuccess" style="display:none;">&#10003; &nbsp; Message received! We will be in touch within 3–5 business days.</div>
+      </form>
     </div>
   </div>
 </section>
@@ -544,5 +546,18 @@
     s.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   }
 </script>
+<script>
+  // Formspree success handler
+  (function() {
+    if (window.location.search.includes('success=true')) {
+      const msgs = document.querySelectorAll('.form-success, .mf-success');
+      msgs.forEach(m => {
+        m.style.display = 'block';
+        m.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      });
+      // Clean URL
+      window.history.replaceState({}, '', window.location.pathname);
+    }
+  })();</script>
 </body>
 </html>

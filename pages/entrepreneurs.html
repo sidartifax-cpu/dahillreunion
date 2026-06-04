@@ -782,6 +782,7 @@
       </ul>
     </div>
     <div class="reveal reveal-d1">
+      <form action="https://formspree.io/f/mkoagrna" method="POST" id="ent-form-el">
       <div class="form-grid-2">
         <div class="form-row"><label for="ent-first">First Name</label><input type="text" id="ent-first" name="first_name" placeholder="First name" autocomplete="given-name"/></div>
         <div class="form-row"><label for="ent-last">Last Name</label><input type="text" id="ent-last" name="last_name" placeholder="Last name" autocomplete="family-name"/></div>
@@ -805,10 +806,11 @@
       <div class="form-row"><label for="ent-website">Website or Social Link</label><input type="url" id="ent-website" name="website" placeholder="https://yourbusiness.com"/></div>
       <div class="form-row"><label for="ent-connection">Your Connection to Da Hill</label><input type="text" id="ent-connection" name="connection" placeholder="Grew up on St. Nick Terrace, family member..."/></div>
       <div class="form-row"><label for="ent-desc">Business Description</label><textarea id="ent-desc" name="description" placeholder="Tell us about your business — what you do, who you serve, your story..."></textarea></div>
-      <button class="form-submit" onclick="handleSubmit(event)">Submit Your Business &#8594;</button>
-      <div class="form-success" id="formSuccess">
-        &#10003; &nbsp; Thank you! We received your submission and will be in touch within 5 business days.
-      </div>
+      <input type="hidden" name="_subject" value="New Entrepreneur Submission — Da Hill Reunion"/>
+      <input type="hidden" name="_next" value="https://dahillreunion.com/pages/entrepreneurs.html?success=true"/>
+      <button type="submit" class="form-submit">Submit Your Business &#8594;</button>
+      <div class="form-success" id="formSuccess" style="display:none;">&#10003; &nbsp; Thank you! We received your submission and will be in touch within 5 business days.</div>
+      </form>
     </div>
   </div>
 </section>
@@ -903,5 +905,18 @@
     success.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   }
 </script>
+<script>
+  // Formspree success handler
+  (function() {
+    if (window.location.search.includes('success=true')) {
+      const msgs = document.querySelectorAll('.form-success, .mf-success');
+      msgs.forEach(m => {
+        m.style.display = 'block';
+        m.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      });
+      // Clean URL
+      window.history.replaceState({}, '', window.location.pathname);
+    }
+  })();</script>
 </body>
 </html>
