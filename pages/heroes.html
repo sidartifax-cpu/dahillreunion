@@ -53,7 +53,7 @@
   <style>
     /* HERO — dark, reverent */
     .heroes-hero {
-      position: relative; height: 480px; overflow: hidden;
+      position: relative; height: 650px; overflow: hidden;
     }
     .heroes-hero img {
       width: 100%; height: 100%; object-fit: cover;
@@ -293,7 +293,7 @@
       .memory-grid { grid-template-columns: 1fr 1fr; }
     }
     @media (max-width: 600px) {
-      .heroes-hero { height: 400px; }
+      .heroes-hero { height: 650px; }
       .heroes-hero-title { font-size: 28px; }
       .heroes-hero-content { padding: 0 20px 40px; }
       .heroes-grid { grid-template-columns: 1fr 1fr; }
@@ -634,13 +634,9 @@
     const hero   = document.getElementById('hero-heroes');
     if (!hero) return;
 
-    // Determine if image is in gallery or main images folder
+    // Always look directly in the hero-heroes folder
     function getImgPath(fname) {
-      // gallery images have long numeric names
-      if (/^\d{8,}/.test(fname) || /^FB_IMG/.test(fname)) {
-        return IMG_BASE + 'gallery/' + fname;
-      }
-      return IMG_BASE + fname;
+      return IMG_BASE + 'hero-heroes/' + fname;
     }
 
     async function initSlideshow() {

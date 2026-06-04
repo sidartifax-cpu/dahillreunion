@@ -53,7 +53,7 @@
   <style>
     /* ── HERO ── */
     .hero {
-      position: relative; width: 100%; height: 580px; overflow: hidden;
+      position: relative; width: 100%; height: 650px; overflow: hidden;
     }
     .hero-img {
       width: 100%; height: 100%; object-fit: cover;
@@ -491,7 +491,7 @@
 <main id="main-content">
 
 <!-- HERO -->
-<div class="hero hero-slideshow" id="hero-home" style="height:580px;">
+<div class="hero hero-slideshow" id="hero-home" style="height:650px;">
   <div class="hero-overlay"></div>
   <div class="hero-content">
     <div class="hero-label">Da Hill Reunion · Harlem, NY</div>
@@ -880,13 +880,9 @@
     const hero   = document.getElementById('hero-home');
     if (!hero) return;
 
-    // Determine if image is in gallery or main images folder
+    // Always look directly in the hero-home folder
     function getImgPath(fname) {
-      // gallery images have long numeric names
-      if (/^\d{8,}/.test(fname) || /^FB_IMG/.test(fname)) {
-        return IMG_BASE + 'gallery/' + fname;
-      }
-      return IMG_BASE + fname;
+      return IMG_BASE + 'hero-home/' + fname;
     }
 
     async function initSlideshow() {
