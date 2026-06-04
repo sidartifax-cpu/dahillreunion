@@ -5,6 +5,46 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta name="description" content="Da Hill Reunion Gallery — Over 40 years of photos and memories from St. Nicholas Terrace, Harlem, NY."/>
   <title>Gallery — Da Hill Reunion</title>
+  <!-- ═══ SEO / AEO / GEO / SCHEMA ═══ -->
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"/>
+  <link rel="canonical" href="https://dahillreunion.com/pages/gallery.html"/>
+  <link rel="icon" type="image/png" href="../images/logo.png"/>
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website"/>
+  <meta property="og:site_name" content="Da Hill Reunion"/>
+  <meta property="og:url" content="https://dahillreunion.com/pages/gallery.html"/>
+  <meta property="og:title" content="Da Hill Reunion Gallery — 40+ Years of Harlem Community Photos"/>
+  <meta property="og:description" content="Photos from 40+ years of Da Hill Reunions on St. Nicholas Terrace, Harlem. Community, culture, family and love captured through the generations."/>
+  <meta property="og:image" content="https://dahillreunion.com/images/community-hero.jpg"/>
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+  <meta property="og:locale" content="en_US"/>
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="Da Hill Reunion Gallery — 40+ Years of Harlem Community Photos"/>
+  <meta name="twitter:description" content="Photos from 40+ years of Da Hill Reunions on St. Nicholas Terrace, Harlem. Community, culture, family and love captured through the generations."/>
+  <meta name="twitter:image" content="https://dahillreunion.com/images/community-hero.jpg"/>
+
+  <!-- GEO -->
+  <meta name="geo.region" content="US-NY"/>
+  <meta name="geo.placename" content="Harlem, New York"/>
+  <meta name="geo.position" content="40.8199;-73.9514"/>
+  <meta name="ICBM" content="40.8199, -73.9514"/>
+
+  <!-- Schema JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"ImageGallery",
+    "name":"Da Hill Reunion Gallery",
+    "description":"Photo gallery from over 40 years of Da Hill Reunion events on St. Nicholas Terrace, Harlem, New York.",
+    "url":"https://dahillreunion.com/pages/gallery.html",
+    "publisher":{"@id":"https://dahillreunion.com/#organization"},
+    "about":{"@type":"Place","name":"St. Nicholas Terrace, Harlem, NY"}}
+  </script>
+  <!-- ═══ END SEO ═══ -->
   <link rel="stylesheet" href="../css/style.css"/>
   <style>
 
@@ -254,6 +294,7 @@
   </style>
 </head>
 <body>
+<a href="#main-content" class="skip-link" style="position:absolute;top:-40px;left:0;background:#e8b84b;color:#1a1a1a;padding:8px 16px;font-family:'Montserrat',sans-serif;font-weight:700;font-size:12px;letter-spacing:1px;text-transform:uppercase;z-index:9999;transition:top 0.2s;" onfocus="this.style.top='0'" onblur="this.style.top='-40px'">Skip to Main Content</a>
 
 <div class="topbar">
   <span>St. Nicholas Terrace &middot; Harlem, NY 10027 &nbsp;|&nbsp; No one has ever become poor from giving.</span>
@@ -286,7 +327,7 @@
       <li><a href="contact.html">Contact</a></li>
     </ul>
     <div class="nav-search">
-      <input type="text" placeholder="Search Here..."/>
+      <input type="text" placeholder="Search Here..." aria-label="Search Da Hill Reunion" id="site-search" name="s"/>
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
     </div>
     <button class="nav-toggle" id="navToggle" aria-label="Menu">
@@ -294,6 +335,8 @@
     </button>
   </div>
 </nav>
+
+<main id="main-content">
 
 <!-- HERO -->
 <div class="gallery-hero">
@@ -420,15 +463,17 @@
   </div>
 </section>
 
+</main>
+
 <footer>
   <div class="footer-top">
     <div>
       <span class="footer-brand-logo"><img src="../images/logo.png" alt="Da Hill Reunion"/></span>
       <p class="footer-brand-desc">"Forward in Power. Rooted in Love."<br><br>The virtual home of Da Hill — St. Nicholas Terrace, Harlem, NY.</p>
     </div>
-    <div class="footer-col"><h4>Navigate</h4><ul><li><a href="../index.html">Home</a></li><li><a href="history.html">Da History</a></li><li><a href="events.html">Events</a></li><li><a href="gallery.html">Gallery</a></li></ul></div>
-    <div class="footer-col"><h4>Community</h4><ul><li><a href="entrepreneurs.html">Entrepreneurs</a></li><li><a href="heroes.html">Da Heroes</a></li><li><a href="donate.html">Donate</a></li><li><a href="contact.html">Contact</a></li></ul></div>
-    <div class="footer-col"><h4>Connect</h4><ul>
+    <div class="footer-col"><p class="footer-col-heading">Navigate</p><ul><li><a href="../index.html">Home</a></li><li><a href="history.html">Da History</a></li><li><a href="events.html">Events</a></li><li><a href="gallery.html">Gallery</a></li></ul></div>
+    <div class="footer-col"><p class="footer-col-heading">Community</p><ul><li><a href="entrepreneurs.html">Entrepreneurs</a></li><li><a href="heroes.html">Da Heroes</a></li><li><a href="donate.html">Donate</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+    <div class="footer-col"><p class="footer-col-heading">Connect</p><ul>
       <li><a href="mailto:info@dahillreunion.com">Email Us</a></li>
       <li><a href="https://www.facebook.com/groups/391650975569064/" target="_blank" rel="noopener">Da Hill Facebook Group</a></li>
       <li><a href="https://www.facebook.com/groups/718801411593854/" target="_blank" rel="noopener">Gone But Not Forgotten</a></li>

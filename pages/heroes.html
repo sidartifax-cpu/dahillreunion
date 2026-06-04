@@ -5,6 +5,45 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta name="description" content="Da Heroes — Gone But Not Forgotten. A tribute to the people of Da Hill who are no longer with us but live forever in our hearts."/>
   <title>Da Heroes — Da Hill Reunion</title>
+  <!-- ═══ SEO / AEO / GEO / SCHEMA ═══ -->
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"/>
+  <link rel="canonical" href="https://dahillreunion.com/pages/heroes.html"/>
+  <link rel="icon" type="image/png" href="../images/logo.png"/>
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website"/>
+  <meta property="og:site_name" content="Da Hill Reunion"/>
+  <meta property="og:url" content="https://dahillreunion.com/pages/heroes.html"/>
+  <meta property="og:title" content="Da Heroes — Gone But Not Forgotten | Da Hill Reunion Harlem"/>
+  <meta property="og:description" content="A tribute to the people of Da Hill who are no longer with us but live forever in the hearts of the St. Nicholas Terrace community, Harlem. Gone But Not Forgotten."/>
+  <meta property="og:image" content="https://dahillreunion.com/images/community-hero.jpg"/>
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+  <meta property="og:locale" content="en_US"/>
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="Da Heroes — Gone But Not Forgotten | Da Hill Reunion Harlem"/>
+  <meta name="twitter:description" content="A tribute to the people of Da Hill who are no longer with us but live forever in the hearts of the St. Nicholas Terrace community, Harlem. Gone But Not Forgotten."/>
+  <meta name="twitter:image" content="https://dahillreunion.com/images/community-hero.jpg"/>
+
+  <!-- GEO -->
+  <meta name="geo.region" content="US-NY"/>
+  <meta name="geo.placename" content="Harlem, New York"/>
+  <meta name="geo.position" content="40.8199;-73.9514"/>
+  <meta name="ICBM" content="40.8199, -73.9514"/>
+
+  <!-- Schema JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebPage",
+    "name":"Da Heroes — Gone But Not Forgotten",
+    "description":"A memorial tribute page honoring members of the St. Nicholas Terrace community in Harlem, New York who have passed away.",
+    "url":"https://dahillreunion.com/pages/heroes.html",
+    "publisher":{"@id":"https://dahillreunion.com/#organization"}}
+  </script>
+  <!-- ═══ END SEO ═══ -->
   <link rel="stylesheet" href="../css/style.css"/>
   <style>
     /* HERO — dark, reverent */
@@ -259,6 +298,7 @@
   </style>
 </head>
 <body>
+<a href="#main-content" class="skip-link" style="position:absolute;top:-40px;left:0;background:#e8b84b;color:#1a1a1a;padding:8px 16px;font-family:'Montserrat',sans-serif;font-weight:700;font-size:12px;letter-spacing:1px;text-transform:uppercase;z-index:9999;transition:top 0.2s;" onfocus="this.style.top='0'" onblur="this.style.top='-40px'">Skip to Main Content</a>
 
 <div class="topbar">
   <span>St. Nicholas Terrace &middot; Harlem, NY 10027 &nbsp;|&nbsp; No one has ever become poor from giving.</span>
@@ -291,7 +331,7 @@
       <li><a href="contact.html">Contact</a></li>
     </ul>
     <div class="nav-search">
-      <input type="text" placeholder="Search Here..."/>
+      <input type="text" placeholder="Search Here..." aria-label="Search Da Hill Reunion" id="site-search" name="s"/>
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
     </div>
     <button class="nav-toggle" id="navToggle" aria-label="Menu">
@@ -300,9 +340,10 @@
   </div>
 </nav>
 
+<main id="main-content">
+
 <!-- HERO -->
-<div class="heroes-hero">
-  <img src="../images/community-hero.jpg" alt="Da Hill Heroes"/>
+<div class="heroes-hero hero-slideshow" id="hero-heroes">
   <div class="heroes-hero-overlay"></div>
   <div class="heroes-hero-content">
     <div class="heroes-hero-tag">Da Hill Heroes</div>
@@ -514,9 +555,9 @@
         <div class="mf-row"><label>Your Name</label><input type="text" placeholder="Your name"/></div>
         <div class="mf-row"><label>Your Email</label><input type="email" placeholder="your@email.com"/></div>
       </div>
-      <div class="mf-row"><label>Name of Your Loved One</label><input type="text" placeholder="Full name"/></div>
-      <div class="mf-row"><label>Their Connection to Da Hill</label><input type="text" placeholder="e.g. Grew up on St. Nick Terrace, longtime resident..."/></div>
-      <div class="mf-row"><label>Your Memory or Tribute</label><textarea placeholder="Share a memory, a word of love, or a tribute..."></textarea></div>
+      <div class="mf-row"><label for="mem-loved-name">Name of Your Loved One</label><input type="text" id="mem-loved-name" name="loved_one_name" placeholder="Full name"/></div>
+      <div class="mf-row"><label for="mem-connection">Their Connection to Da Hill</label><input type="text" id="mem-connection" name="connection" placeholder="e.g. Grew up on St. Nick Terrace, longtime resident..."/></div>
+      <div class="mf-row"><label for="mem-tribute">Your Memory or Tribute</label><textarea id="mem-tribute" name="tribute" placeholder="Share a memory, a word of love, or a tribute..."></textarea></div>
       <button class="mf-submit" onclick="submitMemory(event)">Submit Tribute &#9670;</button>
       <div class="mf-success" id="memorySuccess">
         &#129761; &nbsp; Thank you for this tribute. We will add your loved one to the wall with honor.
@@ -535,15 +576,17 @@
   </div>
 </section>
 
+</main>
+
 <footer>
   <div class="footer-top">
     <div>
       <span class="footer-brand-logo"><img src="../images/logo.png" alt="Da Hill Reunion"/></span>
       <p class="footer-brand-desc">"Forward in Power. Rooted in Love."<br><br>The virtual home of Da Hill — St. Nicholas Terrace, Harlem, NY.</p>
     </div>
-    <div class="footer-col"><h4>Navigate</h4><ul><li><a href="../index.html">Home</a></li><li><a href="history.html">Da History</a></li><li><a href="events.html">Events</a></li><li><a href="gallery.html">Gallery</a></li></ul></div>
-    <div class="footer-col"><h4>Community</h4><ul><li><a href="entrepreneurs.html">Entrepreneurs</a></li><li><a href="heroes.html">Da Heroes</a></li><li><a href="../index.html#resources">Resources</a></li><li><a href="contact.html">Contact</a></li></ul></div>
-    <div class="footer-col"><h4>Connect</h4><ul>
+    <div class="footer-col"><p class="footer-col-heading">Navigate</p><ul><li><a href="../index.html">Home</a></li><li><a href="history.html">Da History</a></li><li><a href="events.html">Events</a></li><li><a href="gallery.html">Gallery</a></li></ul></div>
+    <div class="footer-col"><p class="footer-col-heading">Community</p><ul><li><a href="entrepreneurs.html">Entrepreneurs</a></li><li><a href="heroes.html">Da Heroes</a></li><li><a href="../index.html#resources">Resources</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+    <div class="footer-col"><p class="footer-col-heading">Connect</p><ul>
       <li><a href="mailto:info@dahillreunion.com">Email Us</a></li>
       <li><a href="https://www.facebook.com/groups/391650975569064/" target="_blank" rel="noopener">Da Hill Facebook Group</a></li>
       <li><a href="https://www.facebook.com/groups/718801411593854/" target="_blank" rel="noopener">Gone But Not Forgotten</a></li>
@@ -565,5 +608,128 @@
     s.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   }
 </script>
+<script>
+  // ── HERO SLIDESHOW: hero-heroes ──
+  (function() {
+    const MANIFEST  = '../hero-heroes-manifest.json';
+    const IMG_BASE  = '../images/';
+    const HOLD_MS   = 8000;
+    const FADE_MS   = 1800;
+    const KB_CLASSES = ['kb-center','kb-left','kb-right','kb-pan'];
+
+    let slides   = [];
+    let current  = 0;
+    let timer    = null;
+    const hero   = document.getElementById('hero-heroes');
+    if (!hero) return;
+
+    // Determine if image is in gallery or main images folder
+    function getImgPath(fname) {
+      // gallery images have long numeric names
+      if (/^\d{8,}/.test(fname) || /^FB_IMG/.test(fname)) {
+        return IMG_BASE + 'gallery/' + fname;
+      }
+      return IMG_BASE + fname;
+    }
+
+    async function initSlideshow() {
+      let images = [];
+      try {
+        const r = await fetch(MANIFEST + '?t=' + Date.now());
+        const d = await r.json();
+        images = d.images || [];
+      } catch(e) {
+        console.warn('Hero manifest error:', e);
+      }
+      if (!images.length) return;
+
+      // Build slides
+      const overlay = hero.querySelector('.hero-overlay');
+      const content = hero.querySelector('.hero-content');
+      const dots_wrap = document.createElement('div');
+      dots_wrap.className = 'hero-dots';
+      dots_wrap.setAttribute('aria-hidden','true');
+
+      images.forEach((fname, i) => {
+        const slide = document.createElement('div');
+        slide.className = 'hero-slide' + (i === 0 ? ' active' : '');
+        slide.setAttribute('aria-hidden', i !== 0 ? 'true' : 'false');
+
+        const img = document.createElement('img');
+        img.src = getImgPath(fname);
+        img.alt = 'Da Hill Reunion community photo';
+        img.loading = i === 0 ? 'eager' : 'lazy';
+        img.decoding = 'async';
+        if (i === 0) img.className = KB_CLASSES[0];
+
+        slide.appendChild(img);
+        hero.insertBefore(slide, overlay || hero.firstChild);
+        slides.push(slide);
+
+        const dot = document.createElement('button');
+        dot.className = 'hero-dot' + (i === 0 ? ' active' : '');
+        dot.setAttribute('aria-label', 'Go to slide ' + (i+1));
+        dot.addEventListener('click', () => goTo(i));
+        dots_wrap.appendChild(dot);
+      });
+
+      hero.appendChild(dots_wrap);
+      startTimer();
+    }
+
+    function goTo(idx) {
+      const prev = slides[current];
+      prev.classList.remove('active');
+      prev.classList.add('prev');
+      prev.setAttribute('aria-hidden','true');
+      // reset ken burns
+      const prevImg = prev.querySelector('img');
+      prevImg.className = '';
+      void prevImg.offsetWidth;
+
+      current = idx;
+      const curr = slides[current];
+      curr.classList.remove('prev');
+      curr.classList.add('active');
+      curr.setAttribute('aria-hidden','false');
+      // apply random ken burns
+      const kb = KB_CLASSES[Math.floor(Math.random() * KB_CLASSES.length)];
+      const currImg = curr.querySelector('img');
+      currImg.className = '';
+      void currImg.offsetWidth;
+      currImg.className = kb;
+
+      // update dots
+      hero.querySelectorAll('.hero-dot').forEach((d,i) => {
+        d.classList.toggle('active', i === current);
+      });
+
+      // clean prev after fade
+      setTimeout(() => prev.classList.remove('prev'), FADE_MS + 100);
+    }
+
+    function next() {
+      goTo((current + 1) % slides.length);
+    }
+
+    function startTimer() {
+      clearInterval(timer);
+      timer = setInterval(next, HOLD_MS);
+    }
+
+    // Pause on hover
+    hero.addEventListener('mouseenter', () => clearInterval(timer));
+    hero.addEventListener('mouseleave', startTimer);
+
+    // Preload next image
+    function preloadNext() {
+      const nextIdx = (current + 1) % slides.length;
+      const img = slides[nextIdx]?.querySelector('img');
+      if (img && !img.complete) img.loading = 'eager';
+    }
+    setInterval(preloadNext, HOLD_MS - 2000);
+
+    initSlideshow();
+  })();</script>
 </body>
 </html>

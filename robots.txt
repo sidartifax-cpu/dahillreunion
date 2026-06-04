@@ -1,0 +1,63 @@
+# Da Hill Reunion — dahillreunion.com
+# robots.txt — W3C / RFC 9309 compliant
+
+# Allow all search engines
+User-agent: *
+Allow: /
+Disallow: /images/gallery/README.md
+Disallow: /gallery-manifest.json
+
+# Google
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+# Google Images
+User-agent: Googlebot-Image
+Allow: /images/
+
+# Bing
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+# DuckDuckGo
+User-agent: DuckDuckBot
+Allow: /
+
+# Yahoo
+User-agent: Slurp
+Allow: /
+
+# Yandex
+User-agent: YandexBot
+Allow: /
+
+# Baidu
+User-agent: Baiduspider
+Allow: /
+
+# AI Crawlers — allow indexing for AEO/GEO
+User-agent: GPTBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+User-agent: meta-externalagent
+Allow: /
+
+# Sitemap
+Sitemap: https://dahillreunion.com/sitemap.xml
