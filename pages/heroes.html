@@ -60,11 +60,11 @@
       object-position: center 30%; filter: brightness(0.3) saturate(0.5);
     }
     .heroes-hero-overlay {
-      position: absolute; inset: 0;
+      position: absolute; inset: 0; z-index: 5;
       background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.4) 60%, rgba(0,0,0,0.2) 100%);
     }
     .heroes-hero-content {
-      position: absolute; bottom: 0; left: 0; right: 0;
+      position: absolute; z-index: 6; bottom: 0; left: 0; right: 0;
       text-align: center; padding: 0 40px 60px;
     }
     .heroes-hero-tag {
@@ -651,8 +651,8 @@
       if (!images.length) return;
 
       // Build slides
-      const overlay = hero.querySelector('.hero-overlay');
-      const content = hero.querySelector('.hero-content');
+      const overlay = hero.querySelector('.heroes-hero-overlay') || hero.querySelector('.hero-overlay');
+      const content = hero.querySelector('.heroes-hero-content') || hero.querySelector('.hero-content');
       const dots_wrap = document.createElement('div');
       dots_wrap.className = 'hero-dots';
       dots_wrap.setAttribute('aria-hidden','true');

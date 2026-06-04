@@ -60,11 +60,11 @@
       object-position: center 35%; filter: brightness(0.52);
     }
     .hero-overlay {
-      position: absolute; inset: 0;
+      position: absolute; inset: 0; z-index: 5;
       background: linear-gradient(to right, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.3) 55%, rgba(0,0,0,0.1) 100%);
     }
     .hero-content {
-      position: absolute; bottom: 110px; left: 60px; max-width: 560px;
+      position: absolute; z-index: 6; bottom: 110px; left: 60px; max-width: 560px;
     }
     .hero-label {
       font-family: 'Montserrat', sans-serif; font-weight: 600;
@@ -349,6 +349,12 @@
     }
     .hero-slide.active { opacity: 1; z-index: 1; }
     .hero-slide.prev   { opacity: 0; z-index: 0; }
+    /* Overlay and content always above slides */
+    .hero-slideshow .hero-overlay { z-index: 5; }
+    .hero-slideshow .hero-content { z-index: 6; }
+    .hero-slideshow .hero-dots    { z-index: 7; }
+    .hero-slideshow .heroes-hero-overlay { z-index: 5; }
+    .hero-slideshow .heroes-hero-content { z-index: 6; }
     .hero-slide img {
       width: 100%; height: 100%;
       object-fit: cover;
