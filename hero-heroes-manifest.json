@@ -1,12 +1,14 @@
 {
-  "total": 6,
-  "images": [
+  "total": 8,
+  "images/hero-heroes": [
     "community-hero.jpg",
     "community-mission.jpg",
     "community-two-men.jpg",
     "gallery-5.jpg",
     "gallery-9.jpg",
     "gallery-10.jpg"
+    "gallery-1.jpg"
+    "24059298_10215197974767539_5151499348756664746_o.jpg"
   ],
   "source": "fallback"
 }

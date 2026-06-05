@@ -1,0 +1,107 @@
+name: Build Gallery Manifest
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'images/gallery/**'
+      - 'images/hero-home/**'
+      - 'images/hero-heroes/**'
+  workflow_dispatch:
+
+jobs:
+  build-manifest:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Build all manifests
+        run: |
+          python3 << 'PYEOF'
+          import os, json
+
+          extensions = {'.jpg', '.jpeg', '.png', '.gif', '.webp'}
+
+          FALLBACK_HOME = [
+            "community-hero.jpg",
+            "community-three.jpg",
+            "community-dancers.jpg",
+            "community-block.jpg",
+            "community-couple-crown.jpg",
+            "community-performer.jpg"
+          ]
+
+          FALLBACK_HEROES = [
+            "community-hero.jpg",
+            "community-mission.jpg",
+            "community-two-men.jpg",
+            "gallery-5.jpg",
+            "gallery-9.jpg",
+            "gallery-10.jpg"
+          ]
+
+          def scan_folder(folder):
+              images = []
+              if os.path.isdir(folder):
+                  for fname in sorted(os.listdir(folder)):
+                      if fname.startswith('._') or fname.startswith('.'):
+                          continue
+                      ext = os.path.splitext(fname)[1].lower()
+                      if ext in extensions:
+                          images.append(fname)
+              return images
+
+          def write_manifest(path, data):
+              with open(path, 'w') as f:
+                  json.dump(data, f, indent=2)
+              print(f"Written: {path} — {data['total']} images — source: {data.get('source','n/a')}")
+
+          # ── GALLERY manifest ──
+          gallery_imgs = scan_folder('images/gallery')
+          write_manifest('gallery-manifest.json', {
+              "total": len(gallery_imgs),
+              "images": gallery_imgs
+          })
+
+          # ── HERO HOME manifest ──
+          hero_home_imgs = scan_folder('images/hero-home')
+          has_home = len(hero_home_imgs) > 0
+          if not has_home:
+              hero_home_imgs = FALLBACK_HOME
+              print("Hero-home: no custom images — using fallback")
+          write_manifest('hero-home-manifest.json', {
+              "total": len(hero_home_imgs[:6]),
+              "images": hero_home_imgs[:6],
+              "source": "custom" if has_home else "fallback"
+          })
+
+          # ── HERO HEROES manifest ──
+          hero_heroes_imgs = scan_folder('images/hero-heroes')
+          has_heroes = len(hero_heroes_imgs) > 0
+          if not has_heroes:
+              hero_heroes_imgs = FALLBACK_HEROES
+              print("Hero-heroes: no custom images — using fallback")
+          write_manifest('hero-heroes-manifest.json', {
+              "total": len(hero_heroes_imgs[:6]),
+              "images": hero_heroes_imgs[:6],
+              "source": "custom" if has_heroes else "fallback"
+          })
+
+          PYEOF
+
+      - name: Commit manifests
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add gallery-manifest.json hero-home-manifest.json hero-heroes-manifest.json
+          if git diff --staged --quiet; then
+            echo "No changes to manifests"
+          else
+            git commit -m "Auto-update manifests [skip ci]"
+            git push
+          fi
