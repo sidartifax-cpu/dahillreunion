@@ -693,22 +693,17 @@
     const hero   = document.getElementById('hero-heroes');
     if (!hero) return;
 
-    // Smart path — use hero-heroes/ for custom, images/ root for fallback
-    function getImgPath(fname, source) {
-      if (source === 'custom') {
-        return IMG_BASE + 'hero-heroes/' + fname;
-      }
-      return IMG_BASE + fname;
+    // Always look in hero-heroes/ folder — ignore source field
+    function getImgPath(fname) {
+      return IMG_BASE + 'hero-heroes/' + fname;
     }
 
     async function initSlideshow() {
       let images = [];
-      let source = 'fallback';
       try {
         const r = await fetch(MANIFEST + '?t=' + Date.now());
         const d = await r.json();
         images = d.images || [];
-        source = d.source || 'fallback';
       } catch(e) {
         console.warn('Hero manifest error:', e);
       }
@@ -727,7 +722,7 @@
         slide.setAttribute('aria-hidden', i !== 0 ? 'true' : 'false');
 
         const img = document.createElement('img');
-        img.src = getImgPath(fname, source);
+        img.src = getImgPath(fname);
         img.alt = 'Da Hill Reunion community photo';
         img.loading = i === 0 ? 'eager' : 'lazy';
         img.decoding = 'async';
