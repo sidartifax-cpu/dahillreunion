@@ -280,6 +280,65 @@
       font-size: 14px; color: #27ae60; font-weight: 600; text-align: center;
     }
 
+
+    /* ══ HERO SLIDESHOW ══ */
+    .hero-slideshow {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+    }
+    .hero-slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity 1.8s ease-in-out;
+      will-change: opacity;
+    }
+    .hero-slide.active { opacity: 1; z-index: 1; }
+    .hero-slide.prev   { opacity: 0; z-index: 0; }
+    .hero-slide img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center 30%;
+      display: block;
+      animation: none;
+      will-change: transform;
+      filter: brightness(0.72);
+    }
+    .hero-slideshow .heroes-hero-overlay { z-index: 5 !important; }
+    .hero-slideshow .heroes-hero-content { z-index: 6 !important; }
+    .hero-slideshow .hero-dots           { z-index: 7 !important; }
+    @keyframes kb-zoom-in-center {
+      from { transform: scale(1.0); } to { transform: scale(1.12); }
+    }
+    @keyframes kb-zoom-in-left {
+      from { transform: scale(1.0) translateX(0); } to { transform: scale(1.1) translateX(-2%); }
+    }
+    @keyframes kb-zoom-in-right {
+      from { transform: scale(1.0) translateX(0); } to { transform: scale(1.1) translateX(2%); }
+    }
+    @keyframes kb-pan-up {
+      from { transform: scale(1.08) translateY(2%); } to { transform: scale(1.12) translateY(-2%); }
+    }
+    .kb-center { animation: kb-zoom-in-center 9s ease-in-out forwards; }
+    .kb-left   { animation: kb-zoom-in-left   9s ease-in-out forwards; }
+    .kb-right  { animation: kb-zoom-in-right  9s ease-in-out forwards; }
+    .kb-pan    { animation: kb-pan-up         9s ease-in-out forwards; }
+    .hero-dots {
+      position: absolute; bottom: 72px; right: 28px; z-index: 10;
+      display: flex; flex-direction: column; gap: 6px;
+    }
+    .hero-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: rgba(255,255,255,0.35);
+      border: 1px solid rgba(255,255,255,0.5);
+      cursor: pointer; transition: all 0.3s;
+    }
+    .hero-dot.active {
+      background: #e8b84b; border-color: #e8b84b; transform: scale(1.4);
+    }
+    /* ══ END SLIDESHOW ══ */
+
     /* REVEAL */
     .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.65s ease, transform 0.65s ease; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
