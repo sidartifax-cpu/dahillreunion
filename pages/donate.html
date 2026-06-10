@@ -1,6 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta name="google-site-verification" content="17926291731336801619"/>
+  <link rel="sitemap" type="application/xml" href="/sitemap.xml"/>
+  <!-- Google Analytics GA4 — add your G- ID when ready -->
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script> -->
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta name="description" content="Donate or become a sponsor of Da Hill Reunion — Support the St. Nicholas Terrace Neighborhood Foundation Inc., a 501(c)(3) nonprofit. 100% of your donation goes to the mission."/>
@@ -45,6 +55,20 @@
     "@graph":[
       {"@type":"NGO","name":"St. Nicholas Terrace Neighborhood Foundation Inc","description":"501(c)(3) nonprofit organization supporting the annual Da Hill Reunion community event and youth programs on St. Nicholas Terrace in Harlem, New York.","url":"https://dahillreunion.com","address":{"@type":"PostalAddress","streetAddress":"St. Nicholas Terrace","addressLocality":"Harlem","addressRegion":"NY","postalCode":"10027","addressCountry":"US"}},
       {"@type":"DonateAction","name":"Donate to Da Hill Annual Reunion","description":"Support the St. Nicholas Terrace Neighborhood Foundation Inc., a 501(c)(3). 100% of donations fund scholarships, health programs, youth activities and the Da Hill Reunion.","url":"https://www.zeffy.com/en-US/donation-form/da-hill-annual-reunion","recipient":{"@type":"Organization","name":"St. Nicholas Terrace Neighborhood Foundation Inc","url":"https://dahillreunion.com"}}
+    ,
+      {
+        "@type": "GiveAction",
+        "@id": "https://dahillreunion.com/pages/donate.html#giveaction",
+        "name": "Donate to Da Hill Reunion",
+        "description": "Support the St. Nicholas Terrace Neighborhood Foundation Inc., a 501(c)(3), through a tax-deductible donation via Zeffy.",
+        "url": "https://dahillreunion.com/pages/donate.html",
+        "recipient": {
+          "@type": "NGO",
+          "name": "St. Nicholas Terrace Neighborhood Foundation Inc",
+          "url": "https://dahillreunion.com",
+          "nonprofitStatus": "Nonprofit501c3"
+        }
+      }
     ]}
   </script>
   <!-- ═══ END SEO ═══ -->
@@ -1312,8 +1336,19 @@
       <span class="footer-brand-logo"><img src="../images/logo.png" alt="Da Hill Reunion"/></span>
       <p class="footer-brand-desc">"Forward in Power. Rooted in Love."<br><br>The virtual home of Da Hill — St. Nicholas Terrace, Harlem, NY.</p>
     </div>
-    <div class="footer-col"><p class="footer-col-heading">Navigate</p><ul><li><a href="../index.html">Home</a></li><li><a href="history.html">Da History</a></li><li><a href="events.html">Events</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="news.html">News & Updates</a></li></ul></div>
-    <div class="footer-col"><p class="footer-col-heading">Community</p><ul><li><a href="entrepreneurs.html">Entrepreneurs</a></li><li><a href="heroes.html">Da Heroes</a></li><li><a href="../index.html#resources">Resources</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+    <div class="footer-col"><p class="footer-col-heading">Navigate</p><ul>
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="history.html">Da History</a></li>
+      <li><a href="events.html">Events</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+    </ul></div>
+    <div class="footer-col"><p class="footer-col-heading">Community</p><ul>
+      <li><a href="entrepreneurs.html">Entrepreneurs</a></li>
+      <li><a href="heroes.html">Da Heroes</a></li>
+      <li><a href="news.html">News &amp; Updates</a></li>
+      <li><a href="donate.html">Donate</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul></div>
     <div class="footer-col"><p class="footer-col-heading">Connect</p><ul>
       <li><a href="mailto:dahillreunion379@gmail.com">Email Us</a></li>
       <li><a href="https://www.facebook.com/groups/391650975569064/" target="_blank" rel="noopener">Da Hill Facebook Group</a></li>
@@ -1321,8 +1356,10 @@
       <li><a href="https://www.moorgraphix.com" target="_blank" rel="noopener">Moor Graphix</a></li>
     </ul></div>
   </div>
-  <div style="border-top:1px solid rgba(255,255,255,0.06);border-bottom:1px solid rgba(255,255,255,0.06);padding:14px 40px;text-align:center;">
-    <a href="donate.html" style="font-family:'Montserrat',sans-serif;font-weight:600;font-size:12px;color:rgba(255,255,255,0.38);letter-spacing:0.5px;text-decoration:none;" onmouseover="this.style.color='#e8b84b'" onmouseout="this.style.color='rgba(255,255,255,0.38)'">Da Hill Reunion powered by St. Nicholas Terrace Neighborhood Foundation Inc. &mdash; a 501(c)(3)</a>
+  <div style="text-align:center;padding:16px 40px;border-top:1px solid rgba(255,255,255,0.05);border-bottom:1px solid rgba(255,255,255,0.05);">
+    <a href="donate.html" style="font-family:'Montserrat',sans-serif;font-weight:600;font-size:12px;color:rgba(255,255,255,0.4);letter-spacing:0.5px;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#e8b84b'" onmouseout="this.style.color='rgba(255,255,255,0.4)'">
+      Da Hill Reunion powered by St. Nicholas Terrace Neighborhood Foundation Inc. &mdash; a 501(c)(3)
+    </a>
   </div>
   <div class="footer-bottom">
     <p class="footer-copy">&copy; 2020&ndash;2026 Da Hill Reunion. All Rights Reserved. Designed by <a href="https://www.moorgraphix.com" target="_blank" rel="noopener">Moor Graphix</a></p>
