@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Donate to Da Hill Reunion — Support the St. Nicholas Terrace Neighborhood Foundation. 100% of your donation goes to the mission. Bring the Block Back."/>
-  <title>Donate — Da Hill Reunion</title>
+  <meta name="description" content="Donate or become a sponsor of Da Hill Reunion — Support the St. Nicholas Terrace Neighborhood Foundation Inc., a 501(c)(3) nonprofit. 100% of your donation goes to the mission."/>
+  <title>Donate &amp; Sponsor — Da Hill Reunion</title>
   <!-- ═══ SEO / AEO / GEO / SCHEMA ═══ -->
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"/>
   <link rel="canonical" href="https://dahillreunion.com/pages/donate.html"/>
@@ -19,8 +19,8 @@
   <meta property="og:type" content="website"/>
   <meta property="og:site_name" content="Da Hill Reunion"/>
   <meta property="og:url" content="https://dahillreunion.com/pages/donate.html"/>
-  <meta property="og:title" content="Donate to Da Hill Reunion — Bring the Block Back | Harlem NY"/>
-  <meta property="og:description" content="Support the St. Nicholas Terrace Neighborhood Foundation. 100% of your donation funds food, music, youth activities and permits for Da Hill Reunion. No fees via Zeffy."/>
+  <meta property="og:title" content="Donate &amp; Sponsor Da Hill Reunion — Bring the Block Back | Harlem NY"/>
+  <meta property="og:description" content="Support the St. Nicholas Terrace Neighborhood Foundation Inc., a 501(c)(3). 100% of donations fund scholarships, health initiatives, youth programs and the Da Hill Reunion. No fees via Zeffy."/>
   <meta property="og:image" content="https://dahillreunion.com/images/community-hero.jpg"/>
   <meta property="og:image:width" content="1200"/>
   <meta property="og:image:height" content="630"/>
@@ -28,8 +28,8 @@
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image"/>
-  <meta name="twitter:title" content="Donate to Da Hill Reunion — Bring the Block Back | Harlem NY"/>
-  <meta name="twitter:description" content="Support the St. Nicholas Terrace Neighborhood Foundation. 100% of your donation funds food, music, youth activities and permits for Da Hill Reunion. No fees via Zeffy."/>
+  <meta name="twitter:title" content="Donate &amp; Sponsor Da Hill Reunion — Bring the Block Back | Harlem NY"/>
+  <meta name="twitter:description" content="Support the St. Nicholas Terrace Neighborhood Foundation Inc., a 501(c)(3). 100% of donations fund scholarships, health initiatives, youth programs and the Da Hill Reunion."/>
   <meta name="twitter:image" content="https://dahillreunion.com/images/community-hero.jpg"/>
 
   <!-- GEO -->
@@ -43,8 +43,8 @@
   {
     "@context":"https://schema.org",
     "@graph":[
-      {"@type":"NGO","name":"St. Nicholas Terrace Neighborhood Foundation Inc","description":"Nonprofit organization supporting the annual Da Hill Reunion community event on St. Nicholas Terrace in Harlem, New York.","url":"https://dahillreunion.com","address":{"@type":"PostalAddress","streetAddress":"St. Nicholas Terrace","addressLocality":"Harlem","addressRegion":"NY","postalCode":"10027","addressCountry":"US"}},
-      {"@type":"DonateAction","name":"Donate to Da Hill Annual Reunion","description":"Support the St. Nicholas Terrace Neighborhood Foundation. 100% of donations fund food, music, permits and youth activities for Da Hill Reunion.","url":"https://www.zeffy.com/en-US/donation-form/da-hill-annual-reunion","recipient":{"@type":"Organization","name":"St. Nicholas Terrace Neighborhood Foundation Inc","url":"https://dahillreunion.com"}}
+      {"@type":"NGO","name":"St. Nicholas Terrace Neighborhood Foundation Inc","description":"501(c)(3) nonprofit organization supporting the annual Da Hill Reunion community event and youth programs on St. Nicholas Terrace in Harlem, New York.","url":"https://dahillreunion.com","address":{"@type":"PostalAddress","streetAddress":"St. Nicholas Terrace","addressLocality":"Harlem","addressRegion":"NY","postalCode":"10027","addressCountry":"US"}},
+      {"@type":"DonateAction","name":"Donate to Da Hill Annual Reunion","description":"Support the St. Nicholas Terrace Neighborhood Foundation Inc., a 501(c)(3). 100% of donations fund scholarships, health programs, youth activities and the Da Hill Reunion.","url":"https://www.zeffy.com/en-US/donation-form/da-hill-annual-reunion","recipient":{"@type":"Organization","name":"St. Nicholas Terrace Neighborhood Foundation Inc","url":"https://dahillreunion.com"}}
     ]}
   </script>
   <!-- ═══ END SEO ═══ -->
@@ -96,7 +96,42 @@
     }
     .zeffy-strip p::before { content: '✓'; font-size: 16px; }
 
-    /* ── MAIN LAYOUT ── */
+    /* ── TAB SYSTEM ── */
+    .donate-tabs-section {
+      background: #fff;
+      border-bottom: 1px solid #eee;
+      position: sticky; top: 52px; z-index: 90;
+    }
+    .donate-tabs-inner {
+      max-width: 1280px; margin: 0 auto;
+      padding: 0 40px;
+      display: flex; gap: 0; align-items: stretch;
+    }
+    .donate-tab {
+      font-family: 'Montserrat', sans-serif; font-weight: 700;
+      font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase;
+      padding: 18px 28px; border: none; background: none;
+      cursor: pointer; color: #888; border-bottom: 3px solid transparent;
+      transition: all 0.2s; white-space: nowrap;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .donate-tab:hover { color: #1a1a1a; }
+    .donate-tab.active { color: #1a1a1a; border-bottom-color: #e8b84b; }
+    .donate-tab .tab-badge {
+      background: #e8b84b; color: #1a1a1a;
+      font-size: 9px; font-weight: 800; letter-spacing: 1px;
+      padding: 2px 7px; border-radius: 999px;
+      text-transform: uppercase;
+    }
+    .tab-sponsor-badge {
+      background: #c0392b !important; color: #fff !important;
+    }
+
+    /* ── TAB PANELS ── */
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    /* ── MAIN LAYOUT (donate tab) ── */
     .donate-main { background: #fff; padding: 70px 0; }
     .donate-layout {
       display: grid; grid-template-columns: 1fr 1.1fr;
@@ -136,7 +171,6 @@
     .ii-green { background: #e8f5ee; }
     .ii-red   { background: #fde8e6; }
     .ii-blue  { background: #e6eef8; }
-    .impact-text {}
     .impact-title {
       font-family: 'Montserrat', sans-serif; font-weight: 700;
       font-size: 14px; color: #1a1a1a; margin-bottom: 3px;
@@ -158,7 +192,6 @@
       font-family: 'Montserrat', sans-serif; font-weight: 800;
       font-size: 11px; color: #e8b84b; letter-spacing: 1px; text-align: center; line-height: 1.2;
     }
-    .org-badge-text {}
     .org-badge-name {
       font-family: 'Montserrat', sans-serif; font-weight: 700;
       font-size: 12px; color: #1a1a1a; margin-bottom: 3px; letter-spacing: 0.5px;
@@ -185,7 +218,6 @@
     .share-btn.copy:hover { background: #e8b84b; color: #1a1a1a; }
 
     /* ── RIGHT — ZEFFY EMBED ── */
-    .donate-form-col {}
     .donate-form-header {
       background: #1a1a1a; border-radius: 10px 10px 0 0;
       padding: 24px 28px;
@@ -196,13 +228,11 @@
       background: #e8b84b; display: flex; align-items: center;
       justify-content: center; font-size: 20px; flex-shrink: 0;
     }
-    .donate-form-header-text {}
     .donate-form-title {
       font-family: 'Montserrat', sans-serif; font-weight: 800;
       font-size: 16px; color: #fff; margin-bottom: 2px;
     }
     .donate-form-sub { font-size: 12px; color: rgba(255,255,255,0.45); }
-
     .zeffy-embed-wrap {
       border: 1px solid #eee; border-top: none;
       border-radius: 0 0 10px 10px; overflow: hidden;
@@ -212,8 +242,6 @@
       width: 100%; border: none; display: block;
       min-height: 620px;
     }
-
-    /* Zeffy note */
     .zeffy-note {
       display: flex; align-items: center; gap: 10px;
       background: #e8f5ee; border: 1px solid rgba(39,174,96,0.2);
@@ -331,6 +359,302 @@
       max-width: 500px; margin-left: auto; margin-right: auto; line-height: 1.7;
     }
 
+    /* ════════════════════════════════
+       SPONSOR TAB STYLES
+    ════════════════════════════════ */
+    .sponsor-section { background: #fff; padding: 70px 0; }
+    .sponsor-intro {
+      max-width: 760px; margin: 0 auto 60px; text-align: center; padding: 0 40px;
+    }
+    .sponsor-intro p {
+      font-size: 15px; color: #666; line-height: 1.9; margin-top: 16px;
+    }
+    .sponsor-intro .tax-pill {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: #e8f5ee; border: 1px solid rgba(39,174,96,0.25);
+      border-radius: 999px; padding: 8px 18px; margin-top: 20px;
+      font-family: 'Montserrat', sans-serif; font-weight: 700;
+      font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase;
+      color: #27ae60;
+    }
+    .sponsor-intro .tax-pill::before { content: '✓'; font-size: 13px; }
+
+    /* What sponsorship funds */
+    .sponsor-funds {
+      background: #1a1a1a; padding: 60px 0;
+    }
+    .sponsor-funds-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1px; background: rgba(255,255,255,0.06);
+      max-width: 1280px; margin: 40px auto 0; padding: 0 40px;
+    }
+    .sponsor-fund-item {
+      background: #1a1a1a; padding: 32px 28px;
+      transition: background 0.2s;
+    }
+    .sponsor-fund-item:hover { background: #222; }
+    .sponsor-fund-icon { font-size: 28px; margin-bottom: 14px; display: block; }
+    .sponsor-fund-title {
+      font-family: 'Montserrat', sans-serif; font-weight: 700;
+      font-size: 14px; color: #fff; margin-bottom: 8px;
+    }
+    .sponsor-fund-desc { font-size: 13px; color: rgba(255,255,255,0.45); line-height: 1.75; }
+
+    /* Two-track heading */
+    .sponsor-tracks {
+      max-width: 1280px; margin: 60px auto 0; padding: 0 40px;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 40px; align-items: start;
+    }
+    .sponsor-track-label {
+      font-family: 'Montserrat', sans-serif; font-weight: 800;
+      font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .sponsor-track-label.community { color: #27ae60; }
+    .sponsor-track-label.corporate { color: #2c3e6b; }
+    .sponsor-track-heading {
+      font-family: 'Montserrat', sans-serif; font-weight: 800;
+      font-size: 24px; color: #1a1a1a; text-transform: uppercase;
+      line-height: 1.2; margin-bottom: 12px;
+    }
+    .sponsor-track-heading em { font-style: normal; color: #e8b84b; }
+    .sponsor-track-desc { font-size: 13px; color: #777; line-height: 1.8; margin-bottom: 24px; }
+
+    /* Community giving cards */
+    .community-giving-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    .community-card {
+      border: 1px solid #eee; border-radius: 10px;
+      padding: 22px 18px; text-align: center;
+      transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+    }
+    .community-card:hover {
+      border-color: #27ae60; transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(39,174,96,0.1);
+    }
+    .community-card.featured {
+      border-color: #27ae60; border-width: 2px;
+      background: linear-gradient(to bottom, #f0fbf4, #fff);
+    }
+    .community-card-amount {
+      font-family: 'Montserrat', sans-serif; font-weight: 800;
+      font-size: 30px; color: #1a1a1a; margin-bottom: 4px;
+    }
+    .community-card-amount span { font-size: 16px; color: #aaa; font-weight: 600; }
+    .community-card-level {
+      font-family: 'Montserrat', sans-serif; font-weight: 700;
+      font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase;
+      color: #27ae60; margin-bottom: 10px;
+    }
+    .community-card-desc { font-size: 12px; color: #888; line-height: 1.65; margin-bottom: 16px; }
+    .community-card-cta {
+      display: block; width: 100%;
+      background: #27ae60; color: #fff;
+      font-family: 'Montserrat', sans-serif; font-weight: 700;
+      font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase;
+      padding: 10px; border-radius: 4px; text-decoration: none;
+      transition: background 0.2s;
+    }
+    .community-card-cta:hover { background: #219a54; }
+    .community-card.featured .community-card-cta { background: #1a1a1a; }
+    .community-card.featured .community-card-cta:hover { background: #333; }
+
+    /* Divider between tracks */
+    .sponsor-track-divider {
+      width: 1px; background: #eee;
+      align-self: stretch; margin: 0;
+    }
+
+    /* Corporate sponsor tiers */
+    .corporate-tiers { display: flex; flex-direction: column; gap: 14px; }
+    .corp-tier {
+      border: 1px solid #eee; border-radius: 10px;
+      overflow: hidden; transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .corp-tier:hover {
+      border-color: #2c3e6b;
+      box-shadow: 0 8px 24px rgba(44,62,107,0.1);
+    }
+    .corp-tier.flagship {
+      border-color: #e8b84b; border-width: 2px;
+    }
+    .corp-tier-header {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 18px 22px; background: #f7f7f7;
+      cursor: pointer; gap: 12px;
+    }
+    .corp-tier.flagship .corp-tier-header { background: #fffdf5; }
+    .corp-tier-left { display: flex; align-items: center; gap: 14px; }
+    .corp-tier-dot {
+      width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0;
+    }
+    .corp-tier-name {
+      font-family: 'Montserrat', sans-serif; font-weight: 800;
+      font-size: 13px; color: #1a1a1a; letter-spacing: 0.5px;
+    }
+    .corp-tier-amount {
+      font-family: 'Montserrat', sans-serif; font-weight: 700;
+      font-size: 13px; color: #777; margin-left: auto;
+    }
+    .corp-tier-toggle {
+      font-size: 18px; color: #bbb; transition: transform 0.2s; flex-shrink: 0;
+    }
+    .corp-tier.open .corp-tier-toggle { transform: rotate(180deg); }
+    .corp-tier-body {
+      display: none; padding: 20px 22px;
+      border-top: 1px solid #eee;
+    }
+    .corp-tier.open .corp-tier-body { display: block; }
+    .corp-tier-benefits {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 8px 16px; margin-bottom: 18px;
+    }
+    .corp-benefit {
+      display: flex; align-items: flex-start; gap: 8px;
+      font-size: 13px; color: #555; line-height: 1.5;
+    }
+    .corp-benefit::before {
+      content: '✓'; color: #e8b84b; font-weight: 800;
+      font-size: 12px; flex-shrink: 0; margin-top: 2px;
+    }
+    .corp-tier-cta {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: #2c3e6b; color: #fff;
+      font-family: 'Montserrat', sans-serif; font-weight: 700;
+      font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase;
+      padding: 11px 22px; border-radius: 4px; text-decoration: none;
+      transition: background 0.2s; border: none; cursor: pointer;
+    }
+    .corp-tier-cta:hover { background: #1e2d52; }
+    .corp-tier.flagship .corp-tier-cta { background: #e8b84b; color: #1a1a1a; }
+    .corp-tier.flagship .corp-tier-cta:hover { background: #d4a33a; }
+
+    /* Founding sponsors display */
+    .founding-sponsors-section {
+      background: #f7f7f7; padding: 60px 0;
+    }
+    .founding-sponsors-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 24px; margin-top: 40px;
+      max-width: 900px; margin-left: auto; margin-right: auto;
+      padding: 0 40px;
+    }
+    .sponsor-logo-card {
+      background: #fff; border: 1px solid #eee; border-radius: 10px;
+      padding: 28px 20px; text-align: center;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 12px; min-height: 120px;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .sponsor-logo-card:hover { border-color: #e8b84b; box-shadow: 0 6px 20px rgba(232,184,75,0.1); }
+    .sponsor-logo-card img { max-height: 52px; width: auto; object-fit: contain; }
+    .sponsor-logo-placeholder {
+      width: 120px; height: 52px; background: #f0f0f0;
+      border-radius: 4px; display: flex; align-items: center; justify-content: center;
+      font-family: 'Montserrat', sans-serif; font-weight: 700;
+      font-size: 10px; letter-spacing: 1px; text-transform: uppercase; color: #bbb;
+    }
+    .sponsor-logo-tier {
+      font-family: 'Montserrat', sans-serif; font-weight: 700;
+      font-size: 9px; letter-spacing: 2px; text-transform: uppercase;
+      color: #e8b84b;
+    }
+    .sponsor-logo-name {
+      font-family: 'Montserrat', sans-serif; font-weight: 700;
+      font-size: 12px; color: #1a1a1a;
+    }
+
+    /* Community supporters list */
+    .community-supporters-section {
+      background: #fff; padding: 60px 0;
+    }
+    .supporters-list {
+      display: flex; flex-wrap: wrap; gap: 10px;
+      justify-content: center; margin-top: 32px;
+      max-width: 900px; margin-left: auto; margin-right: auto;
+      padding: 0 40px;
+    }
+    .supporter-pill {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: #f7f7f7; border: 1px solid #eee; border-radius: 999px;
+      padding: 8px 16px;
+      font-family: 'Montserrat', sans-serif; font-weight: 600;
+      font-size: 12px; color: #555;
+    }
+    .supporter-pill::before { content: '♥'; color: #c0392b; font-size: 11px; }
+
+    /* Sponsor contact CTA */
+    .sponsor-contact-cta {
+      background: #2c3e6b; padding: 70px 40px; text-align: center;
+    }
+    .sponsor-contact-cta h2 {
+      font-family: 'Montserrat', sans-serif; font-weight: 800;
+      font-size: 32px; color: #fff; text-transform: uppercase; margin-bottom: 12px;
+    }
+    .sponsor-contact-cta h2 em { font-style: normal; color: #e8b84b; }
+    .sponsor-contact-cta p {
+      font-size: 15px; color: rgba(255,255,255,0.6);
+      max-width: 560px; margin: 0 auto 28px; line-height: 1.8;
+    }
+    .sponsor-contact-cta .btn-row {
+      display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;
+    }
+    .btn-navy-outline {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: transparent; color: #fff; border: 2px solid rgba(255,255,255,0.3);
+      font-family: 'Montserrat', sans-serif; font-weight: 700;
+      font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase;
+      padding: 13px 28px; border-radius: 3px; transition: all 0.2s; text-decoration: none;
+    }
+    .btn-navy-outline:hover { border-color: #e8b84b; color: #e8b84b; }
+
+    /* ════════════════════════════════
+       COMMUNITY TAB STYLES
+    ════════════════════════════════ */
+    .community-tab-section { background: #fff; padding: 70px 0; }
+    .community-tab-intro {
+      max-width: 760px; margin: 0 auto 60px; text-align: center; padding: 0 40px;
+    }
+    .community-tab-intro p { font-size: 15px; color: #666; line-height: 1.9; margin-top: 16px; }
+
+    .community-full-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      max-width: 1280px; margin: 0 auto; padding: 0 40px;
+    }
+    .community-full-card {
+      border: 1px solid #eee; border-radius: 10px;
+      padding: 28px 20px; text-align: center;
+      transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    }
+    .community-full-card:hover {
+      border-color: #27ae60; transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(39,174,96,0.1);
+    }
+    .community-full-card.featured {
+      border-color: #27ae60; border-width: 2px;
+      background: linear-gradient(to bottom, #f0fbf4, #fff);
+    }
+    .community-full-card .giving-amount { color: #1a1a1a; }
+    .community-full-card .giving-level { color: #27ae60; }
+    .community-full-card .giving-cta { background: #27ae60; }
+    .community-full-card .giving-cta:hover { background: #219a54; }
+    .community-full-card.featured .giving-cta { background: #1a1a1a; }
+    .community-full-card.featured .giving-cta:hover { background: #333; }
+
+    .community-recognize {
+      background: #f7f7f7; padding: 60px 0; margin-top: 60px;
+    }
+    .community-recognize-inner {
+      max-width: 760px; margin: 0 auto; padding: 0 40px; text-align: center;
+    }
+    .community-recognize-inner p {
+      font-size: 14px; color: #777; line-height: 1.9; margin-top: 14px; margin-bottom: 28px;
+    }
+
     /* ── REVEAL ── */
     .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.65s ease, transform 0.65s ease; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
@@ -338,12 +662,22 @@
     .reveal-d2 { transition-delay: 0.2s; }
     .reveal-d3 { transition-delay: 0.3s; }
 
+    /* ── RESPONSIVE ── */
     @media (max-width: 960px) {
       .donate-hero-content { left: 30px; }
       .donate-hero-title { font-size: 36px; }
       .donate-layout { grid-template-columns: 1fr; gap: 48px; }
       .giving-grid { grid-template-columns: 1fr 1fr; }
       .impact-blocks { grid-template-columns: 1fr; }
+      .sponsor-funds-grid { grid-template-columns: 1fr 1fr; padding: 0 20px; }
+      .sponsor-tracks { grid-template-columns: 1fr; gap: 48px; padding: 0 20px; }
+      .sponsor-track-divider { display: none; }
+      .community-giving-grid { grid-template-columns: 1fr 1fr; }
+      .corp-tier-benefits { grid-template-columns: 1fr; }
+      .founding-sponsors-grid { grid-template-columns: 1fr 1fr; padding: 0 20px; }
+      .community-full-grid { grid-template-columns: 1fr 1fr; padding: 0 20px; }
+      .donate-tabs-inner { padding: 0 20px; overflow-x: auto; }
+      .donate-tab { padding: 16px 16px; font-size: 11px; }
     }
     @media (max-width: 600px) {
       .donate-hero { height: 650px; }
@@ -352,6 +686,12 @@
       .donate-layout { padding: 0 20px; }
       .giving-grid { grid-template-columns: 1fr 1fr; }
       .zeffy-embed-wrap iframe { min-height: 700px; }
+      .sponsor-funds-grid { grid-template-columns: 1fr; }
+      .community-giving-grid { grid-template-columns: 1fr; }
+      .community-full-grid { grid-template-columns: 1fr 1fr; }
+      .founding-sponsors-grid { grid-template-columns: 1fr 1fr; }
+      .sponsor-contact-cta { padding: 50px 20px; }
+      .donate-tab .tab-badge { display: none; }
     }
   </style>
 </head>
@@ -378,7 +718,6 @@
 
 <nav class="main-nav">
   <div class="nav-inner">
-    <!-- Mobile logo -->
     <a href="../index.html" class="nav-mobile-logo" aria-label="Da Hill Reunion Home">
       <img src="../images/logo.png" alt="Da Hill Reunion"/>
     </a>
@@ -412,205 +751,558 @@
   <div class="donate-hero-content">
     <div class="donate-hero-tag">Support Da Hill</div>
     <h1 class="donate-hero-title">
-      Bring the <em>Block Back</em>
+      Invest in the <em>Future of Da Hill</em>
     </h1>
     <p class="donate-hero-sub">
-      Support the St. Nicholas Terrace Neighborhood Foundation. Every dollar goes directly to food, music, youth activities, and the community needs that make Da Hill Reunion possible.
+      Every dollar supports scholarships, health &amp; wellness programs, youth development, and the Da Hill Reunion — through the St. Nicholas Terrace Neighborhood Foundation Inc., a 501(c)(3) nonprofit.
     </p>
   </div>
 </div>
 
 <!-- 100% STRIP -->
 <div class="zeffy-strip">
-  <p>100% of your donation goes directly to the mission — no platform fees, powered by Zeffy</p>
+  <p>100% of your donation goes directly to the mission — no platform fees, powered by Zeffy &nbsp;|&nbsp; Tax-deductible · 501(c)(3)</p>
 </div>
 
-<!-- MAIN DONATE SECTION -->
-<section class="donate-main" id="donate-form">
-  <div class="donate-layout">
+<!-- TAB NAVIGATION -->
+<div class="donate-tabs-section" role="tablist" aria-label="Support Options">
+  <div class="donate-tabs-inner">
+    <button class="donate-tab active" id="tab-donate" role="tab" aria-selected="true" aria-controls="panel-donate" onclick="switchTab('donate')">
+      &#9829; Donate <span class="tab-badge">100% to Mission</span>
+    </button>
+    <button class="donate-tab" id="tab-sponsor" role="tab" aria-selected="false" aria-controls="panel-sponsor" onclick="switchTab('sponsor')">
+      &#9670; Become a Sponsor <span class="tab-badge tab-sponsor-badge">Tax Deductible</span>
+    </button>
+    <button class="donate-tab" id="tab-community" role="tab" aria-selected="false" aria-controls="panel-community" onclick="switchTab('community')">
+      &#127968; Community Giving
+    </button>
+  </div>
+</div>
 
-    <!-- LEFT -->
-    <div class="donate-why reveal">
-      <div class="section-label" style="display:flex;align-items:center;gap:10px;font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:#e8b84b;margin-bottom:12px;">
-        <span style="width:24px;height:2px;background:#e8b84b;display:inline-block;"></span>
-        Why Give
+<!-- ════════════════════════════════
+     TAB 1: DONATE
+════════════════════════════════ -->
+<div id="panel-donate" class="tab-panel active" role="tabpanel" aria-labelledby="tab-donate">
+
+  <!-- MAIN DONATE SECTION -->
+  <section class="donate-main" id="donate-form">
+    <div class="donate-layout">
+
+      <!-- LEFT -->
+      <div class="donate-why reveal">
+        <div class="section-label" style="display:flex;align-items:center;gap:10px;font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:#e8b84b;margin-bottom:12px;">
+          <span style="width:24px;height:2px;background:#e8b84b;display:inline-block;"></span>
+          Why Give
+        </div>
+        <h2>Invest in <em>Community,<br>Memory &amp; Legacy</em></h2>
+        <p>
+          At the St. Nicholas Terrace Neighborhood Foundation, we believe <strong>real change begins on the block</strong> — with neighbors, families, and shared history.
+          <br><br>
+          Our annual reunion on 129th Street and St. Nicholas Terrace is more than an event. It is a <strong>homecoming that honors our past and strengthens our future.</strong>
+        </p>
+
+        <div class="impact-list">
+          <div class="impact-item">
+            <div class="impact-icon ii-gold" aria-hidden="true">&#127869;</div>
+            <div class="impact-text">
+              <div class="impact-title">Food for the Community</div>
+              <div class="impact-desc">Every family, every elder, every child gets fed. Your donation keeps the tables full and the love flowing.</div>
+            </div>
+          </div>
+          <div class="impact-item">
+            <div class="impact-icon ii-green" aria-hidden="true">&#127926;</div>
+            <div class="impact-text">
+              <div class="impact-title">Music &amp; Entertainment</div>
+              <div class="impact-desc">Live performances, DJs, and talent from Da Hill — keeping the culture alive on the block where it was born.</div>
+            </div>
+          </div>
+          <div class="impact-item">
+            <div class="impact-icon ii-red" aria-hidden="true">&#127881;</div>
+            <div class="impact-text">
+              <div class="impact-title">Youth Activities</div>
+              <div class="impact-desc">Games, programs, and inspiration for the next generation of Da Hill leaders, scholars, and community builders.</div>
+            </div>
+          </div>
+          <div class="impact-item">
+            <div class="impact-icon ii-blue" aria-hidden="true">&#128205;</div>
+            <div class="impact-text">
+              <div class="impact-title">Permits &amp; Community Needs</div>
+              <div class="impact-desc">The logistics that make it all possible — so the block can come together safely, joyfully, and with dignity.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="org-badge">
+          <div class="org-badge-icon"><span>ST<br>NICH</span></div>
+          <div>
+            <div class="org-badge-name">ST NICHOLAS TERRACE NEIGHBORHOOD FOUNDATION INC</div>
+            <div class="org-badge-sub">501(c)(3) Nonprofit &middot; Da Hill Annual Reunion</div>
+          </div>
+        </div>
+
+        <div class="share-section">
+          <h4>Spread the Word</h4>
+          <div class="share-btns">
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https://dahillreunion.com/pages/donate.html" target="_blank" rel="noopener" class="share-btn fb">f &nbsp; Share on Facebook</a>
+            <button class="share-btn copy" onclick="copyLink()">&#128279; &nbsp; Copy Link</button>
+          </div>
+        </div>
       </div>
-      <h2>Invest in <em>Community,<br>Memory &amp; Legacy</em></h2>
-      <p>
-        At the St. Nicholas Terrace Neighborhood Foundation, we believe <strong>real change begins on the block</strong> — with neighbors, families, and shared history.
-        <br><br>
-        Our annual reunion on 129th Street and St. Nicholas Terrace is more than an event. It is a <strong>homecoming that honors our past and strengthens our future.</strong>
-      </p>
 
-      <div class="impact-list">
-        <div class="impact-item">
-          <div class="impact-icon ii-gold">&#127869;</div>
-          <div class="impact-text">
-            <div class="impact-title">Food for the Community</div>
-            <div class="impact-desc">Every family, every elder, every child gets fed. Your donation keeps the tables full and the love flowing.</div>
+      <!-- RIGHT — ZEFFY EMBED -->
+      <div class="reveal reveal-d1">
+        <div class="donate-form-header">
+          <div class="donate-form-header-icon" aria-hidden="true">&#9829;</div>
+          <div>
+            <div class="donate-form-title">Da Hill Annual Reunion</div>
+            <div class="donate-form-sub">St. Nicholas Terrace Neighborhood Foundation Inc</div>
           </div>
         </div>
-        <div class="impact-item">
-          <div class="impact-icon ii-green">&#127926;</div>
-          <div class="impact-text">
-            <div class="impact-title">Music &amp; Entertainment</div>
-            <div class="impact-desc">Live performances, DJs, and talent from Da Hill — keeping the culture alive on the block where it was born.</div>
-          </div>
+        <div class="zeffy-embed-wrap">
+          <iframe
+            title="Donation form powered by Zeffy"
+            src="https://www.zeffy.com/en-US/embed/donation-form/da-hill-annual-reunion"
+            allow="payment"
+            scrolling="no"
+          ></iframe>
         </div>
-        <div class="impact-item">
-          <div class="impact-icon ii-red">&#127881;</div>
-          <div class="impact-text">
-            <div class="impact-title">Youth Activities</div>
-            <div class="impact-desc">Games, programs, and inspiration for the next generation of Da Hill leaders, scholars, and community builders.</div>
-          </div>
-        </div>
-        <div class="impact-item">
-          <div class="impact-icon ii-blue">&#128205;</div>
-          <div class="impact-text">
-            <div class="impact-title">Permits &amp; Community Needs</div>
-            <div class="impact-desc">The logistics that make it all possible — so the block can come together safely, joyfully, and with dignity.</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="org-badge">
-        <div class="org-badge-icon"><span>ST<br>NICH</span></div>
-        <div class="org-badge-text">
-          <div class="org-badge-name">ST NICHOLAS TERRACE NEIGHBORHOOD FOUNDATION INC</div>
-          <div class="org-badge-sub">Fiscal sponsor · Da Hill Annual Reunion</div>
-        </div>
-      </div>
-
-      <div class="share-section">
-        <h4>Spread the Word</h4>
-        <div class="share-btns">
-          <a href="https://www.facebook.com/sharer/sharer.php?u=https://dahillreunion.com/pages/donate.html" target="_blank" rel="noopener" class="share-btn fb">f &nbsp; Share on Facebook</a>
-          <button class="share-btn copy" onclick="copyLink()">&#128279; &nbsp; Copy Link</button>
+        <div class="zeffy-note">
+          100% of your donation goes to Da Hill — Zeffy covers all platform fees.
         </div>
       </div>
     </div>
+  </section>
 
-    <!-- RIGHT — ZEFFY EMBED -->
-    <div class="reveal reveal-d1">
-      <div class="donate-form-header">
-        <div class="donate-form-header-icon">&#9829;</div>
-        <div class="donate-form-header-text">
-          <div class="donate-form-title">Da Hill Annual Reunion</div>
-          <div class="donate-form-sub">St. Nicholas Terrace Neighborhood Foundation Inc</div>
+  <!-- GIVING LEVELS -->
+  <section class="giving-section">
+    <div class="section-wrap">
+      <div class="section-header reveal">
+        <div class="section-icon" aria-hidden="true">&#9670;</div>
+        <p class="section-tag">Every Amount <strong>Makes a Difference</strong></p>
+        <h2 class="section-title">Choose Your <em>Level</em></h2>
+        <div class="section-divider"></div>
+      </div>
+      <div class="giving-grid">
+        <div class="giving-card reveal">
+          <div class="giving-amount"><span>$</span>25</div>
+          <div class="giving-level">Block Supporter</div>
+          <p class="giving-desc">Helps cover youth activity supplies and keeps a family fed at the reunion.</p>
+          <a href="https://www.zeffy.com/en-US/donation-form/da-hill-annual-reunion" target="_blank" rel="noopener" class="giving-cta">Give $25</a>
+        </div>
+        <div class="giving-card reveal reveal-d1">
+          <div class="giving-amount"><span>$</span>50</div>
+          <div class="giving-level">Community Pillar</div>
+          <p class="giving-desc">Supports music and entertainment — keeping the sound of Da Hill alive.</p>
+          <a href="https://www.zeffy.com/en-US/donation-form/da-hill-annual-reunion" target="_blank" rel="noopener" class="giving-cta">Give $50</a>
+        </div>
+        <div class="giving-card featured reveal reveal-d2">
+          <div class="giving-badge">Most Popular</div>
+          <div class="giving-amount"><span>$</span>100</div>
+          <div class="giving-level">Hill Champion</div>
+          <p class="giving-desc">Covers permits and community needs so the whole block can gather safely and with joy.</p>
+          <a href="https://www.zeffy.com/en-US/donation-form/da-hill-annual-reunion" target="_blank" rel="noopener" class="giving-cta">Give $100</a>
+        </div>
+        <div class="giving-card reveal reveal-d3">
+          <div class="giving-amount"><span>$</span>250</div>
+          <div class="giving-level">Legacy Donor</div>
+          <p class="giving-desc">Your name honored as a legacy supporter of the St. Nicholas Terrace Neighborhood Foundation.</p>
+          <a href="https://www.zeffy.com/en-US/donation-form/da-hill-annual-reunion" target="_blank" rel="noopener" class="giving-cta">Give $250</a>
         </div>
       </div>
-      <div class="zeffy-embed-wrap" id="donate-form">
-        <iframe
-          title="Donation form powered by Zeffy"
-          src="https://www.zeffy.com/en-US/embed/donation-form/da-hill-annual-reunion"
-          allow="payment"
-          scrolling="no"
-        ></iframe>
+    </div>
+  </section>
+
+  <!-- WHAT YOUR GIFT DOES -->
+  <section class="impact-section">
+    <div class="section-wrap">
+      <div class="section-header reveal">
+        <div class="section-icon" style="color:#e8b84b;" aria-hidden="true">&#9670;</div>
+        <p class="section-tag" style="color:rgba(255,255,255,0.4);">Your <strong style="color:#e8b84b;">Impact</strong></p>
+        <h2 class="section-title">What Your <em>Gift</em> Does</h2>
+        <div class="section-divider"></div>
       </div>
-      <div class="zeffy-note">
-        100% of your donation goes to Da Hill — Zeffy covers all platform fees.
+      <div class="impact-blocks reveal">
+        <div class="impact-block">
+          <div class="impact-block-num">01</div>
+          <span class="impact-block-icon" aria-hidden="true">&#127968;</span>
+          <div class="impact-block-title">Brings Generations Together</div>
+          <p class="impact-block-body">When elders are honored and youth are inspired, a community becomes whole. Your gift makes that connection happen every year on St. Nicholas Terrace.</p>
+        </div>
+        <div class="impact-block">
+          <div class="impact-block-num">02</div>
+          <span class="impact-block-icon" aria-hidden="true">&#127881;</span>
+          <div class="impact-block-title">Keeps the Culture Alive</div>
+          <p class="impact-block-body">Da Hill was born from culture — music, food, love, and community pride. Your donation ensures that culture never fades, no matter how much the world changes around us.</p>
+        </div>
+        <div class="impact-block">
+          <div class="impact-block-num">03</div>
+          <span class="impact-block-icon" aria-hidden="true">&#127891;</span>
+          <div class="impact-block-title">Invests in the Next Generation</div>
+          <p class="impact-block-body">Youth programs, scholarship support, and community building — your gift plants seeds that grow far beyond any single reunion day.</p>
+        </div>
       </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIAL -->
+  <section class="testimonial-section">
+    <div class="testimonial-inner reveal">
+      <blockquote>
+        "Every contribution helps us create a safe, joyful, and meaningful celebration where generations reconnect, elders are honored, youth are inspired, and community pride is renewed."
+      </blockquote>
+      <div class="testimonial-author">St. Nicholas Terrace Neighborhood Foundation</div>
+    </div>
+  </section>
+
+  <!-- BOTTOM CTA -->
+  <div class="donate-cta-bottom">
+    <h2>Ready to Give Back?</h2>
+    <p>No one has ever become poor from giving. Your support keeps Da Hill alive — for this generation and the next.</p>
+    <a href="https://www.zeffy.com/en-US/donation-form/da-hill-annual-reunion" target="_blank" rel="noopener" class="btn btn-dark">Donate Now &nbsp;&#9829;</a>
+  </div>
+
+  <!-- STATS -->
+  <section class="stats-strip">
+    <div class="stats-inner">
+      <div class="stat-item"><div class="stat-num">100<span class="stat-plus">%</span></div><div class="stat-label">Goes to the Mission</div></div>
+      <div class="stat-item"><div class="stat-num">500<span class="stat-plus">+</span></div><div class="stat-label">Family Members</div></div>
+      <div class="stat-item"><div class="stat-num">40<span class="stat-plus">+</span></div><div class="stat-label">Years of Reunions</div></div>
+      <div class="stat-item"><div class="stat-num">1</div><div class="stat-label">Harlem Hill Family</div></div>
+    </div>
+  </section>
+
+</div><!-- /panel-donate -->
+
+<!-- ════════════════════════════════
+     TAB 2: BECOME A SPONSOR
+════════════════════════════════ -->
+<div id="panel-sponsor" class="tab-panel" role="tabpanel" aria-labelledby="tab-sponsor">
+
+  <!-- INTRO -->
+  <section class="sponsor-section">
+    <div class="sponsor-intro">
+      <div class="section-icon" aria-hidden="true">&#9670;</div>
+      <p class="section-tag">Partner With Da Hill</p>
+      <h2 class="section-title">Invest in the <em>Future of Da Hill</em></h2>
+      <div class="section-divider"></div>
+      <p>
+        Da Hill is not simply preserving memories — it is building the next generation through scholarships, health &amp; wellness initiatives, entrepreneurship, arts, and community leadership rooted in the legacy of St. Nicholas Terrace, Harlem.
+      </p>
+      <div class="tax-pill">Your sponsorship is tax-deductible · 501(c)(3)</div>
+    </div>
+
+    <!-- WHAT SPONSORSHIP FUNDS -->
+    <section class="sponsor-funds">
+      <div class="section-wrap">
+        <div class="section-header reveal">
+          <div class="section-icon" style="color:#e8b84b;" aria-hidden="true">&#9670;</div>
+          <p class="section-tag" style="color:rgba(255,255,255,0.4);">Your Sponsorship <strong style="color:#e8b84b;">Supports</strong></p>
+          <h2 class="section-title" style="color:#fff;">What You're <em>Investing In</em></h2>
+          <div class="section-divider"></div>
+        </div>
+      </div>
+      <div class="sponsor-funds-grid reveal">
+        <div class="sponsor-fund-item">
+          <span class="sponsor-fund-icon" aria-hidden="true">&#127942;</span>
+          <div class="sponsor-fund-title">Youth Scholarships</div>
+          <p class="sponsor-fund-desc">Perseverance &amp; Resilience, Leadership, Creative Arts, Entrepreneurship, and Community Service awards for Harlem youth ages 6–18.</p>
+        </div>
+        <div class="sponsor-fund-item">
+          <span class="sponsor-fund-icon" aria-hidden="true">&#10084;</span>
+          <div class="sponsor-fund-title">Health &amp; Wellness Programs</div>
+          <p class="sponsor-fund-desc">The 45/45 Initiative brings free behavioral health evaluations and referrals to St. Nicholas Terrace and Convent Avenue residents.</p>
+        </div>
+        <div class="sponsor-fund-item">
+          <span class="sponsor-fund-icon" aria-hidden="true">&#128218;</span>
+          <div class="sponsor-fund-title">Educational Initiatives</div>
+          <p class="sponsor-fund-desc">Academic support, mentorship, and development programs that invest in the intellectual future of Da Hill's young people.</p>
+        </div>
+        <div class="sponsor-fund-item">
+          <span class="sponsor-fund-icon" aria-hidden="true">&#127912;</span>
+          <div class="sponsor-fund-title">Arts &amp; Creativity Programs</div>
+          <p class="sponsor-fund-desc">Spoken word, music, dance, photography, design — celebrating and nurturing the creative genius born on Da Hill.</p>
+        </div>
+        <div class="sponsor-fund-item">
+          <span class="sponsor-fund-icon" aria-hidden="true">&#127775;</span>
+          <div class="sponsor-fund-title">Entrepreneurship Development</div>
+          <p class="sponsor-fund-desc">Business planning, mentorship, and funding pathways for young entrepreneurs from the community — connected to Black banking institutions.</p>
+        </div>
+        <div class="sponsor-fund-item">
+          <span class="sponsor-fund-icon" aria-hidden="true">&#127881;</span>
+          <div class="sponsor-fund-title">Da Hill Reunion Celebration</div>
+          <p class="sponsor-fund-desc">The annual 3-day homecoming on St. Nicholas Terrace — where 40+ years of community, culture, music, food, and love come together.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TWO-TRACK SPONSORSHIP -->
+    <div class="sponsor-tracks">
+
+      <!-- COMMUNITY TRACK -->
+      <div>
+        <div class="sponsor-track-label community">&#127968; Community Track</div>
+        <h3 class="sponsor-track-heading">Neighbor &amp; <em>Small Business</em> Giving</h3>
+        <p class="sponsor-track-desc">
+          You don't need a corporate budget to make a difference. These tiers are designed for Harlem neighbors, local small businesses, and individuals who want their name connected to the legacy of Da Hill.
+        </p>
+        <div class="community-giving-grid">
+          <div class="community-card">
+            <div class="community-card-amount"><span>$</span>250</div>
+            <div class="community-card-level">Community Partner</div>
+            <p class="community-card-desc">Your name listed on the Da Hill website as a community supporter. Your block, your legacy.</p>
+            <a href="mailto:dahillreunion379@gmail.com?subject=Community Partner Sponsorship - $250" class="community-card-cta">Become a Partner</a>
+          </div>
+          <div class="community-card featured">
+            <div class="giving-badge">Most Popular</div>
+            <div class="community-card-amount"><span>$</span>500</div>
+            <div class="community-card-level">Legacy Sponsor</div>
+            <p class="community-card-desc">Name on site + a social media shoutout to the Da Hill community honoring your contribution.</p>
+            <a href="mailto:dahillreunion379@gmail.com?subject=Legacy Sponsor - $500" class="community-card-cta">Claim Your Legacy</a>
+          </div>
+          <div class="community-card">
+            <div class="community-card-amount"><span>$</span>1,000</div>
+            <div class="community-card-level">Scholarship Sponsor</div>
+            <p class="community-card-desc">Logo on site + social shoutout + named as a scholarship program supporter in all 2026 materials.</p>
+            <a href="mailto:dahillreunion379@gmail.com?subject=Scholarship Sponsor - $1000" class="community-card-cta">Fund a Scholarship</a>
+          </div>
+          <div class="community-card">
+            <div class="community-card-amount"><span>$</span>2,500</div>
+            <div class="community-card-level">Program Sponsor</div>
+            <p class="community-card-desc">Logo + social campaign + event recognition + dedicated post to 500+ community members.</p>
+            <a href="mailto:dahillreunion379@gmail.com?subject=Program Sponsor - $2500" class="community-card-cta">Sponsor a Program</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- DIVIDER -->
+      <div class="sponsor-track-divider" aria-hidden="true"></div>
+
+      <!-- CORPORATE TRACK -->
+      <div>
+        <div class="sponsor-track-label corporate">&#127970; Corporate Track</div>
+        <h3 class="sponsor-track-heading">Corporate &amp; <em>Institutional</em> Partners</h3>
+        <p class="sponsor-track-desc">
+          For organizations with CSR, community affairs, or foundation budgets. Your tax-deductible investment in Da Hill reaches 500+ Harlem families and creates measurable community impact you can report to stakeholders.
+        </p>
+        <div class="corporate-tiers">
+
+          <div class="corp-tier open" id="tier-builders">
+            <div class="corp-tier-header" onclick="toggleTier('tier-builders')" aria-expanded="true">
+              <div class="corp-tier-left">
+                <div class="corp-tier-dot" style="background:#27ae60;"></div>
+                <div class="corp-tier-name">Future Builders Sponsor</div>
+              </div>
+              <div class="corp-tier-amount">$5,000</div>
+              <div class="corp-tier-toggle">&#8964;</div>
+            </div>
+            <div class="corp-tier-body">
+              <div class="corp-tier-benefits">
+                <div class="corp-benefit">Logo on dahillreunion.com</div>
+                <div class="corp-benefit">Stage recognition at reunion</div>
+                <div class="corp-benefit">Dedicated social media campaign</div>
+                <div class="corp-benefit">Reserved table at reunion</div>
+                <div class="corp-benefit">Named in all 2026 event materials</div>
+                <div class="corp-benefit">Featured in email to 500+ members</div>
+              </div>
+              <a href="mailto:dahillreunion379@gmail.com?subject=Future Builders Sponsor Inquiry - $5000" class="corp-tier-cta">Inquire Now &nbsp;&#8594;</a>
+            </div>
+          </div>
+
+          <div class="corp-tier flagship" id="tier-visionary">
+            <div class="corp-tier-header" onclick="toggleTier('tier-visionary')" aria-expanded="false">
+              <div class="corp-tier-left">
+                <div class="corp-tier-dot" style="background:#e8b84b;"></div>
+                <div class="corp-tier-name">Da Hill Visionary Sponsor &#9670;</div>
+              </div>
+              <div class="corp-tier-amount">$10,000</div>
+              <div class="corp-tier-toggle">&#8964;</div>
+            </div>
+            <div class="corp-tier-body" style="display:none;">
+              <div class="corp-tier-benefits">
+                <div class="corp-benefit">Prominent logo on dahillreunion.com</div>
+                <div class="corp-benefit">Stage &amp; banner recognition at event</div>
+                <div class="corp-benefit">Dedicated social media campaign</div>
+                <div class="corp-benefit">Reserved VIP table at reunion</div>
+                <div class="corp-benefit">Named on all printed materials</div>
+                <div class="corp-benefit">Press release mention</div>
+                <div class="corp-benefit">Named scholarship or program sponsor</div>
+                <div class="corp-benefit">Year-round recognition on site</div>
+              </div>
+              <a href="mailto:dahillreunion379@gmail.com?subject=Visionary Sponsor Inquiry - $10000" class="corp-tier-cta">Become a Visionary &nbsp;&#9670;</a>
+            </div>
+          </div>
+
+          <div class="corp-tier" id="tier-anchor">
+            <div class="corp-tier-header" onclick="toggleTier('tier-anchor')" aria-expanded="false">
+              <div class="corp-tier-left">
+                <div class="corp-tier-dot" style="background:#c0392b;"></div>
+                <div class="corp-tier-name">Da Hill Anchor Sponsor</div>
+              </div>
+              <div class="corp-tier-amount">$25,000+</div>
+              <div class="corp-tier-toggle">&#8964;</div>
+            </div>
+            <div class="corp-tier-body" style="display:none;">
+              <div class="corp-tier-benefits">
+                <div class="corp-benefit">Primary presenting sponsorship</div>
+                <div class="corp-benefit">Logo on all digital &amp; print assets</div>
+                <div class="corp-benefit">Named main stage recognition</div>
+                <div class="corp-benefit">Full scholarship naming rights</div>
+                <div class="corp-benefit">Quarterly impact reports</div>
+                <div class="corp-benefit">Media &amp; press inclusion</div>
+                <div class="corp-benefit">Custom partnership activation</div>
+                <div class="corp-benefit">Multi-year partnership option</div>
+              </div>
+              <a href="mailto:dahillreunion379@gmail.com?subject=Anchor Sponsor Inquiry - $25000" class="corp-tier-cta">Let's Build Together &nbsp;&#8594;</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div><!-- /sponsor-tracks -->
+  </section>
+
+  <!-- FOUNDING SPONSORS -->
+  <section class="founding-sponsors-section">
+    <div class="section-wrap">
+      <div class="section-header reveal">
+        <div class="section-icon" aria-hidden="true">&#9670;</div>
+        <p class="section-tag">Our <strong>2026 Sponsors</strong></p>
+        <h2 class="section-title">Founding <em>Partners</em></h2>
+        <div class="section-divider"></div>
+      </div>
+    </div>
+    <div class="founding-sponsors-grid">
+      <div class="sponsor-logo-card">
+        <div class="sponsor-logo-placeholder">Foot Locker</div>
+        <div class="sponsor-logo-tier">Program Sponsor</div>
+      </div>
+      <div class="sponsor-logo-card" style="border-style:dashed; border-color:#ddd; background:#fafafa;">
+        <div style="font-size:28px; color:#ddd;" aria-hidden="true">+</div>
+        <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:#bbb;">Your Brand Here</div>
+        <a href="mailto:dahillreunion379@gmail.com?subject=Sponsorship Inquiry" style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:10px;letter-spacing:1px;text-transform:uppercase;color:#e8b84b;text-decoration:none;">Become a Sponsor</a>
+      </div>
+      <div class="sponsor-logo-card" style="border-style:dashed; border-color:#ddd; background:#fafafa;">
+        <div style="font-size:28px; color:#ddd;" aria-hidden="true">+</div>
+        <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:#bbb;">Your Brand Here</div>
+        <a href="mailto:dahillreunion379@gmail.com?subject=Sponsorship Inquiry" style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:10px;letter-spacing:1px;text-transform:uppercase;color:#e8b84b;text-decoration:none;">Become a Sponsor</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMMUNITY SUPPORTERS -->
+  <section class="community-supporters-section">
+    <div class="section-wrap">
+      <div class="section-header reveal">
+        <div class="section-icon" aria-hidden="true">&#9829;</div>
+        <p class="section-tag">The People Who <strong>Show Up</strong></p>
+        <h2 class="section-title">Community <em>Supporters</em></h2>
+        <div class="section-divider"></div>
+      </div>
+    </div>
+    <div class="supporters-list" id="supporters-list">
+      <!-- Names will be added by Sid -->
+      <div class="supporter-pill">Da Hill Family</div>
+      <div class="supporter-pill">St. Nicholas Terrace</div>
+      <div class="supporter-pill">Harlem Strong</div>
+    </div>
+    <p style="text-align:center;margin-top:24px;font-size:13px;color:#aaa;font-family:'Montserrat',sans-serif;">
+      Become a community supporter — <a href="mailto:dahillreunion379@gmail.com?subject=Community Supporter" style="color:#e8b84b;font-weight:700;">contact us</a> to have your name added.
+    </p>
+  </section>
+
+  <!-- SPONSOR CONTACT CTA -->
+  <div class="sponsor-contact-cta">
+    <h2>Ready to <em>Invest?</em></h2>
+    <p>
+      Corporate sponsors, community partners, and foundations — reach out directly. Your investment is tax-deductible through the St. Nicholas Terrace Neighborhood Foundation Inc., a registered 501(c)(3).
+    </p>
+    <div class="btn-row">
+      <a href="mailto:dahillreunion379@gmail.com?subject=Sponsorship Inquiry - Da Hill Reunion 2026" class="btn btn-gold">Email Us About Sponsorship &nbsp;&#8594;</a>
+      <a href="donate.html" onclick="switchTab('donate'); return false;" class="btn-navy-outline">Make a Donation Instead</a>
     </div>
   </div>
-</section>
 
-<!-- GIVING LEVELS -->
-<section class="giving-section">
-  <div class="section-wrap">
-    <div class="section-header reveal">
-      <div class="section-icon">&#9670;</div>
-      <p class="section-tag">Every Amount <strong>Makes a Difference</strong></p>
-      <h2 class="section-title">Choose Your <em>Level</em></h2>
-      <div class="section-divider"></div>
+  <!-- STATS -->
+  <section class="stats-strip">
+    <div class="stats-inner">
+      <div class="stat-item"><div class="stat-num">501<span class="stat-plus">(c)3</span></div><div class="stat-label">Tax-Deductible</div></div>
+      <div class="stat-item"><div class="stat-num">500<span class="stat-plus">+</span></div><div class="stat-label">Community Members Reached</div></div>
+      <div class="stat-item"><div class="stat-num">40<span class="stat-plus">+</span></div><div class="stat-label">Years of Reunions</div></div>
+      <div class="stat-item"><div class="stat-num">6</div><div class="stat-label">Programs Supported</div></div>
     </div>
-    <div class="giving-grid">
-      <div class="giving-card reveal">
+  </section>
+
+</div><!-- /panel-sponsor -->
+
+<!-- ════════════════════════════════
+     TAB 3: COMMUNITY GIVING
+════════════════════════════════ -->
+<div id="panel-community" class="tab-panel" role="tabpanel" aria-labelledby="tab-community">
+
+  <section class="community-tab-section">
+    <div class="community-tab-intro">
+      <div class="section-icon" aria-hidden="true">&#127968;</div>
+      <p class="section-tag">For Our Neighbors</p>
+      <h2 class="section-title">Give From the <em>Block</em></h2>
+      <div class="section-divider"></div>
+      <p>
+        This track is for Harlem neighbors, alumni of Da Hill, and anyone who grew up in the community and wants to give back on their own terms. Every amount — from $25 to $250 — makes a real difference and is honored publicly.
+      </p>
+    </div>
+
+    <div class="community-full-grid">
+      <div class="community-full-card giving-card reveal">
         <div class="giving-amount"><span>$</span>25</div>
-        <div class="giving-level">Block Supporter</div>
-        <p class="giving-desc">Helps cover youth activity supplies and keeps a family fed at the reunion.</p>
+        <div class="giving-level">Block Love</div>
+        <p class="giving-desc">Feed a family at the reunion. Your $25 covers food and supplies for the youngest members of Da Hill.</p>
         <a href="https://www.zeffy.com/en-US/donation-form/da-hill-annual-reunion" target="_blank" rel="noopener" class="giving-cta">Give $25</a>
       </div>
-      <div class="giving-card reveal reveal-d1">
+      <div class="community-full-card giving-card reveal reveal-d1">
         <div class="giving-amount"><span>$</span>50</div>
-        <div class="giving-level">Community Pillar</div>
-        <p class="giving-desc">Supports music and entertainment — keeping the sound of Da Hill alive.</p>
+        <div class="giving-level">Hill Love</div>
+        <p class="giving-desc">Keep the music going. Your $50 helps bring live entertainment and DJ culture back to St. Nicholas Terrace.</p>
         <a href="https://www.zeffy.com/en-US/donation-form/da-hill-annual-reunion" target="_blank" rel="noopener" class="giving-cta">Give $50</a>
       </div>
-      <div class="giving-card featured reveal reveal-d2">
+      <div class="community-full-card giving-card featured reveal reveal-d2">
         <div class="giving-badge">Most Popular</div>
         <div class="giving-amount"><span>$</span>100</div>
-        <div class="giving-level">Hill Champion</div>
-        <p class="giving-desc">Covers permits and community needs so the whole block can gather safely and with joy.</p>
+        <div class="giving-level">Neighbor Love</div>
+        <p class="giving-desc">Cover event permits and community logistics — the backbone that makes a safe, joyful reunion possible.</p>
         <a href="https://www.zeffy.com/en-US/donation-form/da-hill-annual-reunion" target="_blank" rel="noopener" class="giving-cta">Give $100</a>
       </div>
-      <div class="giving-card reveal reveal-d3">
+      <div class="community-full-card giving-card reveal reveal-d3">
         <div class="giving-amount"><span>$</span>250</div>
-        <div class="giving-level">Legacy Donor</div>
-        <p class="giving-desc">Your name honored as a legacy supporter of the St. Nicholas Terrace Neighborhood Foundation.</p>
+        <div class="giving-level">Legacy Love</div>
+        <p class="giving-desc">Your name listed permanently on the Da Hill website as a community supporter. Your legacy on the block, forever.</p>
         <a href="https://www.zeffy.com/en-US/donation-form/da-hill-annual-reunion" target="_blank" rel="noopener" class="giving-cta">Give $250</a>
       </div>
     </div>
-  </div>
-</section>
 
-<!-- WHAT YOUR GIFT DOES -->
-<section class="impact-section">
-  <div class="section-wrap">
-    <div class="section-header reveal">
-      <div class="section-icon" style="color:#e8b84b;">&#9670;</div>
-      <p class="section-tag" style="color:rgba(255,255,255,0.4);">Your <strong style="color:#e8b84b;">Impact</strong></p>
-      <h2 class="section-title">What Your <em>Gift</em> Does</h2>
-      <div class="section-divider"></div>
-    </div>
-    <div class="impact-blocks reveal">
-      <div class="impact-block">
-        <div class="impact-block-num">01</div>
-        <span class="impact-block-icon">&#127968;</span>
-        <div class="impact-block-title">Brings Generations Together</div>
-        <p class="impact-block-body">When elders are honored and youth are inspired, a community becomes whole. Your gift makes that connection happen every year on St. Nicholas Terrace.</p>
-      </div>
-      <div class="impact-block">
-        <div class="impact-block-num">02</div>
-        <span class="impact-block-icon">&#127881;</span>
-        <div class="impact-block-title">Keeps the Culture Alive</div>
-        <p class="impact-block-body">Da Hill was born from culture — music, food, love, and community pride. Your donation ensures that culture never fades, no matter how much the world changes around us.</p>
-      </div>
-      <div class="impact-block">
-        <div class="impact-block-num">03</div>
-        <span class="impact-block-icon">&#127891;</span>
-        <div class="impact-block-title">Invests in the Next Generation</div>
-        <p class="impact-block-body">Youth programs, scholarship support, and community building — your gift plants seeds that grow far beyond any single reunion day.</p>
+    <div class="community-recognize">
+      <div class="community-recognize-inner">
+        <div class="section-icon" aria-hidden="true">&#9829;</div>
+        <h2 class="section-title">Your Name on <em>Da Hill</em></h2>
+        <div class="section-divider"></div>
+        <p>
+          Everyone who gives $250 or more as a community supporter will have their name listed on this page and honored at the 2026 Da Hill Reunion. This is your community — your name belongs on it.
+        </p>
+        <a href="https://www.zeffy.com/en-US/donation-form/da-hill-annual-reunion" target="_blank" rel="noopener" class="btn btn-gold">Donate &amp; Be Recognized &nbsp;&#9829;</a>
       </div>
     </div>
-  </div>
-</section>
 
-<!-- TESTIMONIAL -->
-<section class="testimonial-section">
-  <div class="testimonial-inner reveal">
-    <blockquote>
-      "Every contribution helps us create a safe, joyful, and meaningful celebration where generations reconnect, elders are honored, youth are inspired, and community pride is renewed."
-    </blockquote>
-    <div class="testimonial-author">St. Nicholas Terrace Neighborhood Foundation</div>
-  </div>
-</section>
+  </section>
 
-<!-- BOTTOM CTA -->
-<div class="donate-cta-bottom">
-  <h2>Ready to Give Back?</h2>
-  <p>No one has ever become poor from giving. Your support keeps Da Hill alive — for this generation and the next.</p>
-  <a href="https://www.zeffy.com/en-US/donation-form/da-hill-annual-reunion" target="_blank" rel="noopener" class="btn btn-dark">Donate Now &nbsp;&#9829;</a>
-</div>
+  <!-- STATS -->
+  <section class="stats-strip">
+    <div class="stats-inner">
+      <div class="stat-item"><div class="stat-num">100<span class="stat-plus">%</span></div><div class="stat-label">Goes to the Mission</div></div>
+      <div class="stat-item"><div class="stat-num">500<span class="stat-plus">+</span></div><div class="stat-label">Family Members</div></div>
+      <div class="stat-item"><div class="stat-num">40<span class="stat-plus">+</span></div><div class="stat-label">Years of Reunions</div></div>
+      <div class="stat-item"><div class="stat-num">1</div><div class="stat-label">Harlem Hill Family</div></div>
+    </div>
+  </section>
 
-<!-- STATS -->
-<section class="stats-strip">
-  <div class="stats-inner">
-    <div class="stat-item"><div class="stat-num">100<span class="stat-plus">%</span></div><div class="stat-label">Goes to the Mission</div></div>
-    <div class="stat-item"><div class="stat-num">500<span class="stat-plus">+</span></div><div class="stat-label">Family Members</div></div>
-    <div class="stat-item"><div class="stat-num">40<span class="stat-plus">+</span></div><div class="stat-label">Years of Reunions</div></div>
-    <div class="stat-item"><div class="stat-num">1</div><div class="stat-label">Harlem Hill Family</div></div>
-  </div>
-</section>
+</div><!-- /panel-community -->
 
 </main>
 
@@ -629,6 +1321,7 @@
     <div class="footer-col"><p class="footer-col-heading">Community</p><ul>
       <li><a href="entrepreneurs.html">Entrepreneurs</a></li>
       <li><a href="heroes.html">Da Heroes</a></li>
+      <li><a href="news.html">News &amp; Updates</a></li>
       <li><a href="donate.html">Donate</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul></div>
@@ -639,6 +1332,11 @@
       <li><a href="https://www.moorgraphix.com" target="_blank" rel="noopener">Moor Graphix</a></li>
     </ul></div>
   </div>
+  <div style="text-align:center;padding:16px 40px;border-top:1px solid rgba(255,255,255,0.05);border-bottom:1px solid rgba(255,255,255,0.05);">
+    <a href="donate.html" style="font-family:'Montserrat',sans-serif;font-weight:600;font-size:12px;color:rgba(255,255,255,0.4);letter-spacing:0.5px;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#e8b84b'" onmouseout="this.style.color='rgba(255,255,255,0.4)'">
+      Da Hill Reunion powered by St. Nicholas Terrace Neighborhood Foundation Inc. &mdash; a 501(c)(3)
+    </a>
+  </div>
   <div class="footer-bottom">
     <p class="footer-copy">&copy; 2020&ndash;2026 Da Hill Reunion. All Rights Reserved. Designed by <a href="https://www.moorgraphix.com" target="_blank" rel="noopener">Moor Graphix</a></p>
     <div class="footer-social"><a href="https://www.facebook.com/groups/391650975569064/" target="_blank" rel="noopener" aria-label="Facebook">f</a></div>
@@ -647,10 +1345,67 @@
 
 <script src="../js/main.js"></script>
 <script>
+  /* ── TAB SWITCHING ── */
+  function switchTab(tab) {
+    document.querySelectorAll('.donate-tab').forEach(function(t) {
+      t.classList.remove('active');
+      t.setAttribute('aria-selected', 'false');
+    });
+    document.querySelectorAll('.tab-panel').forEach(function(p) {
+      p.classList.remove('active');
+    });
+    document.getElementById('tab-' + tab).classList.add('active');
+    document.getElementById('tab-' + tab).setAttribute('aria-selected', 'true');
+    document.getElementById('panel-' + tab).classList.add('active');
+    window.scrollTo({ top: document.querySelector('.donate-tabs-section').offsetTop - 60, behavior: 'smooth' });
+  }
+
+  /* ── CORPORATE TIER ACCORDION ── */
+  function toggleTier(id) {
+    var tier = document.getElementById(id);
+    var body = tier.querySelector('.corp-tier-body');
+    var toggle = tier.querySelector('.corp-tier-toggle');
+    var header = tier.querySelector('.corp-tier-header');
+    if (tier.classList.contains('open')) {
+      tier.classList.remove('open');
+      body.style.display = 'none';
+      header.setAttribute('aria-expanded', 'false');
+    } else {
+      tier.classList.add('open');
+      body.style.display = 'block';
+      header.setAttribute('aria-expanded', 'true');
+    }
+  }
+
+  /* ── COPY LINK ── */
   function copyLink() {
     navigator.clipboard.writeText('https://www.zeffy.com/en-US/donation-form/da-hill-annual-reunion')
-      .then(() => alert('Donation link copied! Share it with your network.'));
+      .then(function() { alert('Donation link copied! Share it with your network.'); });
   }
+
+  /* ── REVEAL ON SCROLL ── */
+  var revealObserver = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) { entry.target.classList.add('visible'); }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(function(el) { revealObserver.observe(el); });
+
+  /* ── NAV TOGGLE ── */
+  var navToggle = document.getElementById('navToggle');
+  var navLinks = document.getElementById('navLinks');
+  if (navToggle) {
+    navToggle.addEventListener('click', function() {
+      navLinks.classList.toggle('open');
+      navToggle.classList.toggle('open');
+    });
+  }
+
+  /* ── STICKY NAV SHADOW ── */
+  window.addEventListener('scroll', function() {
+    var nav = document.querySelector('.main-nav');
+    if (nav) nav.classList.toggle('scrolled', window.scrollY > 10);
+  });
 </script>
 </body>
 </html>
