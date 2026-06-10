@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Da Hill Reunion News & Updates — Latest meeting notes, event planning updates, community announcements, and neighborhood news from St. Nicholas Terrace, Harlem, NY."/>
+  <title>News & Updates — Da Hill Reunion</title>
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"/>
+  <link rel="canonical" href="https://dahillreunion.com/pages/news.html"/>
+  <link rel="icon" type="image/x-icon" href="../favicon.ico"/>
+  <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32.png"/>
+  <link rel="icon" type="image/png" sizes="16x16" href="../images/favicon-16.png"/>
+  <link rel="icon" type="image/svg+xml" href="../images/favicon.svg"/>
+  <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png"/>
+  <meta name="theme-color" content="#1a1a1a"/>
+
+  <meta property="og:type" content="website"/>
+  <meta property="og:site_name" content="Da Hill Reunion"/>
+  <meta property="og:url" content="https://dahillreunion.com/pages/news.html"/>
+  <meta property="og:title" content="News & Updates — Da Hill Reunion"/>
+  <meta property="og:description" content="Latest meeting notes, event planning updates, and community announcements from Da Hill Reunion — St. Nicholas Terrace, Harlem, NY."/>
+  <meta property="og:image" content="https://dahillreunion.com/images/community-hero.jpg"/>
+  <meta property="og:locale" content="en_US"/>
+
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="News & Updates — Da Hill Reunion"/>
+  <meta name="twitter:description" content="Latest meeting notes and community announcements from Da Hill Reunion."/>
+  <meta name="twitter:image" content="https://dahillreunion.com/images/community-hero.jpg"/>
+
+  <meta name="geo.region" content="US-NY"/>
+  <meta name="geo.placename" content="Harlem, New York"/>
+  <meta name="geo.position" content="40.8199;-73.9514"/>
+  <meta name="ICBM" content="40.8199, -73.9514"/>
+
+  <link rel="stylesheet" href="../css/style.css"/>
+  <style>
+
+    /* ── HERO ── */
+    .news-hero {
+      position: relative; height: 480px; overflow: hidden;
+      background: #0d0d0d;
+    }
+    .news-hero-bg {
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse at 70% 50%, rgba(232,184,75,0.08) 0%, transparent 65%),
+        radial-gradient(ellipse at 20% 80%, rgba(44,62,107,0.4) 0%, transparent 60%),
+        #0d0d0d;
+    }
+    .news-hero-pattern {
+      position: absolute; inset: 0; opacity: 0.04;
+      background-image: repeating-linear-gradient(
+        45deg,
+        #e8b84b 0, #e8b84b 1px,
+        transparent 0, transparent 50%
+      );
+      background-size: 28px 28px;
+    }
+    .news-hero-content {
+      position: absolute; bottom: 60px; left: 60px; max-width: 640px; z-index: 5;
+    }
+    .news-hero-tag {
+      font-family: 'Montserrat', sans-serif; font-weight: 600;
+      font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
+      color: #e8b84b; margin-bottom: 16px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .news-hero-tag::before {
+      content: ''; display: block; width: 28px; height: 2px; background: #e8b84b;
+    }
+    .news-hero-title {
+      font-family: 'Montserrat', sans-serif; font-weight: 800;
+      font-size: 52px; color: #fff; line-height: 1.0;
+      text-transform: uppercase; letter-spacing: 2px; margin-bottom: 14px;
+    }
+    .news-hero-title span { color: #e8b84b; }
+    .news-hero-sub {
+      font-size: 15px; color: rgba(255,255,255,0.6);
+      line-height: 1.7; max-width: 480px;
+    }
+
+    /* ── MAIN CONTENT AREA ── */
+    .news-section {
+      background: #111; padding: 80px 0 100px;
+    }
+    .news-inner {
+      max-width: 1100px; margin: 0 auto; padding: 0 40px;
+    }
+
+    /* ── SECTION LABEL ── */
+    .section-eyebrow {
+      font-family: 'Montserrat', sans-serif; font-weight: 600;
+      font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
+      color: #e8b84b; margin-bottom: 10px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .section-eyebrow::before {
+      content: ''; display: block; width: 28px; height: 2px; background: #e8b84b;
+    }
+    .section-heading {
+      font-family: 'Montserrat', sans-serif; font-weight: 800;
+      font-size: 32px; color: #fff; text-transform: uppercase;
+      letter-spacing: 1px; margin-bottom: 48px;
+    }
+
+    /* ── MEETING NOTE CARD ── */
+    .meeting-card {
+      background: #1a1a1a;
+      border: 1px solid rgba(232,184,75,0.15);
+      border-radius: 12px; overflow: hidden;
+      margin-bottom: 32px;
+    }
+
+    /* Card header bar */
+    .meeting-card-header {
+      background: linear-gradient(135deg, #2c3e6b 0%, #1a2545 100%);
+      padding: 28px 36px;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 20px; flex-wrap: wrap;
+    }
+    .meeting-card-header-left {}
+    .meeting-badge {
+      display: inline-block;
+      background: #e8b84b; color: #1a1a1a;
+      font-family: 'Montserrat', sans-serif; font-weight: 800;
+      font-size: 9px; letter-spacing: 2px; text-transform: uppercase;
+      padding: 5px 12px; border-radius: 3px; margin-bottom: 10px;
+    }
+    .meeting-card-title {
+      font-family: 'Montserrat', sans-serif; font-weight: 800;
+      font-size: 22px; color: #fff; text-transform: uppercase; letter-spacing: 1px;
+    }
+    .meeting-card-meta {
+      font-size: 13px; color: rgba(255,255,255,0.5);
+      margin-top: 6px; letter-spacing: 0.5px;
+    }
+    .meeting-card-attendees {
+      text-align: right;
+    }
+    .attendees-label {
+      font-family: 'Montserrat', sans-serif; font-weight: 600;
+      font-size: 9px; letter-spacing: 2px; text-transform: uppercase;
+      color: rgba(255,255,255,0.4); margin-bottom: 8px;
+    }
+    .attendee-chips {
+      display: flex; flex-wrap: wrap; gap: 6px; justify-content: flex-end;
+    }
+    .attendee-chip {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.1);
+      color: rgba(255,255,255,0.7);
+      font-size: 11px; font-weight: 600;
+      padding: 4px 10px; border-radius: 20px;
+      letter-spacing: 0.3px;
+    }
+
+    /* Card body */
+    .meeting-card-body {
+      padding: 36px;
+    }
+
+    /* Greeting block */
+    .greeting-block {
+      background: rgba(232,184,75,0.06);
+      border-left: 3px solid #e8b84b;
+      border-radius: 0 8px 8px 0;
+      padding: 20px 24px;
+      margin-bottom: 40px;
+    }
+    .greeting-block p {
+      font-size: 15px; color: rgba(255,255,255,0.7);
+      line-height: 1.75; margin: 0; font-style: italic;
+    }
+
+    /* Update grid */
+    .updates-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+
+    /* Individual update item */
+    .update-item {
+      background: #141414;
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 10px; padding: 24px;
+      transition: border-color 0.3s, transform 0.3s;
+      position: relative; overflow: hidden;
+    }
+    .update-item::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: var(--accent-color, #e8b84b);
+    }
+    .update-item:hover {
+      border-color: rgba(232,184,75,0.25);
+      transform: translateY(-2px);
+    }
+    .update-item.blue::before   { --accent-color: #2c3e6b; }
+    .update-item.gold::before   { --accent-color: #e8b84b; }
+    .update-item.orange::before { --accent-color: #eb6905; }
+    .update-item.knicks::before { background: linear-gradient(90deg, #006BB6 50%, #F58426 50%); }
+    .update-item.green::before  { --accent-color: #2d7a4f; }
+    .update-item.purple::before { --accent-color: #6b2c8a; }
+
+    .update-icon {
+      width: 40px; height: 40px; border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px; margin-bottom: 14px;
+      background: rgba(255,255,255,0.05);
+    }
+    .update-item-title {
+      font-family: 'Montserrat', sans-serif; font-weight: 800;
+      font-size: 13px; letter-spacing: 1.5px; text-transform: uppercase;
+      color: #e8b84b; margin-bottom: 10px;
+    }
+    .update-item.blue   .update-item-title { color: #7b9fe0; }
+    .update-item.orange .update-item-title { color: #eb6905; }
+    .update-item.knicks .update-item-title { color: #6ab0e8; }
+    .update-item.green  .update-item-title { color: #4dab74; }
+    .update-item.purple .update-item-title { color: #b07ad4; }
+
+    .update-item p {
+      font-size: 14px; color: rgba(255,255,255,0.6);
+      line-height: 1.75; margin: 0;
+    }
+    .update-item ul {
+      margin: 8px 0 0 0; padding: 0; list-style: none;
+    }
+    .update-item ul li {
+      font-size: 14px; color: rgba(255,255,255,0.6);
+      line-height: 1.7; padding: 3px 0;
+      display: flex; align-items: flex-start; gap: 8px;
+    }
+    .update-item ul li::before {
+      content: '—'; color: #e8b84b; flex-shrink: 0; margin-top: 1px;
+      font-weight: 700;
+    }
+    .update-item.blue ul li::before   { color: #7b9fe0; }
+    .update-item.orange ul li::before { color: #eb6905; }
+    .update-item.knicks ul li::before { color: #6ab0e8; }
+    .update-item.green ul li::before  { color: #4dab74; }
+    .update-item.purple ul li::before { color: #b07ad4; }
+
+    .update-item .highlight-badge {
+      display: inline-block; margin-top: 12px;
+      background: rgba(232,184,75,0.12);
+      border: 1px solid rgba(232,184,75,0.25);
+      color: #e8b84b; font-size: 11px; font-weight: 700;
+      padding: 4px 10px; border-radius: 4px;
+      letter-spacing: 0.5px;
+    }
+
+    /* Precinct full-width block */
+    .precinct-block {
+      background: linear-gradient(135deg, #0f1520 0%, #1a2035 100%);
+      border: 1px solid rgba(44,62,107,0.5);
+      border-radius: 10px; padding: 28px 32px;
+      margin-bottom: 24px;
+      display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: start;
+    }
+    .precinct-tag {
+      font-family: 'Montserrat', sans-serif; font-weight: 800;
+      font-size: 9px; letter-spacing: 2.5px; text-transform: uppercase;
+      color: #7b9fe0; margin-bottom: 8px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .precinct-tag::before {
+      content: ''; width: 18px; height: 2px; background: #7b9fe0; display: block;
+    }
+    .precinct-name {
+      font-family: 'Montserrat', sans-serif; font-weight: 800;
+      font-size: 18px; color: #fff; margin-bottom: 6px;
+    }
+    .precinct-desc {
+      font-size: 13px; color: rgba(255,255,255,0.5); line-height: 1.6;
+      margin-bottom: 16px;
+    }
+    .precinct-contact-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 8px 24px;
+    }
+    .precinct-contact-item {
+      display: flex; flex-direction: column;
+    }
+    .precinct-contact-label {
+      font-size: 9px; font-weight: 700; letter-spacing: 1.5px;
+      text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 2px;
+    }
+    .precinct-contact-val {
+      font-size: 13px; font-weight: 600; color: #7b9fe0;
+    }
+    .precinct-shield {
+      font-size: 48px; opacity: 0.15; line-height: 1;
+    }
+
+    /* Closing */
+    .closing-block {
+      margin-top: 40px; padding-top: 32px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 16px;
+    }
+    .closing-text {
+      font-family: 'Montserrat', sans-serif; font-weight: 800;
+      font-size: 20px; color: #e8b84b;
+      text-transform: uppercase; letter-spacing: 3px;
+    }
+    .closing-sub {
+      font-size: 12px; color: rgba(255,255,255,0.35);
+      letter-spacing: 1px; margin-top: 4px;
+    }
+    .closing-date-pill {
+      background: rgba(232,184,75,0.1);
+      border: 1px solid rgba(232,184,75,0.25);
+      padding: 10px 20px; border-radius: 6px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 11px; font-weight: 700; letter-spacing: 1px;
+      color: #e8b84b; text-transform: uppercase; text-align: center;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .news-hero-content { left: 24px; bottom: 40px; }
+      .news-hero-title { font-size: 34px; }
+      .news-inner { padding: 0 20px; }
+      .meeting-card-header { flex-direction: column; }
+      .meeting-card-attendees { text-align: left; }
+      .attendee-chips { justify-content: flex-start; }
+      .meeting-card-body { padding: 24px 20px; }
+      .precinct-block { grid-template-columns: 1fr; }
+      .precinct-shield { display: none; }
+      .precinct-contact-grid { grid-template-columns: 1fr; }
+      .updates-grid { grid-template-columns: 1fr; }
+      .closing-block { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="main-nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-mobile-logo" aria-label="Da Hill Reunion Home">
+      <img src="../images/logo.png" alt="Da Hill Reunion"/>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="history.html">Da History</a></li>
+      <li><a href="events.html">Events</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="entrepreneurs.html">Entrepreneurs</a></li>
+      <li><a href="heroes.html">Da Heroes</a></li>
+      <li><a href="news.html" class="active">News & Updates</a></li>
+      <li><a href="donate.html">Donate</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-search">
+      <input type="text" placeholder="Search Here..." aria-label="Search Da Hill Reunion" id="site-search" name="s"/>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<main id="main-content">
+
+<!-- HERO -->
+<div class="news-hero">
+  <div class="news-hero-bg"></div>
+  <div class="news-hero-pattern"></div>
+  <div class="news-hero-content">
+    <div class="news-hero-tag">Da Hill Reunion</div>
+    <h1 class="news-hero-title">News &amp;<br><span>Updates</span></h1>
+    <p class="news-hero-sub">Meeting notes, community announcements, and the latest from St. Nicholas Terrace, Harlem, NY.</p>
+  </div>
+</div>
+
+<!-- CONTENT -->
+<section class="news-section">
+  <div class="news-inner">
+
+    <div class="section-eyebrow">Latest Update</div>
+    <h2 class="section-heading">June 2026 Meeting Notes</h2>
+
+    <!-- MEETING CARD -->
+    <article class="meeting-card">
+
+      <!-- Header -->
+      <div class="meeting-card-header">
+        <div class="meeting-card-header-left">
+          <span class="meeting-badge">Meeting Notes</span>
+          <div class="meeting-card-title">Da Hill Reunion — June 2026</div>
+          <div class="meeting-card-meta">Location: 26th Precinct Monthly Meeting &nbsp;·&nbsp; Harlem, NY</div>
+        </div>
+        <div class="meeting-card-attendees">
+          <div class="attendees-label">Attendees</div>
+          <div class="attendee-chips">
+            <span class="attendee-chip">Wendy</span>
+            <span class="attendee-chip">Stacy</span>
+            <span class="attendee-chip">Marquette</span>
+            <span class="attendee-chip">Joel</span>
+            <span class="attendee-chip">Antoinette</span>
+            <span class="attendee-chip">Sylvia</span>
+            <span class="attendee-chip">Theo</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Body -->
+      <div class="meeting-card-body">
+
+        <!-- Greeting -->
+        <div class="greeting-block">
+          <p>"Greetings to all — I hope and pray that this message finds everyone in good spirits and health."</p>
+        </div>
+
+        <!-- Precinct Block -->
+        <div class="precinct-block">
+          <div>
+            <div class="precinct-tag">26th Precinct Update</div>
+            <div class="precinct-name">New Commanding Officer: Captain James Moore III</div>
+            <div class="precinct-desc">Wendy and Stacy attended the monthly meeting. A new Commanding Officer has been assigned to the 26th Precinct, which serves the Morningside Heights and Manhattanville areas of Manhattan.</div>
+            <div class="precinct-contact-grid">
+              <div class="precinct-contact-item">
+                <span class="precinct-contact-label">Station Address</span>
+                <span class="precinct-contact-val">520 W. 126th St, NY 10027</span>
+              </div>
+              <div class="precinct-contact-item">
+                <span class="precinct-contact-label">Main Number</span>
+                <span class="precinct-contact-val">(212) 678-1311</span>
+              </div>
+              <div class="precinct-contact-item">
+                <span class="precinct-contact-label">Community Affairs</span>
+                <span class="precinct-contact-val">(212) 678-1358</span>
+              </div>
+              <div class="precinct-contact-item">
+                <span class="precinct-contact-label">Crime Prevention</span>
+                <span class="precinct-contact-val">(212) 678-1322</span>
+              </div>
+              <div class="precinct-contact-item">
+                <span class="precinct-contact-label">Domestic Violence</span>
+                <span class="precinct-contact-val">(212) 678-1326</span>
+              </div>
+            </div>
+          </div>
+          <div class="precinct-shield">🛡</div>
+        </div>
+
+        <!-- Updates Grid -->
+        <div class="updates-grid">
+
+          <div class="update-item orange">
+            <div class="update-icon">🎟</div>
+            <div class="update-item-title">Bus Ride Fundraiser</div>
+            <p>Upcoming fundraiser discussed and moving forward. Tickets have been distributed.</p>
+            <ul>
+              <li>Stacy</li>
+              <li>Sylvia</li>
+              <li>Mr. Shepard</li>
+              <li>Travis</li>
+            </ul>
+          </div>
+
+          <div class="update-item gold">
+            <div class="update-icon">🎮</div>
+            <div class="update-item-title">Game Truck — Kids Activity</div>
+            <p>A Game Truck has been proposed as a dedicated kids activity during the reunion.</p>
+            <ul>
+              <li>Time: 4:00 PM – 6:00 PM</li>
+              <li>Estimated Cost: $600</li>
+            </ul>
+            <span class="highlight-badge">Kids Zone</span>
+          </div>
+
+          <div class="update-item knicks">
+            <div class="update-icon">🏀</div>
+            <div class="update-item-title">Theme & Decorations</div>
+            <p><strong style="color:#fff">Jersey Theme</strong> — sports attire encouraged for all attendees.</p>
+            <ul>
+              <li>Soccer jerseys</li>
+              <li>Football jerseys</li>
+              <li>Baseball jerseys</li>
+              <li>Basketball jerseys</li>
+            </ul>
+            <p style="margin-top:10px; font-size:13px; color:rgba(255,255,255,0.5)">Upper level decorated in <strong style="color:#F58426">New York Knicks</strong> colors.</p>
+          </div>
+
+          <div class="update-item green">
+            <div class="update-icon">🍽</div>
+            <div class="update-item-title">Food Planning</div>
+            <p>Food options being sourced from various community organizations. Menu will cover both kids and adults.</p>
+            <ul>
+              <li>Multiple vendor sources discussed</li>
+              <li>Kids & adult options confirmed</li>
+            </ul>
+          </div>
+
+          <div class="update-item purple">
+            <div class="update-icon">👟</div>
+            <div class="update-item-title">Partnership Update</div>
+            <p><strong style="color:#fff">Tai</strong> received a promotion at Foot Locker and will continue to support Da Hill.</p>
+            <ul>
+              <li>Foot Locker partnership continues</li>
+              <li>Items will be distributed to the public this year</li>
+            </ul>
+            <span class="highlight-badge" style="background:rgba(176,122,212,0.12); border-color:rgba(176,122,212,0.3); color:#b07ad4;">Active Partnership</span>
+          </div>
+
+          <div class="update-item blue">
+            <div class="update-icon">📋</div>
+            <div class="update-item-title">Ongoing Coordination</div>
+            <p>Planning is actively in progress with regular check-ins happening between organizers.</p>
+            <ul>
+              <li>Zoom call held with coordinator</li>
+              <li>Final details still being worked out</li>
+            </ul>
+            <span class="highlight-badge" style="background:rgba(123,159,224,0.1); border-color:rgba(123,159,224,0.25); color:#7b9fe0;">In Progress</span>
+          </div>
+
+        </div><!-- /updates-grid -->
+
+        <!-- Closing -->
+        <div class="closing-block">
+          <div>
+            <div class="closing-text">Strength and Honor</div>
+            <div class="closing-sub">Da Hill Reunion · St. Nicholas Terrace, Harlem, NY</div>
+          </div>
+          <div class="closing-date-pill">
+            Meeting Notes<br>June 2026
+          </div>
+        </div>
+
+      </div><!-- /meeting-card-body -->
+    </article><!-- /meeting-card -->
+
+  </div><!-- /news-inner -->
+</section>
+
+</main>
+
+<footer>
+  <div class="footer-top">
+    <div>
+      <span class="footer-brand-logo"><img src="../images/logo.png" alt="Da Hill Reunion"/></span>
+      <p class="footer-brand-desc">"Forward in Power. Rooted in Love."<br><br>The virtual home of Da Hill — St. Nicholas Terrace, Harlem, NY.</p>
+    </div>
+    <div class="footer-col"><p class="footer-col-heading">Navigate</p><ul><li><a href="../index.html">Home</a></li><li><a href="history.html">Da History</a></li><li><a href="events.html">Events</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="news.html">News & Updates</a></li></ul></div>
+    <div class="footer-col"><p class="footer-col-heading">Community</p><ul><li><a href="entrepreneurs.html">Entrepreneurs</a></li><li><a href="heroes.html">Da Heroes</a></li><li><a href="../index.html#resources">Resources</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+    <div class="footer-col"><p class="footer-col-heading">Connect</p><ul>
+      <li><a href="mailto:dahillreunion379@gmail.com">Email Us</a></li>
+      <li><a href="https://www.facebook.com/groups/391650975569064/" target="_blank" rel="noopener">Da Hill Facebook Group</a></li>
+      <li><a href="https://www.facebook.com/groups/718801411593854/" target="_blank" rel="noopener">Gone But Not Forgotten</a></li>
+      <li><a href="https://www.moorgraphix.com" target="_blank" rel="noopener">Moor Graphix</a></li>
+    </ul></div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy">&copy; 2020&ndash;2026 Da Hill Reunion. All Rights Reserved. Designed by <a href="https://www.moorgraphix.com" target="_blank" rel="noopener">Moor Graphix</a></p>
+    <div class="footer-social"><a href="https://www.facebook.com/groups/391650975569064/" target="_blank" rel="noopener" aria-label="Facebook">f</a></div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+</body>
+</html>
