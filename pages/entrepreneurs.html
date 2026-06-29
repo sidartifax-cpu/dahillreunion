@@ -55,7 +55,8 @@
     "@graph":[
       {"@type":"Person","@id":"https://dahillreunion.com/pages/entrepreneurs.html#dlb","name":"Darryl Barksdale","alternateName":["DLB","The Microphone Wizard"],"description":"Legendary old-school MC and founding lyricist of The Fearless Four. In 1983 the group became the first rap group to sign with a major label Elektra Records. Primary writer of Problems of the World — the first hip-hop video with an actual script.","memberOf":{"@type":"MusicGroup","name":"The Fearless Four","genre":"Hip-Hop","foundingLocation":"Harlem, New York","sameAs":"https://en.wikipedia.org/wiki/The_Fearless_Four"},"birthPlace":{"@type":"Place","name":"St. Nicholas Terrace, Harlem, NY"},"sameAs":"https://open.spotify.com/artist/0z2zTGH95qoUhnh8mOV1di"},
       {"@type":"Person","@id":"https://dahillreunion.com/pages/entrepreneurs.html#koolmoodee","name":"Kool Mo Dee","description":"Hip-hop pioneer and member of The Treacherous Three from St. Nicholas Terrace, Harlem. One of the first artists to perform at the Grammy Awards.","memberOf":{"@type":"MusicGroup","name":"The Treacherous Three","genre":"Hip-Hop","sameAs":"https://en.wikipedia.org/wiki/Treacherous_Three"},"birthPlace":{"@type":"Place","name":"St. Nicholas Terrace, Harlem, NY"}},
-      {"@type":"Person","@id":"https://dahillreunion.com/pages/entrepreneurs.html#sid","name":"Sid Washington","alternateName":"Morrison Washington","description":"Brand strategist and designer from Da Hill. Founder of Moor Graphix brand strategy and design agency, Amerukhan Basics cultural apparel, and Scrolls of MAAT legacy brand incubator.","founder":[{"@type":"Organization","name":"Moor Graphix","url":"https://www.moorgraphix.com"},{"@type":"Organization","name":"Amerukhan Basics"},{"@type":"Organization","name":"Scrolls of MAAT"}],"birthPlace":{"@type":"Place","name":"St. Nicholas Terrace, Harlem, NY"},"sameAs":["https://www.instagram.com/sidmorrisonwashington/","https://www.facebook.com/sid.washington/","https://www.linkedin.com/in/moorgraphix/"]}
+      {"@type":"Person","@id":"https://dahillreunion.com/pages/entrepreneurs.html#sid","name":"Sid Washington","alternateName":"Morrison Washington","description":"Brand strategist and designer from Da Hill. Founder of Moor Graphix brand strategy and design agency, Amerukhan Basics cultural apparel, and Scrolls of MAAT legacy brand incubator.","founder":[{"@type":"Organization","name":"Moor Graphix","url":"https://www.moorgraphix.com"},{"@type":"Organization","name":"Amerukhan Basics"},{"@type":"Organization","name":"Scrolls of MAAT"}],"birthPlace":{"@type":"Place","name":"St. Nicholas Terrace, Harlem, NY"},"sameAs":["https://www.instagram.com/sidmorrisonwashington/","https://www.facebook.com/sid.washington/","https://www.linkedin.com/in/moorgraphix/"]},
+      {"@type":"Person","@id":"https://dahillreunion.com/pages/entrepreneurs.html#raeshoana","name":"Raeshoana Carter","alternateName":"DJ Mz Stylez","description":"Founder of iGet Funktional Inc. — a wellness company dedicated to helping people move better, feel better, and reconnect with their bodies through assisted stretching, mobility coaching, functional movement, and nutrition support.","founder":{"@type":"Organization","name":"iGet Funktional Inc.","url":"https://www.igetfunktional.com","description":"Wellness company specializing in assisted stretching, mobility coaching, corporate wellness programs, and premium sea moss products."},"email":"igetfunktional@gmail.com","knowsAbout":["assisted stretching","mobility coaching","functional movement","nutrition support","corporate wellness","sea moss products"]}
     ]}
   </script>
   <!-- ═══ END SEO ═══ -->
@@ -240,6 +241,7 @@
     .badge-creative      { background: #8e44ad; }
     .badge-sports        { background: #e67e22; }
     .badge-legacy        { background: #1a1a1a; }
+    .badge-health        { background: #16a085; }
 
     /* card body */
     .ent-card-body {
@@ -516,6 +518,7 @@
     <button class="filter-btn" onclick="filterCards('creative', this)">Creative</button>
     <button class="filter-btn" onclick="filterCards('entertainment', this)">Entertainment</button>
     <button class="filter-btn" onclick="filterCards('sports', this)">Sports</button>
+    <button class="filter-btn" onclick="filterCards('health', this)">Health &amp; Wellness</button>
   </div>
 </div>
 
@@ -681,7 +684,27 @@
         </div>
       </div>
 
-      <!-- Card 10 — Add Your Business placeholder -->
+      <!-- Card 10 — Raeshoana Carter -->
+      <div class="ent-card reveal reveal-d2" data-category="health">
+        <div class="ent-card-photo">
+          <div class="ent-photo-placeholder" style="background: linear-gradient(135deg, #e8f8f5 0%, #d0f0e8 100%);">
+            <div class="ph-initials" style="background:#16a085;color:#fff;">RC</div>
+            <div class="ph-label">iGet Funktional</div>
+          </div>
+          <span class="ent-badge badge-health">Health &amp; Wellness</span>
+        </div>
+        <div class="ent-card-body">
+          <div class="ent-name">Raeshoana Carter</div>
+          <div class="ent-business">iGet Funktional Inc.</div>
+          <p class="ent-desc">iGet Funktional is a wellness company dedicated to helping people move better, feel better, and reconnect with their bodies through assisted stretching, mobility coaching, functional movement, and nutrition support. Founded by Raeshoana "DJ Mz Stylez" Carter, the company offers one-on-one sessions, couples sessions, group mobility experiences, corporate wellness programs, premium sea moss products, and community-centered events that make health and self-care accessible, practical, and enjoyable.<br><br><em>Move with intention. Restore with purpose. Get Funktional.</em></p>
+          <div class="ent-card-footer">
+            <span class="ent-neighborhood">Da Hill · Grew up there</span>
+            <a href="https://www.igetfunktional.com" target="_blank" rel="noopener" class="ent-link">Visit &#8594;</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 11 — Add Your Business placeholder -->
       <div class="ent-card reveal reveal-d1" data-category="all" style="border: 2px dashed #e8b84b; box-shadow: none; background: #fffdf5;">
         <div class="ent-card-photo">
           <div class="ent-photo-placeholder" style="background: linear-gradient(135deg, #fff8e6, #fdeec0);">
